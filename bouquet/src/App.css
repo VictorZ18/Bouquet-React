@@ -1,0 +1,36 @@
+:root{
+  --grey: #858585;
+  --pink: #FE0074;
+}
+
+.navbar{
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100vw;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center; 
+  box-shadow: var(--grey) 0px 0px 4px;
+}
+
+.icon{
+  font-size: 10px;
+  width: 20%;
+  height: fit-content;
+}
+
+.iconImg{
+  height: 20px;
+  width: auto;
+  margin-bottom: 2px;
+}
+
+.navTag{
+  margin: 0px;
+  color: var(--grey);
+}
+
+.navTag.active{
+  color: var(--pink);
+}
