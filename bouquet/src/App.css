@@ -34,3 +34,7 @@
 .navTag.active{
   color: var(--pink);
 }
+
+a{
+  text-decoration: none;
+}

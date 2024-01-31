@@ -1,16 +1,16 @@
 import './App.css';
 import Navbar from './components/navbar';
 
-function Home() {
+function Checklist() {
   return (
     <div className="App">
       <header className="App-header">
         <p> Bouquet </p>
-        <p> This is home </p>
+        <p> This is checklist </p>
       </header>
       <Navbar />
     </div>
   );
 }
 
-export default Home;
+export default Checklist;
