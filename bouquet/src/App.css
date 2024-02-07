@@ -4,14 +4,21 @@
   --lightPink: #FFBAD9;
 
   --margin: 16px;
+  --fontFamily: 'Mulish', sans-serif;
 }
 
 body{
-  margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-header{
-  margin: var(--margin);
+.couplePic{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  margin: auto;
 }
 
 .navbar{
@@ -23,6 +30,11 @@ body{
   padding-bottom: 8px;
   text-align: center; 
   box-shadow: var(--grey) 0px 0px 4px;
+  background-color: white;
+}
+
+h1, h2, p{
+  font-family: var(--fontFamily);
 }
 
 .icon{
@@ -54,6 +66,7 @@ a{
   width: 20px;
   height: auto;
   position: absolute;
+  margin-top: 32px;
 }
 
 .back-arrow{
