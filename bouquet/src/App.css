@@ -1,6 +1,17 @@
 :root{
   --grey: #858585;
   --pink: #FE0074;
+  --lightPink: #FFBAD9;
+
+  --margin: 16px;
+}
+
+body{
+  margin: 0;
+}
+
+.App-header{
+  margin: var(--margin);
 }
 
 .navbar{
@@ -37,4 +48,15 @@
 
 a{
   text-decoration: none;
+}
+
+.bars{
+  width: 20px;
+  height: auto;
+  position: absolute;
+}
+
+.back-arrow{
+  width: 18px;
+  height: auto;
 }

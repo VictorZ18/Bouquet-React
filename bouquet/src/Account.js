@@ -2,17 +2,17 @@ import './App.css';
 import Navbar from './components/navbar';
 import SideMenu from './components/sideNav';
 
-function Home() {
+function Account() {
   return (
     <div className="App">
-      <SideMenu />
+        <SideMenu />
       <header className="App-header">
         <p> Bouquet </p>
-        <p> This is home </p>
+        <p> This is account </p>
       </header>
       <Navbar />
     </div>
   );
 }
 
-export default Home;
+export default Account;
