@@ -1,4 +1,5 @@
 import './App.css';
+import Countdown from './components/countdown';
 import Navbar from './components/navbar';
 import SideMenu from './components/sideNav';
 import WeddingHeader from './components/weddingHeader';
@@ -12,6 +13,7 @@ function Home() {
         <header className="App-header">
           <WeddingHeader />
         </header>
+        <Countdown /> 
         <Navbar />
       </div>
   );
