@@ -30,6 +30,8 @@ function Navbar() {
                 <p className="navTag"> Suppliers </p>
                 </Link>
             </div>
+
+
             <div className="icon">
                 <Link to="/guests">
                 <img className="iconImg guests" src= {guestOff} alt="guests" />

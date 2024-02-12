@@ -7,6 +7,7 @@ import Suppliers from './Suppliers';
 import Program from './Program';
 import Guests from './Guests';
 import Checklist from './Checklist';
+import SuppliersCategories from './SuppliersCategories';
 import reportWebVitals from './reportWebVitals';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/program" element={<Program />} />
         <Route path="/guests" element={<Guests />} />
         <Route path="/checklist" element={<Checklist />} />
+        <Route path="/suppliersCategories" element={<SuppliersCategories />} />
       </Routes>
     </BrowserRouter>
   );

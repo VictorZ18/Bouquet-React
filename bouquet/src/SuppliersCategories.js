@@ -3,8 +3,7 @@ import './App.css';
 import Navbar from './components/navbar';
 
 
-
-function Suppliers() {
+function SuppliersCategories() {
   return (
     <div className="App">
       <div>
@@ -59,11 +58,6 @@ function Suppliers() {
         <div class="stroked-element"><p className='supplier'>Transports</p></div>
          </div>
 
-
-    <p className='fotter'>You can add later if you booked your 
-    <br></br>
-    own suppliers.</p>
-
       <Navbar />
     </div>
 
@@ -71,5 +65,5 @@ function Suppliers() {
   );
 }
 
-export default Suppliers;
+export default SuppliersCategories;
 
