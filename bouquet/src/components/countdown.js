@@ -10,9 +10,9 @@ function Countdown() {
                 <p className="rectangleTop"></p>
             </div>
             <div className="countdownGradient">
-                <h className="gradientLine"></h>
-                <h className="gradientLine"></h>
-                <h className="gradientLine"></h>
+                <hr className="gradientLine"></hr>
+                <hr className="gradientLine"></hr>
+                <hr className="gradientLine"></hr>
             </div>
             <div className="countdownBackBottom">
                 <p className="rectangleBottom"></p>

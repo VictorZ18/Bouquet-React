@@ -1,29 +1,20 @@
-express = require('express');
-mongoose = require('mongoose');
-axios = require('axios');
-User = require('./models/user');
-cors = require('cors');
-app = express();
+const express = require('express')
+const connectDB = require('./db/connectdb.js')
+const web = require('./routes/web.js')
+const cors = require('cors')
+const app = express()
+app.use(cors())
 
-mongoose.connect("mongodb+srv://vzehmour:Maite1506@cluster0.ovnqhfx.mongodb.net/Bouquet")  
-.then(() => 
-console.log('MongoDB Connected'))
-.catch( error => 
-console.log(error)
-);
+const port = process.env.PORT || '4000'
+const DATABASE_URL = process.env.DATABASE_URL || "mongodb+srv://vzehmour:Maite1506@cluster0.ovnqhfx.mongodb.net/";
 
-// Create a new blog post object
-const user = new User({
-  firstName: 'Kevin',
-});
+connectDB(DATABASE_URL);
 
-// Insert the article in our MongoDB database
-user.save();
+app.use(express.json())
 
-app.use(cors());
-
-const port = process.env.PORT || 4000; 
+app.use("/api", web)
 
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
+    console.log('Server listening at http://localhost:' + port)
+})
+
