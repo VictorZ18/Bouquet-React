@@ -4,11 +4,11 @@ import Navbar from './components/navbar';
 import SideMenu from './components/sideNav';
 import WeddingHeader from './components/weddingHeader';
 import CouplePic from './media/hannah-olinger-eNZayb-kkvE-unsplash.jpg';
-import useUser from './composables/userApi';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 function Home() {
-  //const { userData, error, getAllUser } = useUser();
-  //(getAllUser);
+
   return (
       <div className="App">
         <img src={CouplePic} alt="couple" className="couplePic"/>
