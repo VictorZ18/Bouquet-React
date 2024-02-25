@@ -1,0 +1,98 @@
+body{
+  margin: 0px;
+}
+
+.phonebar1{
+  position: absolute;
+  margin-left: 10px;
+  margin-bottom: 10vh;
+}
+  .strokedcaterescard{
+    width: 70%;
+    height: 140px;
+    background-color: #ffffff; /* Background color of the element */
+    border-bottom: 2px solid #FE0074 ; /* Border width, style, and color */
+    border-radius: 0 0 14px 14px; /* top-left, top-right, bottom-right, bottom-left */
+    box-sizing: border-box; /* Include border in the total width and height of the element */
+    
+}
+
+.SupName{
+margin-top: 7px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-left: 1vh;
+}
+
+.Name{
+margin-left: 1vh;
+padding: 0px;
+}
+.star1{
+position: absolute;
+margin-top: 3vh;
+margin-left: 25vh;
+}
+
+
+.dolars{
+display: flex;
+justify-content: space-between;
+margin: 0px;
+margin-left: 0.6vh;
+}
+
+.supplierscards1{
+  width: 100vw;
+  margin: 0;
+}
+.stroked-element1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 14px 14px 0 0;
+}
+.stroked-element2 {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 130px;
+  background-color: #ffffff;
+  border-radius: 0 0 14px 14px;
+  border-bottom: 2px solid #FE0074 ; /* Border width, style, and color */
+
+}
+ul {
+  list-style-type: circle; /* Use disc for filled circles, circle for hollow circles, or square for filled squares */
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px; /* Optional: Add spacing between list items */
+}
+
+li::before {
+  content: "•"; /* Use any character or Unicode symbol for the bullet */
+  margin-right: 8px; /* Optional: Add spacing between bullet and text */
+  margin-left: 4vw;
+}
+.reviewname{
+  display: flex;
+  flex-direction: row;
+  height: 18%;
+
+}
+.groupstars{
+margin-left: 2vh;
+}
+
+.review{
+ margin-top: 3vh;
+}
+h2.taqueria{
+text-align: center;
+}

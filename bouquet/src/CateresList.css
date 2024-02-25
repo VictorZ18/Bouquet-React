@@ -1,0 +1,36 @@
+
+
+.Slide_card_img img{
+  width: 100%;
+  border-radius: 14px 14px 0 0;
+}
+
+.slide_card{
+  padding: 1vh;
+  margin: 1vh;
+  border-bottom: 3px solid #FE0074;
+  border-radius: 14px;
+  background-color: rgb(255, 255, 255);
+
+}
+
+.card_description{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.Cateres{
+  align-items: center;
+  
+}
+
+
+.plus-info{
+  margin-left: 2.5vh;
+  font-weight: bold;
+}
+.info{
+  margin-left: 2.5vh;
+}

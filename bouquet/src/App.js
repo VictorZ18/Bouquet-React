@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/navbar';
 import Axios from 'axios';
 
+
 const firstName = async (firstName) => {
   try {
     const res = await Axios.get(
@@ -32,3 +33,5 @@ function Home() {
 }
 
 export default Home;
+
+
