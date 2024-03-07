@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './index.css';
-import Home from './App';
-import Suppliers from './Suppliers';
-import Program from './Program';
-import Guests from './Guests';
-import Checklist from './Checklist';
-import Budget from './Budget';
-import Personalization from './Personalization';
-import Account from './Account';
-import Media from './Media';
-import Team from './Team';
+import Home from './views/App';
+import Suppliers from './views/Suppliers';
+import Program from './views/Program';
+import Guests from './views/Guests';
+import Checklist from './views/Checklist';
+import Budget from './views/Budget';
+import Personalization from './views/Personalization';
+import Account from './views/Account';
+import Media from './views/Media';
+import Team from './views/Team';
+import SuppliersCategories from './SuppliersCategories';
+import SuppliersQuestions from'./SuppliersQuestions';
+import CaterersList from'./CaterersList';
+import CaterersPage from'./CaterersPage';
 import reportWebVitals from './reportWebVitals';
 
 export default function App() {
@@ -28,6 +31,10 @@ export default function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/media" element={<Media />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/suppliersCategories" element={<SuppliersCategories />} />
+        <Route path="/suppliersQuestions" element={<SuppliersQuestions />} />
+        <Route path="/CaterersList" element={<CaterersList />} />
+        <Route path="/CaterersPage" element={<CaterersPage />} />
       </Routes>
     </BrowserRouter>
   );

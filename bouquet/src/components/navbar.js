@@ -1,4 +1,4 @@
-import '../App.css';
+import '../views/App.scss';
 import { Outlet, Link } from 'react-router-dom';
 import homeOn from '../icons/home_on.png';
 import homeOff from '../icons/home_off.png';
@@ -30,6 +30,8 @@ function Navbar() {
                 <p className="navTag"> Suppliers </p>
                 </Link>
             </div>
+
+
             <div className="icon">
                 <Link to="/guests">
                 <img className="iconImg guests" src= {guestOff} alt="guests" />

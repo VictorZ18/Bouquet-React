@@ -1,5 +1,5 @@
-import '../App.css';
-import '../components/countdown.css';
+import '../views/App.scss';
+import './countdown.scss';
 
 function Countdown() {
     return (

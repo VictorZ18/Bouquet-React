@@ -1,6 +1,6 @@
-import './App.css';
-import Navbar from './components/navbar';
-import SideMenu from './components/sideNav';
+import './App.scss';
+import Navbar from '../components/navbar';
+import SideMenu from '../components/sideNav';
 
 function Media() {
   return (

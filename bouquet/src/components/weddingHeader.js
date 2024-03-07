@@ -1,6 +1,6 @@
-import '../App.css';
+import '../views/App.scss';
 import arrowDown from '../icons/arrow-down.png';
-import '../components/weddingHeader.css';
+import './weddingHeader.scss';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 

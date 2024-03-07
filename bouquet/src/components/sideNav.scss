@@ -1,0 +1,53 @@
+@import '../views/App.scss';
+
+.menuIcon{
+    margin-left: $margin;
+}
+
+.menuOpen{
+    display: none;
+    flex-direction: column; 
+    position: absolute;
+    top: 0;
+    background-color: $white;
+    box-shadow: $shadow;
+    width: auto;
+    height: 100vh;
+    border-right: $border-grey;
+    border-radius: 0 $border-radius-double $border-radius-double 0;
+    z-index: 1;
+}
+
+.menuTitle{
+    margin-top: $margin;
+    margin-left: $margin-double;
+    margin-right: $margin-double;
+    margin-bottom: 0;
+    padding-bottom: $padding-box;
+    color: $pink;
+}
+
+.menuLinks{
+    display: flex;
+    padding-top: $padding-box;
+    padding-bottom: $padding-box;
+    border-bottom: $border-grey;
+    align-items: center;
+    text-decoration: $links-deco;
+    color: $black;
+}
+
+.menuIcons{
+    margin-right: $margin;
+    margin-left: $margin-double;
+}
+
+.back-arrow{
+    padding-bottom: $padding;
+    padding-top: $padding-box;
+    margin-left: $margin;
+}
+
+.top{
+    border-top: $border-grey;
+}

@@ -1,0 +1,32 @@
+@import '../views/App.scss';
+
+.weddingHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+    border-bottom: $border-bottom;
+    border-radius: 0 0 $border-radius-double $border-radius-double;
+    padding-top: $padding-box;
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+.weddingInfo{
+    margin: auto;
+}
+
+.names{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.date{
+    margin-top: ($margin/2);
+}
+
+.arrowDown{
+    width: auto;
+    height: $icons-size;
+}
