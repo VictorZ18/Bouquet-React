@@ -1,0 +1,70 @@
+@import "../views/App.scss";
+
+.categories{
+  top: 0;
+  overflow: scroll;
+}
+
+a {
+  text-decoration: none;
+}
+
+.supplierslist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+.supplierscards {
+  border-radius: $border-radius $border-radius; 
+  margin-top: $margin;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.stroked-element {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white; 
+  border-bottom: $border-black; 
+  border-radius: 0 0 $border-radius $border-radius;
+}
+
+.selected{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $pink; 
+  color: $white;
+  border-radius: 0 0 $border-radius $border-radius; 
+}
+
+.title {
+  font-family: MV Boli;
+  text-align: center;
+  padding-left: $padding;
+  padding-right: $padding;
+  padding-top: $padding-page-top;
+  margin: 0;
+}
+
+.footer {
+  font-family: MV Boli;
+  text-align: center;
+  margin-bottom: $margin;
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+.supplier {
+  text-align: $align;
+  font-weight: $bold;
+}

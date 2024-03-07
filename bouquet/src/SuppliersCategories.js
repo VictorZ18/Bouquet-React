@@ -20,7 +20,7 @@ function SuppliersCategories() {
       </div> 
 
   
-    <div className="supplierslist">
+    <div className="supplierslisting">
 
          <SupCat />
 
