@@ -1,11 +1,11 @@
-import './SuppliersQuestions.css'
+import './SuppliersQuestions.scss'
 
 function SuppliersCategories() {
   return (
     <div className="App">
     <div className='Group'>
         <div className='Backarrow'>
-        <img className="arrow-left" src={require('./media/arrow-left.png')} alt="arrow-right image"/>
+        <img className="arrow-left" src={require('./icons/arrow-left.png')} alt="arrow-right image"/>
         <p className='Back'>Back</p>
         <p className='Skip'>skip</p>
         </div>

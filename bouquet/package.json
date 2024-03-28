@@ -1,5 +1,6 @@
 {
   "name": "bouquet",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "mongoose": "^8.1.1",
     "react": "^18.2.0",

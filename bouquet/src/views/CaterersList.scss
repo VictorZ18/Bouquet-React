@@ -1,0 +1,65 @@
+@import './App.scss';
+
+.back {
+  padding-left: $padding-sides;
+  margin: 0;
+}
+
+.cardName {
+  font-weight: $bold;
+}
+
+.cardImage{
+  width: 100%;
+  border-radius: $border-radius $border-radius 0 0;
+}
+
+.card{
+  margin: $margin;
+  border-bottom: $border-bottom;
+  border-radius: $border-radius;
+  background-color: $white;
+}
+
+.slider-container {
+  display: -webkit-inline-box;
+  overflow: scroll;
+  width: 100%;
+}
+
+.card_description {
+  padding: $padding;
+}
+
+.card_info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_info p{
+  margin: 0;
+  margin-top: $margin;
+}
+
+.caterersOptions {
+  margin: 0;
+  text-align: $align;
+}
+
+.filters {
+  text-align: right;
+  text-decoration: $underlined;
+  margin-right: $margin;
+  font-size: $link;
+}
+
+.plus-info{
+  margin-left: $margin;
+  margin-bottom: 0;
+}
+
+.others{
+  margin: 0;
+  margin-top: $margin;
+  margin-left: $margin;
+}

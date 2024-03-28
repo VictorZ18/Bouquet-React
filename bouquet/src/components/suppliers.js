@@ -13,7 +13,6 @@ function Supp() {
       .then(res => {
         setCategories(res.data);
         setSelectedCategories(Array(res.data.length).fill(false));
-        console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -34,7 +33,7 @@ function Supp() {
           <div key={category._id} className="image-container" onClick={() => changeColor(index)}>
             <img className="supplierscards" src={Venue} alt="venues" />
             <div className={selectedCategories[index] ? "selected" : "stroked-element"} >
-              <p className='supplier'>{category.category_name}</p>
+              <p className={selectedCategories[index] ? 'supplierSelected' : 'supplier'}>{category.category_name}</p>
             </div>
           </div>
         );

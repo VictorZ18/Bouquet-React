@@ -1,0 +1,71 @@
+@import "./App.scss";
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ownSupplier {
+  text-decoration: underline;
+  text-align: right;
+  padding-top: $padding;
+  margin-right: $margin;
+  font-size: $link;
+}
+
+.favourites {
+  display: flex;
+  align-items: $align;
+  justify-content: space-between;
+  background-color: $white; 
+  border-bottom: $border-bottom; 
+  border-radius: $border-radius;
+  margin-left: $margin;
+  margin-right: $margin;
+  margin-bottom: $margin;
+  box-shadow: $shadow-above; 
+}
+
+.favourites-title {
+  display: flex;
+}
+
+.star { 
+  height: $icons-size;
+  padding: $padding;
+}
+
+.arrow-right {
+  width: $icons-size;
+  rotate: 180deg;
+  padding-left: $padding;
+}
+
+.booksign{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $link;
+  margin-bottom: $margin/2;
+}
+
+.booked {
+  margin: 0;
+  color: $black;
+}
+
+.xmark {
+  height: 20%;
+  margin-left: $margin/2;
+}
+
+.supplierslisting {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: $margin-page-bottom;
+}

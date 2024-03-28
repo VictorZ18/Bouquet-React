@@ -1,0 +1,150 @@
+@import "./App.scss";
+
+body {
+  margin: 0;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+
+li {
+  list-style: none;
+}
+
+.back-arrow.absolute {
+  position: absolute;
+}
+
+.supplierscards1 {
+  width: 100vw;
+  margin: 0;
+}
+
+.stroked-element1 {
+  background-color: #ffffff;
+  color: black;
+  border-radius: $border-radius $border-radius 0 0;
+  position: relative;
+  bottom: 2rem;
+}
+
+.specialities {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+.specialities h2{
+  margin: 0;
+}
+
+.specialities p {
+  margin-top: $margin-half;
+  margin-bottom: $margin-double;
+}
+
+.catererName {
+  text-align: $align;
+  margin-top: 0;
+  padding-top: $padding;
+}
+
+.catererDescription {
+  margin-bottom: $margin-double;
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+.catererContact {
+  margin-bottom: $margin-double;
+  margin-left: $margin;
+}
+
+.catererContact h2 {
+  margin: 0;
+}
+
+.catererContact p{
+  margin-top: $margin-half;
+}
+
+.website {
+  font-weight: $bold;
+}
+
+.catererReviews {
+  display: flex;
+  justify-content: space-between;
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+.reviewLink {
+  text-decoration: $underlined;
+  color: $pink;
+}
+
+ul {
+  list-style-type: circle; /* Use disc for filled circles, circle for hollow circles, or square for filled squares */
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px; /* Optional: Add spacing between list items */
+  list-style: none;
+}
+
+li::before {
+  content: "•"; /* Use any character or Unicode symbol for the bullet */
+  margin-right: 8px; /* Optional: Add spacing between bullet and text */
+  margin-left: 4vw;
+}
+
+.reviewsSlider {
+  display: -webkit-inline-box;
+  overflow: scroll;
+  width: 100vw;
+}
+
+.reviewCard {
+  left: 0;
+  background-color: #ffffff;
+  border-radius: $border-radius;
+  border-bottom: $border-bottom;
+  box-shadow: $shadow-above;
+  margin: 0;
+  width: 80%;
+  margin: $margin;
+  margin-top: 0;
+  padding: $padding;
+}
+
+.reviewername {
+  margin-top: 0;  
+  font-weight: $bold;
+}
+
+.groupstars {
+  margin-left: 2vh;
+}
+
+.review {
+  margin-top: 3vh;
+}
+h2.taqueria {
+  text-align: center;
+}
+
+.bookDescription {
+  margin-left: $margin-double;
+  margin-right: $margin-double;
+}
+
+.addSupplier {
+  margin-top: $margin;
+  text-align: center;
+  font-size: $link;
+  color: $grey;
+}

@@ -11,11 +11,10 @@ import Personalization from './views/Personalization';
 import Account from './views/Account';
 import Media from './views/Media';
 import Team from './views/Team';
-import SuppliersCategories from './SuppliersCategories';
+import SuppliersCategories from './views/SuppliersCategories';
 import SuppliersQuestions from'./SuppliersQuestions';
-import CaterersList from'./CaterersList';
-import CaterersPage from'./CaterersPage';
-import reportWebVitals from './reportWebVitals';
+import CaterersList from'./views/CaterersList';
+import CaterersPage from'./views/CaterersPage';
 
 export default function App() {
   return (

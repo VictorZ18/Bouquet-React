@@ -10,6 +10,7 @@ $lightPink: #FFBAD9;
 $size: 1rem; //16px
 
 $margin: $size;
+$margin-half: (0.5 * $size); //8px
 $margin-double: (2 * $size); //32px
 $margin-page-bottom: (5.125 * $size); //64px
 
@@ -53,10 +54,26 @@ $align-left: left; //specific areas
 $icons-size: (1.25 * $size); //20px
 
 $shadow: 4px 0 4px $shadow-grey;
+$shadow-above: 0px -1px 3px $shadow-grey; 
+
+
+h1{
+  font-size: $title;
+  font-weight: $bold;
+}
+
+h2{
+  font-size: $subtitle;
+  font-weight: $bold;
+}
 
 :root{
   font-family: $fontFamily;
   color: $black;
+}
+
+.App{
+  overflow: scroll;
 }
 
 body{
@@ -83,6 +100,10 @@ body{
   text-align: center; 
   box-shadow: $grey 0px 0px 4px;
   background-color: $white;
+}
+
+a {
+  color: $black;
 }
 
 h1, h2, p{
@@ -123,7 +144,7 @@ a{
 
 .back-arrow{
   width: $icons-size;
-  height: auto;
+  height: $icons-size;
 }
 
 .button{
