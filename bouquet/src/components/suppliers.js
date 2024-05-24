@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import '../views/Suppliers.scss';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Venue from "../media/caterers.png";
 
 function Supp() {
   const [categories, setCategories] = useState([]);
@@ -31,7 +30,7 @@ function Supp() {
       {categories.map((category, index) => {
         return (
           <div key={category._id} className="image-container" onClick={() => changeColor(index)}>
-            <img className="supplierscards" src={Venue} alt="venues" />
+            <img className="supplierscards" src={"/media/" + category.category_picture} alt="suppliers" />
             <div className={selectedCategories[index] ? "selected" : "stroked-element"} >
               <p className={selectedCategories[index] ? 'supplierSelected' : 'supplier'}>{category.category_name}</p>
             </div>

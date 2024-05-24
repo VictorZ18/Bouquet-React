@@ -11,9 +11,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
+    "leaflet": "^1.9.4",
     "mongoose": "^8.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
@@ -44,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.23.1"
   }
 }

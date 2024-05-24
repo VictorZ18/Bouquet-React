@@ -1,0 +1,42 @@
+@import '../views/App.scss';
+
+form {
+    flex-direction: column;
+    text-align: center;
+    input, select {
+        margin: $margin;
+        margin-bottom: $margin-double;
+        padding: $padding;
+        width: 80%;
+        border: none;
+        box-shadow: $shadow-above;
+        border-bottom: $border-bottom;
+        border-radius: $border-radius;
+    }
+    .error {
+        color: $red;
+    }
+    .success {
+        color: green;
+    }
+     
+    datalist {
+        display: flex;
+        position: inherit;
+        justify-content: space-between;
+        margin-left: $margin-double;
+        margin-right: $margin-double;
+        margin-bottom: $margin;
+    }
+
+    input[type="range"] {
+        margin-bottom: 0;
+    }
+}
+
+
+.uploaded{
+    max-width: 200px;
+    margin-bottom: $margin-double;
+  }
+ 

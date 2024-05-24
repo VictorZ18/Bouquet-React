@@ -102,6 +102,16 @@ body{
   background-color: $white;
 }
 
+.organizerNav{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.guestNav{
+  display: none;
+}
+
 a {
   color: $black;
 }
@@ -162,3 +172,7 @@ a{
   font-size: $body-large;
 }
 
+.map {
+  height: 20vh;
+  width: 90vw;
+}
