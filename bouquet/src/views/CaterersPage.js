@@ -87,7 +87,8 @@ function App() {
                 } else if (caterer.caterer_speciality.length > 1) {
                   specialities = "Specialities"
                 }
-                speciality = caterer.caterer_speciality.join(", ")
+                console.log(caterer);
+                speciality = caterer.caterer_speciality
               }
             }
             if (categoriesName === "Venues") {
@@ -95,7 +96,7 @@ function App() {
               if (venue) {
                 specialities = "Location"
                 speciality = venue.venue_address
-                map = <Map />
+                map = <Map keyId={venue._id} name={supplierName} address={venue.venue_address} latitude={venue.venue_latitude} longitude={venue.venue_longitude}/>
               }
             }
             return (

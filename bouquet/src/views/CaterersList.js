@@ -90,6 +90,9 @@ function App() {
         <img className="back-arrow" src={require('../icons/arrow-left.png')} alt="arrow" />
       </Link>
       <div className='options'>
+        <Link to="/VenueMap"> 
+        <p className='mapView'>See on map</p>
+        </Link>
         <p className='filters'>Filters</p>
       </div>
       <h2 className='plus-info'>Matches for you:</h2>

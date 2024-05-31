@@ -17,6 +17,7 @@ import CaterersList from'./views/CaterersList';
 import CaterersPage from'./views/CaterersPage';
 import User from './views/User';
 import SuppliersRegister from './views/SuppliersRegister';
+import VenueMap from './views/VenueMap';
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/CaterersPage/:categoriesName/:supplierName" element={<CaterersPage />} />
         <Route path="/user" element={<User />} />
         <Route path="/suppliersRegister" element={<SuppliersRegister />} />
+        <Route path="/venueMap" element={<VenueMap />} />
       </Routes>
     </BrowserRouter>
   );

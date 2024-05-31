@@ -46,13 +46,6 @@
   text-align: $align;
 }
 
-.filters {
-  text-align: right;
-  text-decoration: $underlined;
-  margin-right: $margin;
-  font-size: $link;
-}
-
 .plus-info{
   margin-left: $margin;
   margin-bottom: 0;
@@ -62,4 +55,15 @@
   margin: 0;
   margin-top: $margin;
   margin-left: $margin;
+}
+
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+  text-decoration: $underlined;
+  margin-right: $margin;
+  margin-left: $margin;
+  font-size: $link;
 }

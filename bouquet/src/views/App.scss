@@ -176,3 +176,24 @@ a{
   height: 20vh;
   width: 90vw;
 }
+
+.mapLarge {
+  height: 70vh;
+  width: 100vw;
+}
+
+.search-city {
+  margin: $margin;
+  margin-top: (2*$margin-double);
+}
+
+.buttonSearch{
+  background-color: $pink;
+  border: none;
+  border-radius: $border-radius;
+  text-align: center;
+  margin: $margin;
+  color: $white;
+  padding: $padding-button;
+  font-size: $body-large;
+}
