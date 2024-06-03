@@ -1,0 +1,66 @@
+@import "./App.scss";
+.reply{
+       display: flex;
+       flex-direction: wrap;
+       flex-wrap: wrap;
+       justify-content: space-around;
+       border-bottom: 1px solid #000000;
+       border-radius: 0.625rem;
+       box-shadow: -5px 8px 19px 0px rgba(133, 133, 133, 0.3137254902);
+       margin-top: 2vh;
+}
+.status{
+    display: flex;
+       flex-direction: row;
+       color: $pink;
+       font-size: 0.7em;
+        margin-left: 12vw;
+}
+.invitation{
+    display: flex;
+    flex-direction: wrap;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-bottom: 1px solid #000000;
+    border-radius: 0.625rem;
+    box-shadow: -5px 8px 19px 0px rgba(133, 133, 133, 0.3137254902);
+    margin-top: 2vh; 
+}
+.event{
+    align-items: center;
+}
+
+
+.more{
+    text-decoration: underline;
+    text-align: center;
+}
+.signreply{
+    display: flex;
+    flex-direction: row;  
+    margin-top: 1.7vh;
+}
+
+    .circle {
+  
+        width: 15px; /* Adjust size as needed */
+        height: 15px; /* Adjust size as needed */
+        border-radius: 50%; /* Ensures the div appears as a circle */
+        background-color: green; /* Set the color of the circle */
+        margin-bottom: 2vh;
+        margin-top: 0.4vh;
+      }
+
+.Cityhall{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.tittlename{
+    margin-left: 5vw;
+}
+.messagereminder{
+    margin-left: 5vw;
+}

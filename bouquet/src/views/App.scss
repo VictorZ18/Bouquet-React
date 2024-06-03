@@ -72,15 +72,6 @@ h2{
   color: $black;
 }
 
-.App{
-  overflow: scroll;
-}
-
-body{
-  width: 100vw;
-  height: 100vh;
-}
-
 .couplePic{
   width: 100%;
   height: auto;
@@ -153,7 +144,8 @@ a{
   border-radius: $border-radius;
   text-align: center;
   margin: $margin;
-  margin-bottom: $margin-page-bottom;
+
+
 }
 
 .buttonText{
@@ -161,4 +153,6 @@ a{
   padding: $padding-button;
   font-size: $body-large;
 }
-
+.wrapper{
+  margin: 0 10vw;
+}

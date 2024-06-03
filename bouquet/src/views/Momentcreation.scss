@@ -1,0 +1,40 @@
+@import "./App.scss";
+.leftarrow{
+    position: absolute;
+    color: white;
+}
+.grp{
+ display: flex;
+justify-content: space-between;
+margin-top: $margin;
+}
+.box{
+    border-bottom: $border-bottom;
+    position: relative;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 35vw;
+}
+.Subtittle{
+    position: relative;
+    color: $black; 
+    font-size: $size; 
+    font-size: $title;
+    text-align: center;
+}
+.text{
+    position: relative;
+    color:$black; 
+    font-size: $size; 
+    margin-left: 2vh;
+    margin-right: 2vh;
+    text-align: center;
+   
+  }
+  .Description{
+    padding-bottom: 6vh;
+  }
+ 

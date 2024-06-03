@@ -1,0 +1,21 @@
+@import "../views/App.scss";
+.checkout-button{
+    background-color: $pink;
+    border: none;
+    color: white;
+    border-radius: $border-radius;
+
+    margin: $margin;
+    width: 90vw;
+    height: 7vh;
+}
+
+.checkout-button:active{
+    background-color:pink;
+    color:white;
+}
+.buttonText{
+    color: $white;
+    padding: $padding-button;
+    font-size: $body-large;
+  }

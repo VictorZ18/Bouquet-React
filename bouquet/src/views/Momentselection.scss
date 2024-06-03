@@ -1,0 +1,15 @@
+@import "./App.scss";
+
+.program{
+    border-bottom: $border-bottom;
+    position: relative;
+    padding-left: 2vw;
+    border-radius: $border-radius;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    padding-bottom: 1vh;
+    font-size: large;
+}
+.tittle{
+    padding-top: 5vh;
+}

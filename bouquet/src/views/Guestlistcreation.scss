@@ -1,0 +1,17 @@
+.circle {
+  
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    border-radius: 50%; /* Ensures the div appears as a circle */
+    background-color: #ded8d8; /* Set the color of the circle */
+    stroke: #000000;
+  }
+  .circlewrapper{
+    display: flex;
+    flex-direction: row;  
+
+}
+.cheers{
+  width: 100vw;
+  height: auto; 
+}

@@ -1,0 +1,34 @@
+@import "./App.scss";
+
+.group{
+    border-bottom: $border-bottom;
+    position: relative;
+    border-radius: $border-radius;
+
+}
+.reminder{
+    border-bottom: $border-bottom;
+    position: relative;
+    text-align: center;
+    border-radius: $border-radius;
+    margin-right: 30vw;
+    margin-left: 30vw;
+    padding-bottom: 3vh;
+    
+}
+.tittle{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-top: 9vh;
+    text-align: center;
+}
+.add{
+    position: fixed;
+    bottom: 8vh;
+    right: 10vw;
+}
+.tittlename{
+    font-weight: bold;
+}
