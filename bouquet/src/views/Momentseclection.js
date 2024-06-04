@@ -20,10 +20,10 @@ function checklistpage() {
         <p className="tittle"> Choose a moment to add to your program</p>
         <div className="programgroup">
           <Link to="/Addprogram">
-            <p className="program">City hall</p>
-            <p className="program">Religious Ceremony</p>
-            <p className="program">City hall</p>
-            <p className="program">Reception</p>
+            <p className="event">City hall</p>
+            <p className="event">Religious Ceremony</p>
+            <p className="event">City hall</p>
+            <p className="event">Reception</p>
           </Link>
         </div>
       </div>

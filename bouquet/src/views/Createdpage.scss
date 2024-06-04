@@ -37,12 +37,6 @@ overflow: hidden;
   .list{
     position: relative;
   }
-    .countdownAll{
-      position: absolute;
-      width: 100%;
-      top: 10vh;
-      z-index: 1;
-    }
     .reminder{
         border-bottom: $border-bottom;
         position: relative;
