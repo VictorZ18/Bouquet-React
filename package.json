@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "leaflet-control-geocoder": "^2.4.0",
+    "multer": "^1.4.5-lts.1",
     "sass": "^1.71.1"
   }
 }
