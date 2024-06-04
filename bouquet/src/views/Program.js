@@ -9,7 +9,7 @@ function Program() {
       <SideMenu />
       <header className="App-header">
         <div className="addguests">
-          <p className="parah">
+          <p className="guidelines">
             Hey, it seems you haven’t planned
             <br></br>
             any moments yet.
@@ -20,7 +20,7 @@ function Program() {
             alt=""
           />
         </div>
-        <p className="get">
+        <p className="getstarted">
           Click on the ‘plus’ right here to get
           <br></br>
           started!

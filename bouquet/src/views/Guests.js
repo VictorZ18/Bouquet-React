@@ -11,7 +11,7 @@ function Guests() {
           <SideMenu />
           <header className="App-header">
             <div className="addguests">
-              <p className="parah">
+              <p className="guidelines">
                 Hey, looks like you haven’t set any
                 <br></br>
                 guests in yet.
