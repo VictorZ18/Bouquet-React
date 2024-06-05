@@ -11,8 +11,7 @@ function addprogram() {
     <div className="App">
       <SideMenu />
       <header className="App-header">
-        <p className="tittle">Your guest lists</p>
-        <div className="rectcontainer">
+        <h1 className="titlePage titleGuests">Your guest lists</h1>
           <div className="rect">
             <div className="status">
               <p>RSVP status</p>
@@ -28,7 +27,6 @@ function addprogram() {
               <p className="more">32more</p>
             </Link>
           </div>
-        </div>
 
         <Link to="/Paymentcheckout">
           <Button text="Send invitation" />

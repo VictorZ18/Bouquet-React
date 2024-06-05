@@ -48,7 +48,7 @@ function Navbar() {
             src={checklistOff}
             alt="checklist"
           />
-          <p className="navTag"> Checklistpage </p>
+          <p className="navTag"> Checklist </p>
         </Link>
       </div>
       <div className="icon">

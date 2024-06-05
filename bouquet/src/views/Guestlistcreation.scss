@@ -1,17 +1,22 @@
-.circle {
-  
-    width: 20px; /* Adjust size as needed */
-    height: 20px; /* Adjust size as needed */
-    border-radius: 50%; /* Ensures the div appears as a circle */
-    background-color: #ded8d8; /* Set the color of the circle */
-    stroke: #000000;
-  }
-  .circlewrapper{
-    display: flex;
-    flex-direction: row;  
+@import "./App.scss";
 
+.selectAllCircle {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  border-radius: 50%; /* Ensures the div appears as a circle */
+  background-color: $white; /* Set the color of the circle */
+  border: 1px solid $black;
+  margin-right: $margin;
 }
-.cheers{
+
+.circlewrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: $margin;
+}
+
+.cheers {
   width: 100vw;
-  height: auto; 
+  height: auto;
+  margin-top: $margin;
 }

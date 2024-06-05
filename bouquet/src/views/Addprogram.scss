@@ -4,8 +4,9 @@
     border-bottom: $border-bottom;
     position: relative;
     border-radius: $border-radius;
-
+    box-shadow: $shadow-above;
 }
+
 .reminder{
     border-bottom: $border-bottom;
     position: relative;
@@ -16,19 +17,17 @@
     padding-bottom: 3vh;
     
 }
-.tittle{
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    padding-top: 9vh;
-    text-align: center;
+
+.eventInfo {
+    margin-left: $margin;
 }
+
+.eventInfo:first-child{
+    padding-top: $padding;
+}
+
 .add{
     position: fixed;
     bottom: 8vh;
     right: 10vw;
-}
-.tittlename{
-    font-weight: bold;
 }

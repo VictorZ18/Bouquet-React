@@ -3,9 +3,9 @@ $grey: #858585;
 $shadow-grey: #85858550;
 $white: white;
 
-$red: #E50017;
-$pink: #FE0074;
-$lightPink: #FFBAD9;
+$red: #e50017;
+$pink: #fe0074;
+$lightPink: #ffbad9;
 
 $size: 1rem; //16px
 
@@ -29,23 +29,23 @@ $border-bottom: 1px solid $pink;
 $border-grey: 1px solid $grey;
 $border-black: 1px solid $black;
 
-$border-radius: (0.625 * $size); //10px 
+$border-radius: (0.625 * $size); //10px
 $border-radius-double: (1.25 * $size); //20px - for bigger elements
 
-$fontFamily: 'Mulish', sans-serif;
-$fontEmpty: 'MV Boli V1';
+$fontFamily: "Mulish", sans-serif;
+$fontEmpty: "MV Boli V1";
 
 $body: (0.875 * $size); //14px
-$body-large: $size; 
+$body-large: $size;
 $subtitle: (1.125 * $size); //18px
 $title: (1.5 * $size); //24px
-$navigation: (0.625 * $size); 
-$link: (0.75 * $size); 
+$navigation: (0.625 * $size);
+$link: (0.75 * $size);
 $countdown: (4 * $size); //64px
 
 $bold: bold;
 $underlined: underline;
-$italic: italic; 
+$italic: italic;
 $links-deco: none;
 
 $align: center; //general align rule
@@ -54,25 +54,28 @@ $align-left: left; //specific areas
 $icons-size: (1.25 * $size); //20px
 
 $shadow: 4px 0 4px $shadow-grey;
-$shadow-above: 0px -1px 3px $shadow-grey; 
+$shadow-above: 0px -1px 3px $shadow-grey;
 
+body {
+  margin: 0;
+}
 
-h1{
+h1 {
   font-size: $title;
   font-weight: $bold;
 }
 
-h2{
+h2 {
   font-size: $subtitle;
   font-weight: $bold;
 }
 
-:root{
+:root {
   font-family: $fontFamily;
   color: $black;
 }
 
-.couplePic{
+.couplePic {
   width: 100%;
   height: auto;
   position: absolute;
@@ -81,14 +84,14 @@ h2{
   margin: auto;
 }
 
-.navbar{
+.navbar {
   position: fixed;
   bottom: 0;
   display: flex;
   width: 100vw;
   padding-top: $padding-nav;
   padding-bottom: $padding-nav;
-  text-align: center; 
+  text-align: center;
   box-shadow: $grey 0px 0px 4px;
   background-color: $white;
 }
@@ -97,62 +100,95 @@ a {
   color: $black;
 }
 
-h1, h2, p{
+h1,
+h2,
+p {
   font-family: $fontFamily;
 }
 
-.icon{
+.icon {
   font-size: $navigation;
   width: 20%;
   height: fit-content;
 }
 
-.iconImg{
+.iconImg {
   height: $icons-size;
   width: auto;
   margin-bottom: (0.125 * $size);
 }
 
-.navTag{
+.navTag {
   margin: 0;
   color: $grey;
 }
 
-.navTag.active{
+.navTag.active {
   color: $pink;
 }
 
-a{
+a {
   text-decoration: $links-deco;
 }
 
-.bars{
+.bars {
   width: $icons-size;
   height: auto;
   position: absolute;
   margin-top: $margin-double;
 }
 
-.back-arrow{
+.back-arrow {
   width: $icons-size;
   height: $icons-size;
 }
 
-.button{
+.button {
   background-color: $pink;
   border: none;
   border-radius: $border-radius;
   text-align: center;
   margin: $margin;
-
-
 }
 
-.buttonText{
+.buttonText {
   color: $white;
   padding: $padding-button;
   font-size: $body-large;
 }
-.wrapper{
-  margin: 0 10vw;
+
+.wrapper {
+  margin: 0 $margin;
+}
+
+.addbutton {
+  width: 30vw;
+  margin-left: 69vw;
+  margin-bottom: $margin-page-bottom;
+}
+
+.guidelines {
+  text-align: center;
+  font-family: mv Boli;
+  margin-top: 0;
+  padding-top: $padding-page-top;
+  margin-left: $margin-double;
+  margin-right: $margin-double;
+}
+
+.getstarted {
+  text-align: center;
+  font-family: mv Boli;
+}
+
+.titlePage {
+  margin: 0;
+  text-align: $align;
+}
+
+.explanation {
+  position: relative;
+  color: $black;
+  font-size: $size;
+  text-align: center;
 }

@@ -6,7 +6,7 @@ function Cityhallguests() {
   return (
     <div className="wrapper">
       <div className="reply">
-        <p className="tittlename">
+        <p className="guestName">
           Bob Van
           <br></br>Aerschot
         </p>

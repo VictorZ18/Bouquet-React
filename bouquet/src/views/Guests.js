@@ -1,6 +1,7 @@
 import Navbar from "../components/navbar";
 import SideMenu from "../components/sideNav";
 import { Link } from "react-router-dom";
+import "./App.scss";
 
 function Guests() {
   return (
@@ -12,9 +13,7 @@ function Guests() {
           <header className="App-header">
             <div className="addguests">
               <p className="guidelines">
-                Hey, looks like you haven’t set any
-                <br></br>
-                guests in yet.
+                Hey, looks like you haven’t set any guests in yet.
               </p>
               <img
                 className="flowerimg"

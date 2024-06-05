@@ -32,7 +32,7 @@ function App() {
         />
       </Link>
       <div className="options">
-        <h1 className="caterersOptions">Caterers </h1>
+        <h1 className="titlePage">Caterers </h1>
         <p className="filters">Filters</p>
       </div>
       <h2 className="plus-info">Matches for you:</h2>

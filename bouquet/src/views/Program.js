@@ -1,4 +1,4 @@
-import "./Program.scss";
+import "./App.scss";
 import Navbar from "../components/navbar";
 import SideMenu from "../components/sideNav";
 import { Link } from "react-router-dom";
