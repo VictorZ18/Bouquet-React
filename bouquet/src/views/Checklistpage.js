@@ -3,10 +3,11 @@ import "./App.scss";
 import Navbar from "../components/navbar";
 import SideMenu from "../components/sideNav";
 import Checklist from "../components/Checklist";
-import Countdown from "../components/countdown";
 import { Link } from "react-router-dom";
+import Clock from "../components/clock";
 
 function checklistpage() {
+  const deadline = new Date(Date.parse(new Date()) + 120 * 24 * 60 * 60 * 1000);
   return (
     <div className="App">
       <SideMenu />
@@ -18,14 +19,14 @@ function checklistpage() {
         />
       </div>
       <div className="countdownChecklist">
+        <Clock countdown={deadline} onComplete={() => alert('Countdown complete')}/>
       </div>
-      <Countdown />
       <div className="rectangle">
         <div className="wrapper">
           <h1 className="titlePage titleMargin"> Activities</h1>
           <div className="todoContainer">
             <h2 className="urgent"> Today/Overdue</h2>
-            <Link to="/Todo">
+            <Link to="/CreatedPage">
               <div className="smallrect">
                 <p className="urgentTodo">Create a guest list</p>
               </div>
@@ -33,6 +34,7 @@ function checklistpage() {
           </div>
           <div className="todoContainer">
             <p className="Thisweek"> This week</p>
+            <Checklist />
             <Checklist />
           </div>
           <div className="todoContainer">

@@ -1,64 +1,40 @@
 @import "./App.scss";
 
-.flower{
-width: 100%;
-height: 17vh;
-overflow: hidden;
+.wrapper {
+  padding-bottom: $padding;
 }
-.flowerimg {
-    width: 100vw; // Adjust as needed
-    height: auto; // Adjust as needed
-  }
-  
-  .rectangle {
-    position: absolute;
-    top: 15vh; // Adjust as needed
-    width: 100vw; // Adjust as needed
-    height: 100vh; // Adjust as needed
-    background-color: rgb(255, 255, 255); // Adjust color and opacity as needed
-    border-radius: $border-radius;
-  }
 
+.taskInfo {
+  margin-bottom: $margin-double;
+}
 
-  .Tittle {
-    position: relative;
-    color: $black; 
-    font-size: 18px; 
-    font-weight: bold; 
-    font-size: $title;
-    text-align: center;
-  }
-  
-  .parag {
-    position: relative;
-    color: $black; 
-    margin-left: 5vw;
-  }
-  .list{
-    position: relative;
-  }
-    .reminder{
-        border-bottom: $border-bottom;
-        position: relative;
-        text-align: center;
-        border-radius: $border-radius;
-        margin-right: 20vw;
-        margin-left: 20vw;
-        padding-bottom: 3vh;
-        
-    }
-.contain{
-    border-bottom: $border-bottom;
-    position: relative;
-    border-radius: $border-radius;
-    margin-right: 20vw;
-    margin-left: 20vw;
-    padding-bottom: 1vh;
-    margin-bottom: 5vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
+.list {
+  position: relative;
+}
+
+.reminder {
+  border-bottom: $border-bottom;
+  position: relative;
+  text-align: center;
+  border-radius: $border-radius;
+  margin-right: $margin-double;
+  margin-left: $margin-double;
+  padding: $padding;
+  box-shadow: $shadow-above;
+}
+
+.contain {
+  border-bottom: $border-bottom;
+  position: relative;
+  border-radius: $border-radius;
+  margin-right: 20vw;
+  margin-left: 20vw;
+  padding-bottom: 1vh;
+  margin-bottom: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .popup {
@@ -68,19 +44,24 @@ overflow: hidden;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 11;
 }
 
 .popup-content {
-  background-color: rgb(255, 255, 255); // Adjust color and opacity as needed
+  background-color: $white; // Adjust color and opacity as needed
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
+  padding: $padding-box;
   border-radius: $border-radius;
-  box-shadow: 0px 0px 20px 9px rgba(133, 133, 133, 0.3137254902);
-  width: 70vw;
+  width: 60%;
+}
+
+.modify {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 
 .close:hover {
@@ -91,36 +72,16 @@ overflow: hidden;
   cursor: pointer;
 }
 
-.pop{
+.pop {
   border-bottom: $border-bottom;
-        position: relative;
-        border-radius: $border-radius;
-        padding-bottom: 3vh;
-        color: $grey;
-      
+  position: relative;
+  border-radius: $border-radius;
+  padding-bottom: 3vh;
+  color: $grey;
 }
-.header{
+
+.header {
   text-align: center;
   font-size: $size;
   font-weight: $bold;
-}
-.click{
-  color: $white;
-  width: 70vw;
-  position: relative;
-  margin-left: 6vh;
-  background-color: $pink;
-  border: none;
-  border-radius: $border-radius;
-  height: 7vh;
-}
-.comfirm{
-  color: $white;
-  width: 50vw;
-  position: relative;
-  margin-left: 5vh;
-  background-color: $pink;
-  border: none;
-  border-radius: $border-radius;
-  height: 7vh;
 }

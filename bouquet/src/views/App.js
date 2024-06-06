@@ -1,5 +1,5 @@
 import './App.scss';
-import Countdown from '../components/countdown';
+import Clock from "../components/clock";
 import Navbar from '../components/navbar';
 import SideMenu from '../components/sideNav';
 import WeddingHeader from '../components/weddingHeader';
@@ -8,6 +8,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
 function Home() {
+  const deadline = new Date(Date.parse(new Date()) + 120 * 24 * 60 * 60 * 1000);
   return (
       <div className="App">
         <img src={CouplePic} alt="couple" className="couplePic"/>
@@ -15,7 +16,7 @@ function Home() {
         <header className="App-header">
           <WeddingHeader />
         </header>
-        <Countdown /> 
+        <Clock countdown={deadline}/> 
         <Navbar />
       </div>
   );

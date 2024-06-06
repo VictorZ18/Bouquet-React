@@ -3,45 +3,49 @@ import Checklist from "../components/Checklist";
 import Button from "../components/button";
 import { Link } from "react-router-dom";
 
+function Hide() {
+  if (document.querySelector(".hide").innerHTML === "Hide") {
+    document.querySelector(".hide").innerHTML = "Show";
+    document.querySelector(".preMades").style.display = "none";
+  } else {
+    document.querySelector(".hide").innerHTML = "Hide";
+    document.querySelector(".preMades").style.display = "block";
+  }
+}
+
 function Addpage() {
+  
   return (
     <div className="App">
-      <header className="App-header"></header>
-
-      <Link to="/checklistpage">
+      <div className="leftarrow">
+        <Link to="/checklistpage">
+          <img
+            className="back-arrow"
+            src={require("../icons/arrow-left.png")}
+            alt="arrow-right"
+          />
+        </Link>
+      </div>
+      <div className="cover">
         <img
-          className="arrow-left"
-          src={require("../icons/arrow-left.png")}
-          alt="arrow-right"
-        />
-      </Link>
-
-      <p className="Tittle"> Existing to-dos</p>
-      <div className="flower">
-        <img
-          className="flowerimg"
+          className="coverimg"
           src={require("../media/flowers.png")}
           alt=""
         />
       </div>
+      <h1 className="titlePage subtitlePage">Pre-made to-dos</h1>
       <div className="wrapper">
         <div className="container">
-          <p>Select all</p>
-          <p>Hide</p>
+          <div className="circlewrapper selectTodo">
+            <div className="selectAllCircle"></div>
+            Select all
+          </div>
+          <p className="hide" onClick={Hide}>Hide</p>
         </div>
-
-        <Link to="/createdpage">
-          <Checklist />
-        </Link>
-        <Link to="/createdpage">
-          <Checklist />
-        </Link>
-        <Link to="/createdpage">
-          <Checklist />
-        </Link>
-        <Link to="/createdpage">
-          <Checklist />
-        </Link>
+        <div className="preMades">
+            <Checklist />
+            <Checklist />
+        </div>
         <p className="Tittle"> Create your own</p>
         <p className="reminder">Name</p>
         <p className="Thisweek"> Deadline</p>
@@ -54,7 +58,7 @@ function Addpage() {
             alt="arrow-right"
           />
         </div>
-        <p className="paragraph">
+        <p className="explanation">
           You can add a description, and set manual reminders later.
         </p>
       </div>

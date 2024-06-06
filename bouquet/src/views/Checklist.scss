@@ -10,10 +10,10 @@
 
 .rectangle {
   position: absolute;
-  top: 15vh; // Adjust as needed
-  width: 100vw; // Adjust as needed
-  height: 100vh; // Adjust as needed
-  background-color: $white; // Adjust color and opacity as needed
+  top: 15vh; 
+  width: 100vw; 
+  height: 100vh; 
+  background-color: $white;
   border-radius: $border-radius;
 }
 
@@ -27,6 +27,7 @@
   justify-content: space-between;
   padding-left: $padding;
   padding-right: $padding;
+  margin-bottom: $margin-half;
   align-items: center;
 }
 

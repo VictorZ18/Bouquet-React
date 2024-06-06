@@ -1,5 +1,4 @@
 import "../views/App.scss";
-import "./countdown.scss";
 
 function Countdownonenumber() {
   return (

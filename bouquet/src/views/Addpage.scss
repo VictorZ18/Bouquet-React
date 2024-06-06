@@ -1,35 +1,46 @@
 @import "./App.scss";
 
 .guestInfo {
-    margin-top: $margin-double;
-    margin-bottom: $margin-double;
+  margin-top: $margin-double;
+  margin-bottom: $margin-double;
 }
 
 .guestInfoDetail {
-    margin-top: $margin-half;
-    margin-bottom: $margin-half;
+  margin-top: $margin-half;
+  margin-bottom: $margin-half;
 }
 
 .statusForGuest {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: $margin-double;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $margin-double;
 }
 
 .statusContainer {
-    text-align: center;
-    width: 45%;
-    border-bottom: $border-bottom;
-    border-radius: $border-radius;
-    box-shadow: $shadow-above;
+  text-align: center;
+  width: 45%;
+  border-bottom: $border-bottom;
+  border-radius: $border-radius;
+  box-shadow: $shadow-above;
 }
 
 .statusAnswer {
-    padding: $padding;
+  padding: $padding;
+}
+
+.selectTodo {
+  margin-top: $margin;
+}
+
+.hide {
+  text-decoration: underline;
+  color: $pink;
+  text-underline-offset: 0.2rem;
 }
 
 .container {
+  display: flex;
   justify-content: space-between;
   margin-left: $margin;
   margin-right: $margin;

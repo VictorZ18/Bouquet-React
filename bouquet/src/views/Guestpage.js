@@ -25,7 +25,7 @@ function Createdpage() {
 
       <div className="rectangle">
         <div className="wrapper">
-          <h1 className="titlePage guestName">Bob Van Aerschot </h1>
+          <h1 className="titlePage subtitlePage">Bob Van Aerschot </h1>
 
           <div className="guestInfo">
             <h2 className="guestInfoDetail">Information</h2>
