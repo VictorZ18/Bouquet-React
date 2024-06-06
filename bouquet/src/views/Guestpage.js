@@ -5,41 +5,46 @@ import { Link } from "react-router-dom";
 function Createdpage() {
   return (
     <div className="App">
-      <header className="App-header"></header>
-
       <div className="leftarrow">
         <Link to="/Guestlist">
           <img
-            className="arrow-left"
-            src={require("../icons/arrow-left.png")}
-            alt="arrow-right"
+            className="back-arrow"
+            src={require("../icons/arrow-white.png")}
+            alt="arrow"
           />
         </Link>
-        <p className="reminders">Back</p>
       </div>
 
-      <div className="flower">
+      <div className="cover">
         <img
-          className="flowerimg"
+          className="coverimg"
           src={require("../media/cheers.png")}
-          alt=""
+          alt="cheers"
         />
       </div>
 
       <div className="rectangle">
         <div className="wrapper">
-          <p className="Tittle">Bob Van Aerschot </p>
+          <h1 className="titlePage guestName">Bob Van Aerschot </h1>
 
-          <p className="">Information</p>
-          <p className="">bobvanaerschot@gmail.com</p>
-          <p className="">+32 425 00 00 00</p>
+          <div className="guestInfo">
+            <h2 className="guestInfoDetail">Information</h2>
+            <p className="guestInfoDetail">bobvanaerschot@gmail.com</p>
+            <p className="guestInfoDetail">+32 425 00 00 00</p>
+          </div>
 
-          <p className="text">RSVP</p>
-          <p className="reminder">Yes</p>
+          <div className="statusForGuest">
+            <div className="statusContainer">
+              <h2 className="statusName">RSVP</h2>
+              <p className="statusAnswer">Yes</p>
+            </div>
+            <div className="statusContainer">
+              <h2 className="statusName">Invitation</h2>
+              <p className="statusAnswer">Sent</p>
+            </div>
+          </div>
 
-          <p className="text">Invitation</p>
-          <div className="contain">sent</div>
-          <p className="text">Modify guest information</p>
+          <p className="more">Modify guest information</p>
         </div>
       </div>
     </div>

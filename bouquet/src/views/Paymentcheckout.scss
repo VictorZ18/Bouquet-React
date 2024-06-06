@@ -1,52 +1,51 @@
 @import "./App.scss";
 
 .moneyfield{
-    border-bottom: 1px solid #FE0074;
+    box-shadow: $shadow-above;
+    border-bottom: $border-bottom;
     position: relative;
-    border-radius: 0.625rem;
-    margin-right: 35vw;
-    margin-left: 35vw;
-    margin-bottom: 3vh;
-    margin-top: 5vh;
-    padding-bottom: 1vh;
-    display: flex;
-    justify-content: space-evenly;
-    font-weight: bold;
-    font-size: larger;
+    border-radius: $border-radius;
+    margin-left: $margin-page-bottom;
+    margin-right: $margin-page-bottom;
+    margin-bottom: $margin;
+    margin-top: $margin;
+    padding-top: $padding;
+    padding-bottom: $padding;
+    text-align: center;
 }
+
 .cardnumber{
-    border-bottom: 1px solid #FE0074;
+    border-bottom: $border-bottom;
     position: relative;
-    border-radius: 0.625rem;
-    margin-right: 10vw;
-    margin-left: 10vw;
+    border-radius: $border-radius;
+    margin-right: $margin;
+    margin-left: $margin;
     padding-bottom: 1vh;
-    margin-top: 3vh;
+    margin-top: $margin;
     justify-content: space-evenly;
     font-size: larger;
-    color: grey;
+    color: $grey;
 
 }
+
 .cvc{
-    border-bottom: 1px solid #FE0074;
+    border-bottom: $border-bottom;
     position: relative;
-    border-radius: 0.625rem;
-    margin-right: 35vw;
-    margin-left: 35vw;
+    border-radius: $border-radius;
+    margin-right: $margin-double;
+    margin-left: $margin-double;
     padding-bottom: 1vh;
     justify-content: space-evenly;
     font-size: larger;
-    color: grey;
+    color: $grey;
 }
 
 .payment{
-    margin-left: 4vh;
-    margin-top: 3vh;
-    margin-bottom: 5vh;
+    margin: $margin;
+    width: 90%;
 }
+
 .StripeCheckout{
     padding:  15px;
     width: 90vw;
-
-   
  }

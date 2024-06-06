@@ -1,30 +1,47 @@
 @import "./App.scss";
 
-.flower{
-width: 100%;
-height: 17vh;
-overflow: hidden;
+.cover {
+  width: 100%;
+  height: 17vh;
+  overflow: hidden;
 }
-.flowerimg {
-    width: 100vw; // Adjust as needed
-    height: auto; // Adjust as needed
-  }
-  
-    .container{
+
+.coverimg {
+  width: 100vw; // Adjust as needed
+  height: auto; // Adjust as needed
+}
+
+.guestInfo {
+    margin-top: $margin-double;
+    margin-bottom: $margin-double;
+}
+
+.guestInfoDetail {
+    margin-top: $margin-half;
+    margin-bottom: $margin-half;
+}
+
+.statusForGuest {
+    display: flex;
     justify-content: space-between;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    }
+    align-items: center;
+    margin-bottom: $margin-double;
+}
 
-    .leftarrow{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+.statusContainer {
+    text-align: center;
+    width: 45%;
+    border-bottom: $border-bottom;
+    border-radius: $border-radius;
+    box-shadow: $shadow-above;
+}
 
-.arrow-left {
-    margin-top: 1.98vh;
-    margin-left: 3vh;
-    margin-bottom: 4vw;
+.statusAnswer {
+    padding: $padding;
+}
 
+.container {
+  justify-content: space-between;
+  margin-left: $margin;
+  margin-right: $margin;
 }

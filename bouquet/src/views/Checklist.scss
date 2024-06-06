@@ -1,74 +1,74 @@
 @import "./App.scss";
 
-.flower{
-width: 100%;
-height: 17vh;
-overflow: hidden;
+.flower {
+  width: 100%;
+  height: 17vh;
+  overflow: hidden;
 }
+
 .flowerimg {
-    width: 100vw; // Adjust as needed
-    height: auto; // Adjust as needed
-  }
-  
-  .rectangle {
-    position: absolute;
-    top: 15vh; // Adjust as needed
-    width: 100vw; // Adjust as needed
-    height: 100vh; // Adjust as needed
-    background-color: rgb(255, 255, 255); // Adjust color and opacity as needed
-    border-radius: $border-radius;
-  }
-  
-  .smallrect{
-    position: relative;
-    height: 7vh; // Adjust as needed
-    border-radius: $border-radius;
-    box-shadow: $grey 0px 0px 4px;
-    background-color: $white;
-    display: flex;
-    align-items: center;
-  }
+  width: 100vw; // Adjust as needed
+  height: auto; // Adjust as needed
+}
 
-  .smallrect1{
-    position: relative;
-    height: 7vh; // Adjust as needed
-    border-radius: $border-radius;
-    box-shadow: $grey 0px 0px 4px;
-    background-color: $white;
-        margin-top: 2vh;
-  }
+.rectangle {
+  position: absolute;
+  top: 15vh; // Adjust as needed
+  width: 100vw; // Adjust as needed
+  height: 100vh; // Adjust as needed
+  background-color: rgb(255, 255, 255); // Adjust color and opacity as needed
+  border-radius: $border-radius;
+}
 
-  .Tittle {
-    position: relative;
-    color: $black; 
-    font-size: $size; 
-    font-weight: bold; 
-    font-size: $title;
-    text-align: center;
-  }
-  .minitittle{
-    position: relative;
-    color:$pink; 
-    font-size: $size; 
-    font-weight: bold; 
-    text-align: center; 
+.smallrect {
+  position: relative;
+  height: 7vh; // Adjust as needed
+  border-radius: $border-radius;
+  box-shadow: $grey 0px 0px 4px;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+}
 
-  }
-  .Thisweek{
-    position: relative;
-    color:$black; 
-    font-size: $size; 
-    font-weight: bold;  
-    text-align: center; 
-  }
+.smallrect1 {
+  position: relative;
+  height: 7vh; // Adjust as needed
+  border-radius: $border-radius;
+  box-shadow: $grey 0px 0px 4px;
+  background-color: $white;
+  margin-top: 2vh;
+}
 
-  .Create{
-    margin-left: 2vw;
-    font-weight: bold;  
-    color: $red;
-  }
+.Tittle {
+  position: relative;
+  color: $black;
+  font-size: $size;
+  font-weight: bold;
+  font-size: $title;
+  text-align: center;
+}
+.minitittle {
+  position: relative;
+  color: $pink;
+  font-size: $size;
+  font-weight: bold;
+  text-align: center;
+}
+.Thisweek {
+  position: relative;
+  color: $black;
+  font-size: $size;
+  font-weight: bold;
+  text-align: center;
+}
 
-    .twomonth{
-      padding-bottom: 9vh;
-      text-align: center;
-    }
+.Create {
+  margin-left: 2vw;
+  font-weight: bold;
+  color: $red;
+}
+
+.twomonth {
+  padding-bottom: 9vh;
+  text-align: center;
+}

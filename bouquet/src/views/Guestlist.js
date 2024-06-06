@@ -12,28 +12,25 @@ function addprogram() {
       <SideMenu />
       <header className="App-header">
         <h1 className="titlePage titleGuests">Your guest lists</h1>
-          <div className="rect">
-            <div className="status">
-              <p>RSVP status</p>
-              <p>Invitation status</p>
-            </div>
-            <Cityhallguests />
-            <Cityhallguests />
-            <Cityhallguests />
-            <Cityhallguests />
-            <Cityhallguests />
-
-            <Link to="/cityhallguestlist">
-              <p className="more">32more</p>
-            </Link>
+        <div className="rect">
+          <div className="status">
+            <p>Name</p>
+            <p>RSVP status</p>
+            <p>Invitation status</p>
           </div>
+          <Link to="/GuestPage">
+            <Cityhallguests />
+          </Link>
+
+          <Link to="/cityhallguestlist">
+            <p className="more">32 more</p>
+          </Link>
+        </div>
 
         <Link to="/Paymentcheckout">
           <Button text="Send invitation" />
         </Link>
 
-        <Message />
-        <Message />
         <Message />
         <img className="add" src={require("../media/Add.png")} alt="" />
       </header>

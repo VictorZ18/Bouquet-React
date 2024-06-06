@@ -25,7 +25,7 @@ function checklistpage() {
           <p className="minitittle"> Today/Overdue</p>
 
           <Link to="/Todo">
-            <div class="smallrect">
+            <div className="smallrect">
               <p className="Create">Create a guest list</p>
             </div>
           </Link>

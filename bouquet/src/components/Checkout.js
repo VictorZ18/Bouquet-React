@@ -38,10 +38,10 @@ const Checkout = () => {
       <div className="Checkout">
         <header className="App-header"></header>
 
-        <h1 className="Tittle">
+        <h1 className="titlePage">
           You’re wedding is about to <br></br>go live!
         </h1>
-        <p className="moneyfield">9.99€</p>
+        <h2 className="moneyfield">9.99€</h2>
         <img
           className="payment"
           src={require("../media/paymentmethod.png")}
