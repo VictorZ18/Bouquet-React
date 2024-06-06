@@ -6,6 +6,11 @@
     justify-content: center;
 }
 
+.countdownAll {
+    z-index: 10;
+    position: relative;
+}
+
 .countdownBack{
     display: flex;
     flex-direction: row;
@@ -36,7 +41,7 @@
     color: white;
     font-size: 40px;
     margin: 22px;
-    margin-top: 16px;
+    margin-top: $margin;
     /*padding: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -48,11 +53,11 @@
 .rectangleTop{
     background-color: $pink;
     height: 40px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: $padding-box;
+    padding-right: $padding-box;
     border-radius: 10px 10px 4px 4px;
-    border-top: 1px solid white;
-    margin-top: 0px;
+    border-top: $border-white;
+    margin-top: 0;
     z-index: -1;
     margin-left: 1px;
     margin-right: 1px;

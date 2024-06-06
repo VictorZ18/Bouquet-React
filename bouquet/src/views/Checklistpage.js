@@ -1,4 +1,5 @@
 import "./Checklist.scss";
+import "./App.scss";
 import Navbar from "../components/navbar";
 import SideMenu from "../components/sideNav";
 import Checklist from "../components/Checklist";
@@ -9,38 +10,36 @@ function checklistpage() {
   return (
     <div className="App">
       <SideMenu />
-      <header className="App-header"></header>
-      <Countdown />
-      <div className="flower">
+      <div className="cover">
         <img
-          className="flowerimg"
+          className="coverimg"
           src={require("../media/flowers.png")}
           alt=""
         />
       </div>
-
+      <div className="countdownChecklist">
+      </div>
+      <Countdown />
       <div className="rectangle">
         <div className="wrapper">
-          <p className="Tittle"> Activities</p>
-          <p className="minitittle"> Today/Overdue</p>
+          <h1 className="titlePage titleMargin"> Activities</h1>
+          <div className="todoContainer">
+            <h2 className="urgent"> Today/Overdue</h2>
+            <Link to="/Todo">
+              <div className="smallrect">
+                <p className="urgentTodo">Create a guest list</p>
+              </div>
+            </Link>
+          </div>
+          <div className="todoContainer">
+            <p className="Thisweek"> This week</p>
+            <Checklist />
+          </div>
+          <div className="todoContainer">
+            <p className="Thisweek"> This Month</p>
+            <Checklist />
+          </div>
 
-          <Link to="/Todo">
-            <div className="smallrect">
-              <p className="Create">Create a guest list</p>
-            </div>
-          </Link>
-
-          <p className="Thisweek"> This week</p>
-
-          <Checklist />
-          <Checklist />
-          <Checklist />
-          <Checklist />
-          <p className="Thisweek"> This Month</p>
-          <Checklist />
-          <Checklist />
-          <Checklist />
-          <Checklist />
         </div>
         <p className="twomonth"> In 2 Month</p>
       </div>

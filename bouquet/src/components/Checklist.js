@@ -4,11 +4,9 @@ import "../views/App.scss";
 
 function Checklist() {
   return (
-    <div className="smallrect1">
-      <div className="container">
+    <div className="smallrect">
         <p>Create a Checklist</p>
-        <p>2days</p>
-      </div>
+        <p>2 days</p>
     </div>
   );
 }

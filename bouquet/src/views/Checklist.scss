@@ -1,14 +1,11 @@
 @import "./App.scss";
 
-.flower {
-  width: 100%;
-  height: 17vh;
-  overflow: hidden;
+.countdownChecklist {
+  margin-top: -3.5rem;
 }
 
-.flowerimg {
-  width: 100vw; // Adjust as needed
-  height: auto; // Adjust as needed
+.todoContainer {
+  margin-top: $margin-double;
 }
 
 .rectangle {
@@ -16,44 +13,28 @@
   top: 15vh; // Adjust as needed
   width: 100vw; // Adjust as needed
   height: 100vh; // Adjust as needed
-  background-color: rgb(255, 255, 255); // Adjust color and opacity as needed
+  background-color: $white; // Adjust color and opacity as needed
   border-radius: $border-radius;
 }
 
 .smallrect {
   position: relative;
-  height: 7vh; // Adjust as needed
+  height: 7vh;
   border-radius: $border-radius;
-  box-shadow: $grey 0px 0px 4px;
+  box-shadow: $shadow;
   background-color: $white;
   display: flex;
+  justify-content: space-between;
+  padding-left: $padding;
+  padding-right: $padding;
   align-items: center;
 }
 
-.smallrect1 {
-  position: relative;
-  height: 7vh; // Adjust as needed
-  border-radius: $border-radius;
-  box-shadow: $grey 0px 0px 4px;
-  background-color: $white;
-  margin-top: 2vh;
+.urgent {
+  color: $red;
+  text-align: center;
 }
 
-.Tittle {
-  position: relative;
-  color: $black;
-  font-size: $size;
-  font-weight: bold;
-  font-size: $title;
-  text-align: center;
-}
-.minitittle {
-  position: relative;
-  color: $pink;
-  font-size: $size;
-  font-weight: bold;
-  text-align: center;
-}
 .Thisweek {
   position: relative;
   color: $black;
@@ -62,8 +43,7 @@
   text-align: center;
 }
 
-.Create {
-  margin-left: 2vw;
+.urgentTodo {
   font-weight: bold;
   color: $red;
 }

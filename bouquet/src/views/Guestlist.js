@@ -11,7 +11,7 @@ function addprogram() {
     <div className="App">
       <SideMenu />
       <header className="App-header">
-        <h1 className="titlePage titleGuests">Your guest lists</h1>
+        <h1 className="titlePage titleMargin">Your guest lists</h1>
         <div className="rect">
           <div className="status">
             <p>Name</p>
