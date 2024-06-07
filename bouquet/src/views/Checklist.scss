@@ -1,0 +1,55 @@
+@import "./App.scss";
+
+.countdownChecklist {
+  margin-top: -3.5rem;
+}
+
+.todoContainer {
+  margin-top: $margin-double;
+}
+
+.rectangle {
+  position: absolute;
+  top: 15vh; 
+  width: 100vw; 
+  height: 100vh; 
+  background-color: $white;
+  border-radius: $border-radius;
+}
+
+.smallrect {
+  position: relative;
+  height: 7vh;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  padding-left: $padding;
+  padding-right: $padding;
+  margin-bottom: $margin-half;
+  align-items: center;
+}
+
+.urgent {
+  color: $red;
+  text-align: center;
+}
+
+.Thisweek {
+  position: relative;
+  color: $black;
+  font-size: $size;
+  font-weight: bold;
+  text-align: center;
+}
+
+.urgentTodo {
+  font-weight: bold;
+  color: $red;
+}
+
+.twomonth {
+  padding-bottom: 9vh;
+  text-align: center;
+}

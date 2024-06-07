@@ -1,0 +1,87 @@
+@import "./App.scss";
+
+.wrapper {
+  padding-bottom: $padding;
+}
+
+.taskInfo {
+  margin-bottom: $margin-double;
+}
+
+.list {
+  position: relative;
+}
+
+.reminder {
+  border-bottom: $border-bottom;
+  position: relative;
+  text-align: center;
+  border-radius: $border-radius;
+  margin-right: $margin-double;
+  margin-left: $margin-double;
+  padding: $padding;
+  box-shadow: $shadow-above;
+}
+
+.contain {
+  border-bottom: $border-bottom;
+  position: relative;
+  border-radius: $border-radius;
+  margin-right: 20vw;
+  margin-left: 20vw;
+  padding-bottom: 1vh;
+  margin-bottom: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 11;
+}
+
+.popup-content {
+  background-color: $white; // Adjust color and opacity as needed
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: $padding-box;
+  border-radius: $border-radius;
+  width: 60%;
+}
+
+.modify {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.close:hover {
+  color: black;
+}
+
+#openPopup {
+  cursor: pointer;
+}
+
+.pop {
+  border-bottom: $border-bottom;
+  position: relative;
+  border-radius: $border-radius;
+  padding-bottom: 3vh;
+  color: $grey;
+}
+
+.header {
+  text-align: center;
+  font-size: $size;
+  font-weight: $bold;
+}

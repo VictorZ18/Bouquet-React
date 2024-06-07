@@ -1,0 +1,47 @@
+@import "./App.scss";
+.mapimg{
+    position: relative;
+    width: 100%;
+}
+.adresses{
+    position: relative;
+    color: black;
+    font-size: 1rem;
+    margin-left: 5vw;
+}
+.Location{
+    position: relative;
+    color: black;
+    font-size: 10px;
+    font-size: 1.3rem;
+    font-weight: $bold;
+    margin-left: 5vw;
+}
+.modify{
+    text-decoration: $underlined;
+    text-align: center;
+} 
+.box{
+    border-bottom: $border-bottom;
+    position: relative;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 35vw;
+}
+.grp{
+   justify-content: space-around;
+  
+   }
+
+.Head{
+    position: relative;
+    color: $black; 
+    font-size: 18px; 
+    font-weight: bold; 
+    font-size: $title;
+    text-align: center;
+ 
+}

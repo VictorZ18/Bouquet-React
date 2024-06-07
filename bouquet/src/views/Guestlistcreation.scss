@@ -1,0 +1,22 @@
+@import "./App.scss";
+
+.selectAllCircle {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  border-radius: 50%; /* Ensures the div appears as a circle */
+  background-color: $white; /* Set the color of the circle */
+  border: 1px solid $black;
+  margin-right: $margin;
+}
+
+.circlewrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: $margin;
+}
+
+.cheers {
+  width: 100vw;
+  height: auto;
+  margin-top: $margin;
+}

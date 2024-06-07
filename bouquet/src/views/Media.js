@@ -1,11 +1,11 @@
-import './App.scss';
-import Navbar from '../components/navbar';
-import SideMenu from '../components/sideNav';
+import "./App.scss";
+import Navbar from "../components/navbar";
+import SideMenu from "../components/sideNav";
 
 function Media() {
   return (
     <div className="App">
-        <SideMenu />
+      <SideMenu />
       <header className="App-header">
         <p> Bouquet </p>
         <p> This is media </p>

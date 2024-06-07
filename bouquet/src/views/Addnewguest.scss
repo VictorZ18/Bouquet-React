@@ -1,0 +1,31 @@
+.Inputtext{
+    border-bottom: 1px solid #FE0074;
+    border-radius: 0.625rem;
+    padding-left: 3vw;
+    color: gray;
+    margin-bottom: 3vh;
+    width: 80vw;
+    padding-bottom: 1vh;
+
+};
+.cheersimg{
+    width: 70vw;
+}
+.Inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Inputnumber {
+    border-bottom: 1px solid #FE0074;
+    position: relative;
+    border-radius: 0.625rem;
+    width: 80vw;
+    padding-bottom: 1vh;
+    margin-bottom: 3vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: gray;
+}

@@ -1,0 +1,51 @@
+@import "./App.scss";
+
+.moneyfield{
+    box-shadow: $shadow-above;
+    border-bottom: $border-bottom;
+    position: relative;
+    border-radius: $border-radius;
+    margin-left: $margin-page-bottom;
+    margin-right: $margin-page-bottom;
+    margin-bottom: $margin;
+    margin-top: $margin;
+    padding-top: $padding;
+    padding-bottom: $padding;
+    text-align: center;
+}
+
+.cardnumber{
+    border-bottom: $border-bottom;
+    position: relative;
+    border-radius: $border-radius;
+    margin-right: $margin;
+    margin-left: $margin;
+    padding-bottom: 1vh;
+    margin-top: $margin;
+    justify-content: space-evenly;
+    font-size: larger;
+    color: $grey;
+
+}
+
+.cvc{
+    border-bottom: $border-bottom;
+    position: relative;
+    border-radius: $border-radius;
+    margin-right: $margin-double;
+    margin-left: $margin-double;
+    padding-bottom: 1vh;
+    justify-content: space-evenly;
+    font-size: larger;
+    color: $grey;
+}
+
+.payment{
+    margin: $margin;
+    width: 90%;
+}
+
+.StripeCheckout{
+    padding:  15px;
+    width: 90vw;
+ }

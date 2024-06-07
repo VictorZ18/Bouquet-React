@@ -1,0 +1,65 @@
+@import "./App.scss";
+
+.reply {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-bottom: $border-black;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  margin-top: $margin;
+  align-items: center;
+}
+
+.status {
+  display: flex;
+  flex-direction: row;
+  color: $pink;
+  font-size: $navigation;
+  margin-left: $margin;
+  justify-content: space-around;
+}
+
+.invitation {
+  display: flex;
+  flex-direction: wrap;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-bottom: $border-black;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  margin-top: $margin;
+}
+
+.event {
+  align-items: center;
+}
+
+.more {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-align: center;
+}
+
+.signreply {
+  display: flex;
+  flex-direction: row;
+}
+
+.circle {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: green;
+  margin-right: $margin-half;
+}
+
+.messagereminder {
+  margin-left: $margin;
+  margin-right: $margin;
+  margin-top: 0;
+}
+
+.titleMargin {
+  padding-top: $padding-page-top;
+}

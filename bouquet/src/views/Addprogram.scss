@@ -1,0 +1,24 @@
+@import "./App.scss";
+
+.group{
+    border-bottom: $border-bottom;
+    position: relative;
+    border-radius: $border-radius;
+    box-shadow: $shadow-above;
+    margin-top: $margin;
+}
+
+.eventInfo {
+    margin-left: $margin;
+    margin-top: $margin-half;
+}
+
+h2.eventInfo {
+    padding-top: $padding;
+}
+
+.add{
+    position: fixed;
+    bottom: 8vh;
+    right: 10vw;
+}

@@ -1,0 +1,13 @@
+@import "./App.scss";
+
+.event{
+    border-bottom: $border-bottom;
+    position: relative;
+    padding-left: $padding;
+    padding-bottom: $padding;
+    padding-top: $padding;
+    border-radius: $border-radius;
+    margin-right: $margin;
+    margin-left: $margin;
+    font-size: large;
+}
