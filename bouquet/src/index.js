@@ -32,6 +32,9 @@ import Publishwedding from "./views/Publishwedding";
 import Cityhallguestlist from "./views/Cityhallguestlist";
 import Addnewguest from "./views/Addnewguest";
 import Guestpage from "./views/Guestpage";
+import User from './views/User';
+import SuppliersRegister from './views/SuppliersRegister';
+import VenueMap from './views/VenueMap';
 
 export default function App() {
   return (
@@ -49,8 +52,8 @@ export default function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/suppliersCategories" element={<SuppliersCategories />} />
         <Route path="/suppliersQuestions" element={<SuppliersQuestions />} />
-        <Route path="/CaterersList" element={<CaterersList />} />
-        <Route path="/CaterersPage" element={<CaterersPage />} />
+        <Route path="/CaterersList/:categoriesName" element={<CaterersList />} />
+        <Route path="/CaterersPage/:categoriesName/:supplierName" element={<CaterersPage />} />
         <Route path="/Todo" element={<Todo />} />
         <Route path="/Createdpage" element={<Createdpage />} />
         <Route path="/Reminderpage" element={<Reminderpage />} />
@@ -69,6 +72,9 @@ export default function App() {
         <Route path="/Cityhallguestlist" element={<Cityhallguestlist />} />
         <Route path="/Addnewguest" element={<Addnewguest />} />
         <Route path="/Guestpage" element={<Guestpage />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/suppliersRegister" element={<SuppliersRegister />} />
+        <Route path="/venueMap" element={<VenueMap />} />
       </Routes>
     </BrowserRouter>
   );

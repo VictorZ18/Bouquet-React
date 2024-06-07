@@ -10,7 +10,7 @@ class CaterersController {
         };
     }
     static create_a_caterer = async (req, res) => {
-        const newCategory = new Caterers(req.body)
+        const newCaterer = new Caterers(req.body)
         try {
             const result = await newCaterer.save()
             res.send(result)

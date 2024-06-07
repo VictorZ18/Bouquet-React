@@ -97,6 +97,16 @@ h2 {
   background-color: $white;
 }
 
+.organizerNav{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.guestNav{
+  display: none;
+}
+
 a {
   color: $black;
 }
@@ -207,4 +217,29 @@ a {
 .coverimg {
   width: 100vw; // Adjust as needed
   height: auto; // Adjust as needed
+}
+.map {
+  height: 20vh;
+  width: 90vw;
+}
+
+.mapLarge {
+  height: 70vh;
+  width: 100vw;
+}
+
+.search-city {
+  margin: $margin;
+  margin-top: (2*$margin-double);
+}
+
+.buttonSearch{
+  background-color: $pink;
+  border: none;
+  border-radius: $border-radius;
+  text-align: center;
+  margin: $margin;
+  color: $white;
+  padding: $padding-button;
+  font-size: $body-large;
 }

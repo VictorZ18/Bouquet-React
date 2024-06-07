@@ -10,12 +10,13 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-const User = require("./src/backend/models/user.js");
-const Categories = require("./src/backend/models/categories.js");
-const Caterers = require("./src/backend/models/caterers.js");
-const Reviews = require("./src/backend/models/reviews.js");
-require("dotenv").config();
-const mongoose = require("mongoose");
+const User = require('./src/backend/models/user.js');
+const Categories = require('./src/backend/models/categories.js');
+const Suppliers = require('./src/backend/models/suppliers.js');
+const Reviews = require('./src/backend/models/reviews.js');
+const Caterers = require('./src/backend/models/caterers.js');
+require('dotenv').config();
+const mongoose = require('mongoose');
 
 const uri = process.env.DATABASE_URL;
 
@@ -62,14 +63,14 @@ app.get("/api/categories", async (req, res) => {
   }
 });
 
-app.get("/api/caterers", async (req, res) => {
-  try {
-    const caterers = await Caterers.find();
-    res.json(caterers);
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("Server Error");
-  }
+app.get('/api/suppliers', async (req, res) => {
+    try {
+        const suppliers = await Suppliers.find()
+        res.json(suppliers);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server Error');
+    }
 });
 
 app.get("/api/reviews", async (req, res) => {
@@ -80,6 +81,16 @@ app.get("/api/reviews", async (req, res) => {
     console.log(err);
     res.status(500).send("Server Error");
   }
+});
+
+app.get('/api/caterers', async (req, res) => {
+    try {
+        const caterers = await Caterers.find()
+        res.json(caterers);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server Error');
+    }
 });
 
 app.listen(port, () => {
