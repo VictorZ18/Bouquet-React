@@ -1,91 +1,106 @@
 import './CaterersPage.scss';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../components/button.js';
+import { useParams } from 'react-router-dom';
 import Map from '../components/Map.js';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [reviews, setReviews] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [suppliers, setSuppliers] = useState([]);
-  const [caterers, setCaterers] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [user, setUser] = useState([]);
+  const [supplier, setSupplier] = useState([]);
+  const [caterers, setCaterer] = useState([]);
+  const [categories, setCategory] = useState([]);
   const [venues, setVenues] = useState([]);
-  let { categoriesName, supplierName } = useParams();
-  const navigate = useNavigate();
+  let { categoriesName } = useParams();
+  let { supplierName } = useParams();
 
   useEffect(() => {
-    let isMounted = true; // Track if the component is mounted
-
-    axios.get("http://localhost:4000/api/reviews")
+    axios
+      .get("http://localhost:4000/api/reviews")
       .then((res) => {
-        if (isMounted) setReviews(res.data);
+        setReviews(res.data);
       })
-      .catch((err) => console.log(err));
-
-    axios.get("http://localhost:4000/api/users")
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get("http://localhost:4000/api/users")
       .then((res) => {
-        if (isMounted) setUsers(res.data);
+        setUser(res.data);
       })
-      .catch((err) => console.log(err));
-
-    axios.get("http://localhost:4000/api/suppliers")
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get("http://localhost:4000/api/suppliers")
       .then((res) => {
-        if (isMounted) setSuppliers(res.data);
+        setSupplier(res.data);
       })
-      .catch((err) => console.log(err));
-
-    axios.get("http://localhost:4000/api/caterers")
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get("http://localhost:4000/api/caterers")
       .then((res) => {
-        if (isMounted) setCaterers(res.data);
+        setCaterer(res.data);
       })
-      .catch((err) => console.log(err));
-
-    axios.get("http://localhost:4000/api/categories")
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get("http://localhost:4000/api/categories")
       .then((res) => {
-        if (isMounted) setCategories(res.data);
+        setCategory(res.data);
       })
-      .catch((err) => console.log(err));
-
-    axios.get("http://localhost:4000/api/venues")
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get("http://localhost:4000/api/venues")
       .then((res) => {
-        if (isMounted) setVenues(res.data);
+        setVenues(res.data);
       })
-      .catch((err) => console.log(err));
-
-    return () => {
-      isMounted = false; // Cleanup function to set isMounted to false when the component unmounts
-    };
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="App">
       <div className="image-container">
         <img className='back-arrow absolute' src={require('../icons/arrow-white.png')} alt="back" onClick={() => navigate(-1)} />
         <img className="supplierscards1" src={require('../media/chef (2).png')} alt="Caterer" />
-        {suppliers.map((supplier) => {
+        {supplier.map((supplier) => {
           if (supplier.supplier_name === supplierName) {
-            let specialities;
-            let speciality;
-            let map;
+            let specialities
+            let speciality
+            let map
             if (categoriesName === "Caterers") {
               const caterer = caterers.find(caterer => caterer.supplier_id === supplier._id);
               if (caterer) {
-                specialities = caterer.caterer_speciality.length === 1 ? "Speciality" : "Specialities";
-                speciality = caterer.caterer_speciality;
+                if (caterer.caterer_speciality.length = 1) {
+                  specialities = "Speciality"
+                } else if (caterer.caterer_speciality.length > 1) {
+                  specialities = "Specialities"
+                }
+                console.log(caterer);
+                speciality = caterer.caterer_speciality
               }
             }
             if (categoriesName === "Venues") {
               const venue = venues.find(venue => venue.supplier_id === supplier._id);
               if (venue) {
-                specialities = "Location";
-                speciality = venue.venue_address;
-                map = <Map keyId={venue._id} name={supplierName} address={venue.venue_address} latitude={venue.venue_latitude} longitude={venue.venue_longitude} />;
+                specialities = "Location"
+                speciality = venue.venue_address
+                map = <Map keyId={venue._id} name={supplierName} address={venue.venue_address} latitude={venue.venue_latitude} longitude={venue.venue_longitude}/>
               }
             }
             return (
-              <div className="stroked-element1" key={supplier._id}>
+              <div className="stroked-element1" key={supplier._id}><p className='supplier'></p>
                 <h1 className="catererName"> {supplier.supplier_name} </h1>
                 <div className='specialities'>
                   <h2>{specialities}</h2>
@@ -127,20 +142,25 @@ function App() {
 
         <div className='reviewsSlider'>
           {reviews.map((review) => {
-            const reviewer = users.find(user => user._id === review.reviewer_id);
-            const caterer = suppliers.find(supplier => supplier._id === review.caterer_id);
-            if (caterer && caterer.supplier_name === "Salsa y maragaritas" && reviewer) {
-              return (
-                <div key={review._id} className="reviewCard">
-                  <p className='reviewername'>{reviewer.firstName} {reviewer.lastName}
-                    <img className="groupstars" src={require('../media/groupstars.png')} alt="stars" />
-                  </p>
-                  <p className='reviewText'>{review.review}</p>
-                </div>
-              );
+            const reviewer = user.find(user => user._id === review.reviewer_id);
+            const catererId = supplier.find(supplier => supplier._id === review.caterer_id);
+            if (catererId) {
+              if (catererId.supplier_name === "Salsa y maragaritas") {
+                if (reviewer) {
+                  return (
+                    <div key={review._id} className="reviewCard">
+                      <p className='reviewername'>{reviewer.firstName} {reviewer.lastName}
+                        <img className="groupstars" src={require('../media/groupstars.png')} alt="stars" />
+                      </p>
+                      <p className='reviewText'>{review.review}</p>
+                    </div>
+                  );
+                }
+              }
             }
           })}
         </div>
+
 
         <div className='addSupplier'>
           <p className='bookDescription'>Once you've booked a supplier,
@@ -150,7 +170,9 @@ function App() {
         </div>
       </div>
     </div>
+
   );
 }
 
 export default App;
+
