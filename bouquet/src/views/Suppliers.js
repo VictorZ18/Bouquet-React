@@ -27,7 +27,9 @@ function Suppliers() {
         You can add later if you booked your own suppliers.
       </p>
       <Link to="/suppliersCategories">
+      <div className="marginBottom">
         <Button text="Confirm" />
+      </div>
       </Link>
       <Navbar />
     </div>

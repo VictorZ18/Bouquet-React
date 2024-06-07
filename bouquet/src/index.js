@@ -44,7 +44,7 @@ export default function App() {
         <Route path="/suppliers" element={<Suppliers />} />
         <Route path="/program" element={<Program />} />
         <Route path="/guests" element={<Guests />} />
-        <Route path="/checklistpage" element={<Checklistpage />} />
+        <Route path="/checklist" element={<Checklistpage />} />
         <Route path="/budget" element={<Budget />} />
         <Route path="/personalization" element={<Personalization />} />
         <Route path="/account" element={<Account />} />
