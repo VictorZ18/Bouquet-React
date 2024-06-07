@@ -20,7 +20,7 @@ import Createdpage from "./views/Createdpage";
 import Reminderpage from "./views/Reminderpage";
 import Addpage from "./views/Addpage";
 import Addprogram from "./views/Addprogram";
-import Momentselection from "./views/Momentseclection";
+import Momentselection from "./views/Momentselection";
 import Momentcreation from "./views/Momentcreation";
 import Momentpage from "./views/Momentpage";
 import Guestlistcreation from "./views/Guestlistcreation";

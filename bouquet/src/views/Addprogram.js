@@ -10,14 +10,13 @@ function addprogram() {
       <SideMenu />
       <header className="App-header">
         <div className="wrapper">
-          <p className="tittle"> Your program</p>
+          <h1 className="titlePage titleMargin"> Your program</h1>
 
-          <Link to="/Momentcreation">
+          <Link to="/Momentpage">
             <Programdetails />
           </Link>
-          <Programdetails />
 
-          <Link to="/Momentcreation">
+          <Link to="/Momentselection">
             <img className="add" src={require("../media/Add.png")} alt="" />
           </Link>
         </div>

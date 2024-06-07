@@ -8,21 +8,19 @@ function checklistpage() {
       <div className="leftarrow">
         <Link to="/Program">
           <img
-            className="arrow-left"
+            className="back-arrow"
             src={require("../icons/arrow-left.png")}
             alt="arrow-right"
           />
         </Link>
-        <p className="reminders">Back</p>
       </div>
 
       <div className="wrapper">
-        <p className="tittle"> Choose a moment to add to your program</p>
+        <h1 className="titlePage titleMargin"> Choose a moment to add to your program</h1>
         <div className="programgroup">
-          <Link to="/Addprogram">
+          <Link to="/Momentcreation">
             <p className="event">City hall</p>
             <p className="event">Religious Ceremony</p>
-            <p className="event">City hall</p>
             <p className="event">Reception</p>
           </Link>
         </div>

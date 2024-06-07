@@ -8,17 +8,15 @@ function checklistpage() {
       <div className="leftarrow">
         <Link to="/Addprogram">
           <img
-            className="arrow-left"
-            src={require("../icons/arrow-left.png")}
+            className="back-arrow"
+            src={require("../icons/arrow-white.png")}
             alt="arrow-right"
           />
         </Link>
-
-        <p className="reminders">Back</p>
       </div>
-      <div className="flower">
+      <div className="cover">
         <img
-          className="flowerimg"
+          className="coverimg"
           src={require("../media/cityhall.png")}
           alt=""
         />

@@ -5,23 +5,21 @@ import { Link } from "react-router-dom";
 function checklistpage() {
   return (
     <div className="App ">
-      <header className="App-header"></header>
       <div className="leftarrow">
         <Link to="/Program">
           <img
-            className="arrow-left"
-            src={require("../icons/arrow-left.png")}
+            className="back-arrow"
+            src={require("../icons/arrow-white.png")}
             alt="arrow-right"
           />
         </Link>
 
-        <p className="reminders">Back</p>
       </div>
-      <div className="flower">
+      <div className="cover">
         <img
-          className="flowerimg"
+          className="coverimg"
           src={require("../media/cityhall.png")}
-          alt=""
+          alt="event-cover"
         />
       </div>
       <div className="rectangle"></div>

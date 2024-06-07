@@ -5,13 +5,15 @@
     position: relative;
     border-radius: $border-radius;
     box-shadow: $shadow-above;
+    margin-top: $margin;
 }
 
 .eventInfo {
     margin-left: $margin;
+    margin-top: $margin-half;
 }
 
-.eventInfo:first-child{
+h2.eventInfo {
     padding-top: $padding;
 }
 
