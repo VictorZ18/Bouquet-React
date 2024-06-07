@@ -18,7 +18,7 @@ function checklistpage() {
         <img
           className="coverimg"
           src={require("../media/cityhall.png")}
-          alt=""
+          alt="coverimg"
         />
       </div>
       <div className="rectangle"></div>
