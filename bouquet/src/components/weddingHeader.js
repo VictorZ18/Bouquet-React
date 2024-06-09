@@ -6,13 +6,12 @@ import React, { useState, useEffect } from 'react';
 
 function WeddingHeader() {
     const [users, setUsers] = useState([]);
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    console.log("Inside useEffect");
-    axios.get('http://localhost:4000/api/users')
+    axios.get(`${apiBaseUrl}/users`)
       .then(res => {
         setUsers(res.data);
-        console.log(res.data);
       })
       .catch(err => {
         console.log(err);

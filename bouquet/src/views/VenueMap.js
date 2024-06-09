@@ -4,10 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import './App.scss';
 
 function VenueMap() {
+    const geocodeApiUrl = process.env.GEOCODE;
+    const geocodeApiKey = process.env.GEOCODE_API_KEY;
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+    console.log(geocodeApiKey, geocodeApiUrl, apiBaseUrl);
     const [inputValue, setInputValue] = useState('');
     const [cityQuery, setCityQuery] = useState('Mechelen');
     const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
-    const [zoom, setZoom] = useState(7); // State for zoom level
+    const [zoom, setZoom] = useState(7); 
     const api_key = 'e2929cac460f4765a7e8088612e9dcdb';
     const api_url = 'https://api.opencagedata.com/geocode/v1/json';
     const navigate = useNavigate();

@@ -5,13 +5,14 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function MapLarge(props) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [venues, setVenues] = useState([]);
   const [supplier, setSupplier] = useState([]);
   const [key, setKey] = useState(0); // Key to force re-render of MapContainer
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/venues")
+      .get(`${apiBaseUrl}/venues`)
       .then((res) => {
         setVenues(res.data);
       })
@@ -19,7 +20,7 @@ function MapLarge(props) {
         console.log(err);
       });
     axios
-      .get("http://localhost:4000/api/suppliers")
+      .get(`${apiBaseUrl}/suppliers`)
       .then((res) => {
         setSupplier(res.data);
       })

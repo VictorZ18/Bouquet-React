@@ -1,5 +1,6 @@
+import React from 'react';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import '../views/App.scss';
-import { Outlet, Link } from 'react-router-dom';
 import homeOn from '../icons/home_on.png';
 import homeOff from '../icons/home_off.png';
 import suppliersOn from '../icons/suppliers_on.png';
@@ -10,85 +11,76 @@ import checklistOn from '../icons/checklist_on.png';
 import checklistOff from '../icons/checklist_off.png';
 import programOn from '../icons/program_on.png';
 import programOff from '../icons/program_off.png';
-import { useLocation } from 'react-router-dom';
 import giftOff from '../icons/gift.png';
 import giftOn from '../icons/gift_on.png';
 import messagesOff from '../icons/messages.png';
 import messagesOn from '../icons/messages_on.png';
 import mediaOff from '../icons/media.png';
 
-let homeIcon = document.querySelector(".iconImg.home");
-let suppliersIcon = document.querySelector(".iconImg.suppliers");
-
 function Navbar() {
+  const location = useLocation();
+
+  const ChangeIcon = (path, onIcon, offIcon) => {
+    return location.pathname === path ? onIcon : offIcon;
+  };
+
   return (
     <div className="navbar">
-      <div className="icon" /*onClick={ChangeIcon()}*/>
-        <Link to="/" >
-          <img className="iconImg home" src={homeOn} alt="overview" />
-          <p className="navTag active"> Overview </p>
+      <div className="icon">
+        <Link to="/home">
+          <img className="iconImg home" src={ChangeIcon("/home", homeOn, homeOff)} alt="overview" />
+          <p className={`navTag ${location.pathname === "/home" ? "active" : ""}`}> Overview </p>
         </Link>
       </div>
       <div className="organizerNav">
         <div className="icon">
           <Link to="/suppliers">
-            <img className="iconImg suppliers" src={suppliersOff} alt="suppliers" />
-            <p className="navTag"> Suppliers </p>
+            <img className="iconImg suppliers" src={ChangeIcon("/suppliers", suppliersOn, suppliersOff)} alt="suppliers" />
+            <p className={`navTag ${location.pathname === "/suppliers" ? "active" : ""}`}> Suppliers </p>
           </Link>
         </div>
         <div className="icon">
           <Link to="/guests">
-            <img className="iconImg guests" src={guestOff} alt="guests" />
-            <p className="navTag"> Guests </p>
+            <img className="iconImg guests" src={ChangeIcon("/guests", guestsOn, guestOff)} alt="guests" />
+            <p className={`navTag ${location.pathname === "/guests" ? "active" : ""}`}> Guests </p>
           </Link>
         </div>
         <div className="icon">
           <Link to="/checklist">
-            <img className="iconImg checklist" src={checklistOff} alt="checklist" />
-            <p className="navTag"> Checklist </p>
+            <img className="iconImg checklist" src={ChangeIcon("/checklist", checklistOn, checklistOff)} alt="checklist" />
+            <p className={`navTag ${location.pathname === "/checklist" ? "active" : ""}`}> Checklist </p>
           </Link>
         </div>
         <div className="icon">
           <Link to="/program">
-            <img className="iconImg program" src={programOff} alt="program" />
-            <p className="navTag"> Program </p>
+            <img className="iconImg program" src={ChangeIcon("/program", programOn, programOff)} alt="program" />
+            <p className={`navTag ${location.pathname === "/program" ? "active" : ""}`}> Program </p>
           </Link>
         </div>
       </div>
       <div className="guestNav">
         <div className="icon">
-          <Link to="">
-            <img className="iconImg media" src={mediaOff} alt="guests" />
-            <p className="navTag"> Media </p>
+          <Link to="/media">
+            <img className="iconImg media" src={ChangeIcon("/media", mediaOff, mediaOff)} alt="media" />
+            <p className={`navTag ${location.pathname === "/media" ? "active" : ""}`}> Media </p>
           </Link>
         </div>
         <div className="icon">
-          <Link to="">
-            <img className="iconImg gift" src={giftOff} alt="gift" />
-            <p className="navTag"> Giftlist </p>
+          <Link to="/giftlist">
+            <img className="iconImg gift" src={ChangeIcon("/giftlist", giftOn, giftOff)} alt="gift" />
+            <p className={`navTag ${location.pathname === "/giftlist" ? "active" : ""}`}> Giftlist </p>
           </Link>
         </div>
         <div className="icon">
-          <Link to="">
-            <img className="iconImg messages" src={messagesOff} alt="messages" />
-            <p className="navTag"> Messages </p>
+          <Link to="/messages">
+            <img className="iconImg messages" src={ChangeIcon("/messages", messagesOn, messagesOff)} alt="messages" />
+            <p className={`navTag ${location.pathname === "/messages" ? "active" : ""}`}> Messages </p>
           </Link>
         </div>
       </div>
       <Outlet />
     </div>
   );
-}
-
-function ChangeIcon() {
-    let location = useLocation();
-    console.log(location);
-    if (location.pathname === "/") {
-        console.log(homeIcon.src);
-    } else if (location.pathname === "/suppliers") {
-        console.log(suppliersIcon.src);
-        suppliersIcon.src = suppliersOn;
-    } 
 }
 
 export default Navbar;

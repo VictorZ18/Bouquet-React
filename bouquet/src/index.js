@@ -35,48 +35,60 @@ import Guestpage from "./views/Guestpage";
 import User from './views/User';
 import SuppliersRegister from './views/SuppliersRegister';
 import VenueMap from './views/VenueMap';
+import Welcome from "./views/Welcome";
+import Register from "./views/UserRegister";
+import { Provider } from "react-redux";
+import { PersistGate } from 'redux-persist/integration/react';
+import { store } from "./persistConfig";
+import { persistor } from "./persistConfig";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/suppliers" element={<Suppliers />} />
-        <Route path="/program" element={<Program />} />
-        <Route path="/guests" element={<Guests />} />
-        <Route path="/checklist" element={<Checklistpage />} />
-        <Route path="/budget" element={<Budget />} />
-        <Route path="/personalization" element={<Personalization />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/media" element={<Media />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/suppliersCategories" element={<SuppliersCategories />} />
-        <Route path="/suppliersQuestions" element={<SuppliersQuestions />} />
-        <Route path="/CaterersList/:categoriesName" element={<CaterersList />} />
-        <Route path="/CaterersPage/:categoriesName/:supplierName" element={<CaterersPage />} />
-        <Route path="/Todo" element={<Todo />} />
-        <Route path="/Createdpage" element={<Createdpage />} />
-        <Route path="/Reminderpage" element={<Reminderpage />} />
-        <Route path="/Addpage" element={<Addpage />} />
-        <Route path="/Addprogram" element={<Addprogram />} />
-        <Route path="/Momentselection" element={<Momentselection />} />
-        <Route path="/Momentcreation" element={<Momentcreation />} />
-        <Route path="/Momentpage" element={<Momentpage />} />
-        <Route path="/Guestlistcreation" element={<Guestlistcreation />} />
-        <Route path="/Guestlist" element={<Guestlist />} />
-        <Route path="/Paymentcheckout" element={<Paymentcheckout />} />
-        <Route path="/Paymentinfo" element={<Paymentinfo />} />
-        <Route path="/checkout" element={<Paymentcheckout />} />
-        <Route path="/Success" element={<Success />} />
-        <Route path="/Publishwedding" element={<Publishwedding />} />
-        <Route path="/Cityhallguestlist" element={<Cityhallguestlist />} />
-        <Route path="/Addnewguest" element={<Addnewguest />} />
-        <Route path="/Guestpage" element={<Guestpage />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/suppliersRegister" element={<SuppliersRegister />} />
-        <Route path="/venueMap" element={<VenueMap />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/suppliers" element={<Suppliers />} />
+            <Route path="/program" element={<Program />} />
+            <Route path="/guests" element={<Guests />} />
+            <Route path="/checklist" element={<Checklistpage />} />
+            <Route path="/budget" element={<Budget />} />
+            <Route path="/personalization" element={<Personalization />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/suppliersCategories" element={<SuppliersCategories />} />
+            <Route path="/suppliersQuestions" element={<SuppliersQuestions />} />
+            <Route path="/CaterersList/:categoriesName" element={<CaterersList />} />
+            <Route path="/CaterersPage/:categoriesName/:supplierName" element={<CaterersPage />} />
+            <Route path="/Todo" element={<Todo />} />
+            <Route path="/Createdpage" element={<Createdpage />} />
+            <Route path="/Reminderpage" element={<Reminderpage />} />
+            <Route path="/Addpage" element={<Addpage />} />
+            <Route path="/Addprogram" element={<Addprogram />} />
+            <Route path="/Momentselection" element={<Momentselection />} />
+            <Route path="/Momentcreation" element={<Momentcreation />} />
+            <Route path="/Momentpage" element={<Momentpage />} />
+            <Route path="/Guestlistcreation" element={<Guestlistcreation />} />
+            <Route path="/Guestlist" element={<Guestlist />} />
+            <Route path="/Paymentcheckout" element={<Paymentcheckout />} />
+            <Route path="/Paymentinfo" element={<Paymentinfo />} />
+            <Route path="/checkout" element={<Paymentcheckout />} />
+            <Route path="/Success" element={<Success />} />
+            <Route path="/Publishwedding" element={<Publishwedding />} />
+            <Route path="/Cityhallguestlist" element={<Cityhallguestlist />} />
+            <Route path="/Addnewguest" element={<Addnewguest />} />
+            <Route path="/Guestpage" element={<Guestpage />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/suppliersRegister" element={<SuppliersRegister />} />
+            <Route path="/venueMap" element={<VenueMap />} />
+            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/" element={<Register />} />
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   );
 }
 

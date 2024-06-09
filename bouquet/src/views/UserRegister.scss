@@ -1,0 +1,21 @@
+@import "./App.scss";
+
+.registerForm, .loginForm {
+    margin-top: $margin-double;
+}
+
+.registerText {
+    text-align: center;
+    margin-left: $margin;
+    margin-right: $margin;
+}
+
+.loginLinkSection {
+    text-align: center;
+}
+
+.loginLink {
+    color: $pink;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}

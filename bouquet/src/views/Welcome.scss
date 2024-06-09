@@ -1,0 +1,41 @@
+@import "./App.scss";
+
+.welcome {
+    background-image: url("../media/welcome.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: absolute;
+}
+
+.welcomeText {
+    text-align: center;
+}
+
+.marginDouble {
+    margin-top: $margin-double;
+}
+
+.logo {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.welcomeButton {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: $margin-double;
+}
+
+.trigger {
+    color: $white;
+}
+
+.guestOption {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    color: $white;
+}

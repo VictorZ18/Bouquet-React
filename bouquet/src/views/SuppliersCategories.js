@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function SuppliersCategories() {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:4000/api/categories')
+    axios.get(`${apiBaseUrl}/categories`)
       .then(res => {
         setCategories(res.data);
       })

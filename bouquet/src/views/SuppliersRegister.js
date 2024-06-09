@@ -5,14 +5,15 @@ import axios from 'axios';
 
 
 function SuppliersRegister() {
-  
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showCatererInfo, setShowCatererInfo] = useState(false);
   const [showVenueInfo, setShowVenueInfo] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/api/categories')
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+    axios.get(`${apiBaseUrl}/categories`)
       .then(res => {
         console.log(res.data);
         setCategories(res.data);
@@ -88,13 +89,13 @@ function SuppliersRegister() {
     if (selectedCategory && selectedCategory.category_name === 'Caterers') {
       const speciality = document.getElementById('speciality').value;
       console.log(speciality);
-      axios.post('http://localhost:4000/api/suppliers/create',
+      axios.post(`${apiBaseUrl}/suppliers/create`,
       { supplier_name: name, supplier_picture: file, supplier_price: price, categories_id: category })
       .then(res => {
         console.log('Supplier:', res.data); // Log the created supplier data
         // Add the created supplier to the state
         setData(prevData => [...prevData, res.data]);
-          axios.post('http://localhost:4000/api/caterers/create',
+          axios.post(`${apiBaseUrl}/caterers/create`,
           { caterer_speciality: speciality, category_id: category, supplier_id: res.data._id })
           .then(res => {
             console.log(res.data);
@@ -137,13 +138,13 @@ function SuppliersRegister() {
             var coordinates = data.results[0].geometry;
             console.log("Latitude:", coordinates.lat);
             console.log("Longitude:", coordinates.lng);
-            axios.post('http://localhost:4000/api/suppliers/create',
+            axios.post(`${apiBaseUrl}/suppliers/create`,
             { supplier_name: name, supplier_picture: file, supplier_price: price, categories_id: category })
             .then(res => {
               console.log('Supplier:', res.data); // Log the created supplier data
               // Add the created supplier to the state
               setData(prevData => [...prevData, res.data]);
-                axios.post('http://localhost:4000/api/venues/create',
+                axios.post(`${apiBaseUrl}/venues/create`,
                 { venue_longitude: coordinates.lng, venue_latitude: coordinates.lat, venue_address: query, category_id: category, supplier_id: res.data._id })
                 .then(res => {
                   console.log(res.data);

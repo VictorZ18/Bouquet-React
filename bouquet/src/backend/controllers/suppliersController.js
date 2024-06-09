@@ -20,7 +20,7 @@ class SuppliersController {
     }
     static read_a_supplier = async (req, res) => {
         try {
-            const result = await Caterers.findById(req.params.id)
+            const result = await Suppliers.findById(req.params.id)
             res.send(result)
         } catch (error) {
             console.log(error)

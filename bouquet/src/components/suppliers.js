@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Supp() {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/api/categories')
+    axios.get(`${apiBaseUrl}/categories`)
       .then(res => {
         setCategories(res.data);
         setSelectedCategories(Array(res.data.length).fill(false));

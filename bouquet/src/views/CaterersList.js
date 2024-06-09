@@ -9,10 +9,7 @@ import MapLarge from '../components/mapLarge';
 
 function App() {
 
-  //const { state } = props.location;
-  //const { name, id } = state;
-  //console.log(name, id);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [suppliers, setSuppliers] = useState([]);
   const [caterers, setCaterers] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -21,7 +18,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/suppliers")
+      .get(`${apiBaseUrl}/suppliers`)
       .then((res) => {
         setSuppliers(res.data);
       })
@@ -29,7 +26,7 @@ function App() {
         console.log(err);
       });
     axios
-      .get("http://localhost:4000/api/caterers")
+      .get(`${apiBaseUrl}/caterers`)
       .then((res) => {
         setCaterers(res.data);
       })
@@ -37,7 +34,7 @@ function App() {
         console.log(err);
       });
     axios
-      .get("http://localhost:4000/api/reviews")
+      .get(`${apiBaseUrl}/reviews`)
       .then((res) => {
         setReviews(res.data);
       })
@@ -45,7 +42,7 @@ function App() {
         console.log(err);
       });
     axios
-      .get("http://localhost:4000/api/categories")
+      .get(`${apiBaseUrl}/categories`)
       .then((res) => {
         setCategories(res.data);
       })

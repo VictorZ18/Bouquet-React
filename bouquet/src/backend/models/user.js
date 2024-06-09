@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String},
   password: { type: String},
   role: { type: String, default: 'organizer'},
-  accountType: { type: String, required: true, default: 'free'},
+  accountType: { type: String, default: 'free'},
   created: { type: Date, default: Date.now },
   updated: { type: Date, default: Date.now },
 });

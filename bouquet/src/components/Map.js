@@ -4,11 +4,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Map(props) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [venues, setVenues] = useState([]);
   const [supplier, setSupplier] = useState([]);
 
   axios
-    .get("http://localhost:4000/api/venues")
+    .get(`${apiBaseUrl}/venues`)
     .then((res) => {
       setVenues(res.data);
     })
@@ -16,7 +17,7 @@ function Map(props) {
       console.log(err);
     });
   axios
-    .get("http://localhost:4000/api/suppliers")
+    .get(`${apiBaseUrl}/suppliers`)
     .then((res) => {
       setSupplier(res.data);
     })
