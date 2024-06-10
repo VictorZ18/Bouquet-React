@@ -24,7 +24,6 @@ import Momentselection from "./views/Momentselection";
 import Momentcreation from "./views/Momentcreation";
 import Momentpage from "./views/Momentpage";
 import Guestlistcreation from "./views/Guestlistcreation";
-import Guestlist from "./views/Guestlist";
 import Paymentcheckout from "./views/Paymentcheckout";
 import Paymentinfo from "./views/Paymentinfo";
 import Success from "./components/Success";
@@ -71,7 +70,6 @@ export default function App() {
             <Route path="/Momentcreation" element={<Momentcreation />} />
             <Route path="/Momentpage" element={<Momentpage />} />
             <Route path="/Guestlistcreation" element={<Guestlistcreation />} />
-            <Route path="/Guestlist" element={<Guestlist />} />
             <Route path="/Paymentcheckout" element={<Paymentcheckout />} />
             <Route path="/Paymentinfo" element={<Paymentinfo />} />
             <Route path="/checkout" element={<Paymentcheckout />} />
@@ -79,7 +77,7 @@ export default function App() {
             <Route path="/Publishwedding" element={<Publishwedding />} />
             <Route path="/Cityhallguestlist" element={<Cityhallguestlist />} />
             <Route path="/Addnewguest" element={<Addnewguest />} />
-            <Route path="/Guestpage" element={<Guestpage />} />
+            <Route path="/Guestpage/:guestId" element={<Guestpage />} />
             <Route path="/user" element={<User />} />
             <Route path="/suppliersRegister" element={<SuppliersRegister />} />
             <Route path="/venueMap" element={<VenueMap />} />

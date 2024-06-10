@@ -6,7 +6,7 @@ function checklistpage() {
   return (
     <div className="App ">
       <div className="leftarrow">
-        <Link to="/Program">
+        <Link to="/Momentselection">
           <img
             className="back-arrow"
             src={require("../icons/arrow-white.png")}

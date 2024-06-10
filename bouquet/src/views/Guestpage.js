@@ -1,18 +1,32 @@
 import "./Addpage.scss";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function Createdpage() {
+  let { guestId } = useParams();
+  const navigate = useNavigate();
+  const [guest, setGuest] = useState([]);
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+
+  axios.get(`${apiBaseUrl}/guests/${guestId}`)
+    .then(res => {
+      setGuest(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
   return (
     <div className="App">
       <div className="leftarrow">
-        <Link to="/Guestlist">
           <img
             className="back-arrow"
             src={require("../icons/arrow-white.png")}
             alt="arrow"
+            onClick={() => navigate(-1)}
           />
-        </Link>
       </div>
 
       <div className="cover">
@@ -25,11 +39,11 @@ function Createdpage() {
 
       <div className="rectangle">
         <div className="wrapper">
-          <h1 className="titlePage subtitlePage">Bob Van Aerschot </h1>
+          <h1 className="titlePage subtitlePage"> {guest.firstName} {guest.lastName}</h1>
 
           <div className="guestInfo">
             <h2 className="guestInfoDetail">Information</h2>
-            <p className="guestInfoDetail">bobvanaerschot@gmail.com</p>
+            <p className="guestInfoDetail">{guest.email}</p>
             <p className="guestInfoDetail">+32 425 00 00 00</p>
           </div>
 

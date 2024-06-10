@@ -53,8 +53,8 @@ function Navbar() {
         </div>
         <div className="icon">
           <Link to="/program">
-            <img className="iconImg program" src={ChangeIcon("/program", programOn, programOff)} alt="program" />
-            <p className={`navTag ${location.pathname === "/program" ? "active" : ""}`}> Program </p>
+            <img className="iconImg program" src={ChangeIcon(["/program", "/Addprogram"], programOn, programOff)} alt="program" />
+            <p className={`navTag ${["/program", "/Addprogram"].includes(location.pathname) ? "active" : ""}`}> Program </p>
           </Link>
         </div>
       </div>
