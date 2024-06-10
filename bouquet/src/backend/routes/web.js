@@ -6,6 +6,9 @@ const ReviewsController = require('../controllers/reviewsController.js');
 const CaterersController = require('../controllers/caterersController.js');
 const VenuesController = require('../controllers/venuesControllers.js');
 const GuestController = require('../controllers/guestsController.js');
+const GuestlistController = require('../controllers/guestlistController.js');
+const EventsController = require('../controllers/eventsController.js');
+const WeddingController = require('../controllers/weddingController.js');
 
 const router = express.Router();
 
@@ -52,6 +55,24 @@ router.get('/guests/:id', GuestController.read_a_guest);
 
 router.post('/guests/create', GuestController.create_a_guest);
 router.post('/guests/login', GuestController.loginUserControllerFn);
+
+router.get('/guestlist', GuestlistController.getAllDoc);
+router.get('/guestlist/create', GuestlistController.getAllDoc);
+router.get('/guestlist/:id', GuestlistController.read_a_guestlist);
+
+router.post('/guestlist/create', GuestlistController.create_a_guestlist);
+
+router.get('/events', EventsController.getAllDoc);
+router.get('/events/create', EventsController.getAllDoc);
+router.get('/events/:id', EventsController.read_an_event);
+
+router.post('/events/create', EventsController.create_an_event);
+
+router.get('/weddings', WeddingController.getAllDoc);
+router.get('/weddings/create', WeddingController.getAllDoc);
+router.get('/weddings/:id', WeddingController.read_a_wedding);
+
+router.post('/weddings/create', WeddingController.create_a_wedding);
 
 
 module.exports = router

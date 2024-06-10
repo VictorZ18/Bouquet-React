@@ -36,6 +36,7 @@ import SuppliersRegister from './views/SuppliersRegister';
 import VenueMap from './views/VenueMap';
 import Welcome from "./views/Welcome";
 import Register from "./views/UserRegister";
+import GuestRegister from "./views/guestRegister";
 import { Provider } from "react-redux";
 import { PersistGate } from 'redux-persist/integration/react';
 import { store } from "./persistConfig";
@@ -82,6 +83,7 @@ export default function App() {
             <Route path="/suppliersRegister" element={<SuppliersRegister />} />
             <Route path="/venueMap" element={<VenueMap />} />
             <Route path="/welcome" element={<Welcome />} />
+            <Route path="/guestRegister" element={<GuestRegister />} />
             <Route path="/" element={<Register />} />
           </Routes>
         </BrowserRouter>

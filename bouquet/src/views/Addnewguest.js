@@ -27,7 +27,7 @@ function Createdpage() {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
-
+    const phone = document.getElementById('phone').value;
 
     axios.get(`${apiBaseUrl}/users/${user.user._id}`)
       .then(res => {
@@ -35,12 +35,12 @@ function Createdpage() {
         console.log(data._id);
         if (data) {
           axios.post(`${apiBaseUrl}/guests/create`,
-            { firstName: firstName, lastName: lastName, email: email, userId: data._id })
+            { firstName: firstName, lastName: lastName, email: email, userId: data._id, phone: phone})
             .then(res => {
               if (res) {
                 const guest = res.data;
                 console.log('Registering successful');
-                navigate('/Guestlist');
+                navigate('/guests');
               } else {
                 console.log('Registering failed');
               }
@@ -57,13 +57,12 @@ function Createdpage() {
 
   return (
     <div className="App">
-      <Link to="/Cityhallguestlist">
         <img
           className="back-arrow"
           src={require("../icons/arrow-left.png")}
           alt="arrow-right"
+          onClick={() => navigate(-1)}
         />
-      </Link>
       <h1 className="titlePage"> New guest</h1>
 
       <form className="registerForm">
@@ -73,14 +72,8 @@ function Createdpage() {
         <input type="text" id="lastName" className="lastName" name="lastName" placeholder='Last name' />
         <label htmlFor="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Email" />
-        <div className="Inputnumber">
-          <img
-            className="arrow-down"
-            src={require("../icons/arrow-down.png")}
-            alt="arrow-right"
-          />
-          <p className="reminders">Phone number</p>
-        </div>
+        <label htmlFor="phone">Phone number</label>
+        <input type="phone" id="phone" name="phone" placeholder="Phone" />
         <button type="submit" text="Register" onClick={submitted} className='button'><p className='buttonText'>Register</p></button>
       </form>
 
@@ -88,7 +81,7 @@ function Createdpage() {
       {isPopupOpen && (
         <div id="popup" class="popup">
           <div className="popup-content">
-            <Link to="/Guestlist">
+            <Link to="/guests">
               <p className="header">You just added a new guest!</p>
               <img
                 className="cheersimg"

@@ -16,8 +16,10 @@ import giftOn from '../icons/gift_on.png';
 import messagesOff from '../icons/messages.png';
 import messagesOn from '../icons/messages_on.png';
 import mediaOff from '../icons/media.png';
+import { useSelector } from 'react-redux';
 
 function Navbar() {
+  const user = useSelector((state) => state.user);
   const location = useLocation();
 
   const ChangeIcon = (paths, onIcon, offIcon) => {

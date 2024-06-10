@@ -38,7 +38,7 @@ function Guests() {
               <p>Invitation status</p>
             </div>
             {guests.map((guest) => (
-              <Link to={`/GuestPage/${guest._id}`}>
+              <Link key={guest._id} to={`/GuestPage/${guest._id}`}>
                 <Cityhallguests
                   key={guest._id}
                   firstName={guest.firstName}
@@ -56,7 +56,10 @@ function Guests() {
             <Button text="Send invitation" />
           </Link>
 
-          <Message />
+          <div className="messageList">
+            <Message />
+          </div>
+
           <Link to="/Addnewguest">
             <img className="add" src={require("../media/Add.png")} alt="" />
           </Link>

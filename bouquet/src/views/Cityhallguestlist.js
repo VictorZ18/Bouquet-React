@@ -34,9 +34,10 @@ function Addprogram() {
         <div className="status">
           <p>A-Z</p>
           <p>RSVP Status</p>
+          <p>Invitation Status</p>
         </div>
         {guests.map((guest) => (
-          <Link to={`/GuestPage/${guest._id}`}>
+          <Link key={guest._id} to={`/GuestPage/${guest._id}`}>
             <Cityhallguests
               key={guest._id}
               firstName={guest.firstName}

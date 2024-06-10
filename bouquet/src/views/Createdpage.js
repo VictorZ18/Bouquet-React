@@ -1,10 +1,12 @@
 import "./Createdpage.scss";
 import Countdown from "../components/countdown";
+import Clock from "../components/clock";
 import Button from "../components/button";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Createdpage() {
+  const deadline = new Date(Date.parse(new Date()) + 120 * 24 * 60 * 60 * 1000);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -34,7 +36,7 @@ function Createdpage() {
         />
       </div>
       <div className="countdownChecklist">
-        <Countdown />
+        <Clock countdown={deadline} onComplete={() => alert('Countdown complete')}/>
       </div>
       <div className="rectangle">
         <div className="wrapper">

@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../userSlice.js';
 
+
 function Login() {
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const dispatch = useDispatch();
@@ -64,7 +65,8 @@ function Login() {
 
     const submitted = async (e) => {
         e.preventDefault();
-        const name = document.getElementById('username').value;
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
@@ -77,14 +79,22 @@ function Login() {
         try {
             const hashedPassword = await bcrypt.hash(password, 10);
             axios.post(`${apiBaseUrl}/users/create`,
-                { firstName: name, lastName: name, email: email, password: hashedPassword })
+                { firstName: firstName, lastName: lastName, email: email, password: hashedPassword })
                 .then(res => {
                     if (res) {
+                        axios.post(`${apiBaseUrl}/weddings/create`,
+                            { user_id: res.data._id, weddingDate: '2022-06-11', weddingTheme: 'Classic' })
+                            .then(res => {
+                                console.log(res.data);
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            });
                         const user = res.data;
                         console.log('Registering successful');
                         const userId = user._id;
                         console.log(userId);
-                        axios.get(`${apiBaseUrl}/users${userId}`)
+                        axios.get(`${apiBaseUrl}/users/${userId}`)
                             .then(response => {
                                 console.log(response.data);
                                 const fetchedUser = response.data;
@@ -95,51 +105,53 @@ function Login() {
                         console.log('Registering failed');
                     }
                 })
-                .catch (err => {
-        console.log(err);
-    });
-} catch (error) {
-    console.error('Error hashing password', error);
-}
+                .catch(err => {
+                    console.log(err);
+                });
+        } catch (error) {
+            console.error('Error hashing password', error);
+        }
 
     };
 
-/*axios.post('http://localhost:4000/api/users/create')
-  .then(res => {
-    console.log(res.data);
-  })
-  .catch(err => {
-    console.log(err);
-  });*/
-return (
-    <div>
-        <h1 className="titlePage titleMargin">{pageName}</h1>
-        <p className="registerText">{pageText}</p>
-        {isLogin ? (
-            <form className="loginForm">
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" className="username" name="username" placeholder='Username' />
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" />
-                <button type="submit" text="Register" onClick={loggedIn} className='button'><p className='buttonText'>Log in</p></button>
+    /*axios.post('http://localhost:4000/api/users/create')
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });*/
+    return (
+        <div>
+            <h1 className="titlePage titleMargin">{pageName}</h1>
+            <p className="registerText">{pageText}</p>
+            {isLogin ? (
+                <form className="loginForm">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" id="username" className="username" name="username" placeholder='Username' />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" />
+                    <button type="submit" text="Register" onClick={loggedIn} className='button'><p className='buttonText'>Log in</p></button>
 
-            </form>
-        ) : (
-            <form className="registerForm">
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" className="username" name="username" placeholder='Username' />
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" />
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" />
-                <label htmlFor="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" />
-                <button type="submit" text="Register" onClick={submitted} className='button'><p className='buttonText'>Register</p></button>
-            </form>
-        )}
-        <p className="loginLinkSection">{linkText} <span onClick={switchClick} className="loginLink">{buttonText}</span></p>
-    </div>
-);
+                </form>
+            ) : (
+                <form className="registerForm">
+                    <label htmlFor="firstName">First name</label>
+                    <input type="text" id="firstName" className="firstName" name="firstName" placeholder='First name' />
+                    <label htmlFor="lastName">Last name</label>
+                    <input type="text" id="lastName" className="lastName" name="lastName" placeholder='Last name' />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" />
+                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" />
+                    <button type="submit" text="Register" onClick={submitted} className='button'><p className='buttonText'>Register</p></button>
+                </form>
+            )}
+            <p className="loginLinkSection">{linkText} <span onClick={switchClick} className="loginLink">{buttonText}</span></p>
+        </div>
+    );
 }
 
 export default Login;

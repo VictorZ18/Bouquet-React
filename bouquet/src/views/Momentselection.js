@@ -24,6 +24,7 @@ function checklistpage() {
             <p className="event">Reception</p>
           </Link>
         </div>
+        <p className="more">Create your own</p>
       </div>
     </div>
   );

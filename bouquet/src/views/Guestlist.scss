@@ -7,7 +7,6 @@
   border-bottom: $border-black;
   border-radius: $border-radius;
   box-shadow: $shadow;
-  margin-top: $margin;
   align-items: center;
 }
 
@@ -66,4 +65,8 @@
 
 .titleMargin {
   padding-top: $padding-page-top;
+}
+
+.messageList {
+  margin-bottom: $margin-page-bottom;
 }

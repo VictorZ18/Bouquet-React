@@ -4,10 +4,35 @@
   position: absolute;
 }
 
+.wrapper {
+  position: relative;
+}
+
+.eventform {
+  margin-top: $margin;
+}
+
+.eventInfo {
+  text-align: center;
+}
+
 .grp {
   display: flex;
   justify-content: space-between;
-  margin-top: $margin;
+}
+
+.description {
+  padding-bottom: $padding-page-top;
+}
+
+.parking {
+  margin-bottom: $margin-half;
+}
+
+.alternative {
+  margin-bottom: $margin-double;
+  color: $grey;
+  font-size: $link;
 }
 
 .box {
@@ -19,14 +44,6 @@
   align-items: center;
   justify-content: space-evenly;
   width: 35vw;
-}
-
-.Subtittle {
-  position: relative;
-  color: $black;
-  font-size: $size;
-  font-size: $title;
-  text-align: center;
 }
 
 .text {

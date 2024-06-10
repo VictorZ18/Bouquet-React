@@ -5,6 +5,9 @@ const guestSchema = new mongoose.Schema({
   lastName: { type: String},
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
   email: { type: String},
+  phone: { type: String},
+  rsvp: { type: Boolean, default: false },
+  invitationSent: { type: Boolean, default: false },
   created: { type: Date, default: Date.now },
   updated: { type: Date, default: Date.now },
 });
