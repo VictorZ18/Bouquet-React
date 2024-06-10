@@ -5,6 +5,7 @@ const SuppliersController = require('../controllers/suppliersController.js');
 const ReviewsController = require('../controllers/reviewsController.js');
 const CaterersController = require('../controllers/caterersController.js');
 const VenuesController = require('../controllers/venuesControllers.js');
+const GuestController = require('../controllers/guestsController.js');
 
 const router = express.Router();
 
@@ -44,5 +45,13 @@ router.get('/venues/create', VenuesController.getAllDoc);
 router.get('/venues/:id', VenuesController.read_a_venue);
 
 router.post('/venues/create', VenuesController.create_a_venue);
+
+router.get('/guests', GuestController.getAllDoc);
+router.get('/guests/create', GuestController.getAllDoc);
+router.get('/guests/:id', GuestController.read_a_guest);
+
+router.post('/guests/create', GuestController.create_a_guest);
+router.post('/guests/login', GuestController.loginUserControllerFn);
+
 
 module.exports = router

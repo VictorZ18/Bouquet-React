@@ -20,9 +20,6 @@ function Home() {
         <WeddingHeader />
       </header>
       <Clock countdown={deadline} />
-      {user && (
-        <p>Welcome, {user.user.firstName}</p>
-      )}
       <Navbar />
     </div>
   );

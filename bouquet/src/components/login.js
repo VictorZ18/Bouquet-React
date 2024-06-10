@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../userSlice.js';
 
 function Login() {
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const dispatch = useDispatch();
     const [buttonText, setButtonText] = useState('Register');
     const [pageName, setPageName] = useState('Welcome back!');
@@ -31,7 +32,7 @@ function Login() {
         e.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-        axios.get('http://localhost:4000/api/users')
+        axios.get(`${apiBaseUrl}/users`)
             .then(res => {
                 const data = res.data;
                 const user = data.find(user => user.firstName === username);
@@ -41,7 +42,7 @@ function Login() {
                             if (result) {
                                 console.log('Login successful');
                                 const userId = user._id;
-                                axios.get(`http://localhost:4000/api/users/${userId}`)
+                                axios.get(`${apiBaseUrl}/users/${userId}`)
                                     .then(response => {
                                         console.log(response.data);
                                         const fetchedUser = response.data;
@@ -75,7 +76,7 @@ function Login() {
 
         try {
             const hashedPassword = await bcrypt.hash(password, 10);
-            axios.post('http://localhost:4000/api/users/create',
+            axios.post(`${apiBaseUrl}/users/create`,
                 { firstName: name, lastName: name, email: email, password: hashedPassword })
                 .then(res => {
                     if (res) {
@@ -83,7 +84,7 @@ function Login() {
                         console.log('Registering successful');
                         const userId = user._id;
                         console.log(userId);
-                        axios.get(`http://localhost:4000/api/users/${userId}`)
+                        axios.get(`${apiBaseUrl}/users${userId}`)
                             .then(response => {
                                 console.log(response.data);
                                 const fetchedUser = response.data;

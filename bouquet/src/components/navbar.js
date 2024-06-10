@@ -20,10 +20,10 @@ import mediaOff from '../icons/media.png';
 function Navbar() {
   const location = useLocation();
 
-  const ChangeIcon = (path, onIcon, offIcon) => {
-    return location.pathname === path ? onIcon : offIcon;
+  const ChangeIcon = (paths, onIcon, offIcon) => {
+    return paths.includes(location.pathname) ? onIcon : offIcon;
   };
-
+  
   return (
     <div className="navbar">
       <div className="icon">
@@ -35,14 +35,14 @@ function Navbar() {
       <div className="organizerNav">
         <div className="icon">
           <Link to="/suppliers">
-            <img className="iconImg suppliers" src={ChangeIcon("/suppliers", suppliersOn, suppliersOff)} alt="suppliers" />
-            <p className={`navTag ${location.pathname === "/suppliers" ? "active" : ""}`}> Suppliers </p>
+            <img className="iconImg suppliers" src={ChangeIcon(["/suppliers", "/suppliersCategories"], suppliersOn, suppliersOff)} alt="suppliers" />
+            <p className={`navTag ${["/suppliers", "/suppliersCategories"].includes(location.pathname) ? "active" : ""}`}> Suppliers </p>
           </Link>
         </div>
         <div className="icon">
           <Link to="/guests">
-            <img className="iconImg guests" src={ChangeIcon("/guests", guestsOn, guestOff)} alt="guests" />
-            <p className={`navTag ${location.pathname === "/guests" ? "active" : ""}`}> Guests </p>
+            <img className="iconImg guests" src={ChangeIcon(["/guests", "/Guestlist"], guestsOn, guestOff)} alt="guests" />
+            <p className={`navTag ${["/guests", "/Guestlist"].includes(location.pathname) ? "active" : ""}`}> Guests </p>
           </Link>
         </div>
         <div className="icon">

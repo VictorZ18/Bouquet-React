@@ -5,8 +5,24 @@ import "./Guestlist.scss";
 import Navbar from "../components/navbar";
 import Message from "../components/Messageexcuse";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
-function addprogram() {
+function Addprogram() {
+  const user = useSelector((state) => state.user);
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+  const [guests, setGuest] = useState([]);
+
+  axios.get(`${apiBaseUrl}/guests`)
+    .then(res => {
+      const data = res.data;
+      const guests = data.filter(guest => guest.userId === user.user._id);
+      setGuest(guests);
+    })
+    .catch(err => {
+      console.log(err);
+    });
   return (
     <div className="App">
       <SideMenu />
@@ -18,9 +34,13 @@ function addprogram() {
             <p>RSVP status</p>
             <p>Invitation status</p>
           </div>
-          <Link to="/GuestPage">
-            <Cityhallguests />
-          </Link>
+          {guests.map((guest) => (
+            <Cityhallguests
+              key={guest._id}
+              firstName={guest.firstName}
+              lastName={guest.lastName}
+            />
+          ))}
 
           <Link to="/cityhallguestlist">
             <p className="more">32 more</p>
@@ -32,11 +52,13 @@ function addprogram() {
         </Link>
 
         <Message />
-        <img className="add" src={require("../media/Add.png")} alt="" />
+        <Link to="/Addnewguest">
+          <img className="add" src={require("../media/Add.png")} alt="" />
+        </Link>
       </header>
       <Navbar />
     </div>
   );
 }
 
-export default addprogram;
+export default Addprogram;
