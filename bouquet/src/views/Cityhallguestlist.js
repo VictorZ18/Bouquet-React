@@ -58,7 +58,7 @@ function Addprogram() {
         ))}
       </div>
 
-      <Link to="/Addnewguest">
+      <Link to={`/Addnewguest/${guestListid}`}>
         <img className="add" src={require("../media/Add.png")} alt="" />
       </Link>
     </div>

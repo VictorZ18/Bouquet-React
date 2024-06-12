@@ -19,7 +19,6 @@ import Todo from "./views/Todo";
 import Createdpage from "./views/Createdpage";
 import Reminderpage from "./views/Reminderpage";
 import Addpage from "./views/Addpage";
-import Addprogram from "./views/Addprogram";
 import Momentselection from "./views/Momentselection";
 import Momentcreation from "./views/Momentcreation";
 import Momentpage from "./views/Momentpage";
@@ -66,10 +65,9 @@ export default function App() {
             <Route path="/Createdpage" element={<Createdpage />} />
             <Route path="/Reminderpage" element={<Reminderpage />} />
             <Route path="/Addpage" element={<Addpage />} />
-            <Route path="/Addprogram" element={<Addprogram />} />
             <Route path="/Momentselection" element={<Momentselection />} />
             <Route path="/Momentcreation/:eventName" element={<Momentcreation />} />
-            <Route path="/Momentpage" element={<Momentpage />} />
+            <Route path="/Momentpage/:eventId" element={<Momentpage />} />
             <Route path="/Guestlistcreation" element={<Guestlistcreation />} />
             <Route path="/Paymentcheckout" element={<Paymentcheckout />} />
             <Route path="/Paymentinfo" element={<Paymentinfo />} />

@@ -1,31 +1,7 @@
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import '../views/App.scss';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 function Map(props) {
-  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-  const [venues, setVenues] = useState([]);
-  const [supplier, setSupplier] = useState([]);
-
-  axios
-    .get(`${apiBaseUrl}/venues`)
-    .then((res) => {
-      setVenues(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  axios
-    .get(`${apiBaseUrl}/suppliers`)
-    .then((res) => {
-      setSupplier(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-
   return (
     <div>
       <MapContainer center={[props.latitude, props.longitude]} zoom={13} scrollWheelZoom={false} className='map' key={props.keyId}>
