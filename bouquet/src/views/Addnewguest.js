@@ -5,9 +5,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useParams } from "react-router-dom";
 
 function Createdpage() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [guestlist, setGuestlist] = useState([]);
+  const { guestListid } = useParams();
+  console.log(guestListid);
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -22,6 +26,7 @@ function Createdpage() {
   const user = useSelector((state) => state.user);
 
   const submitted = async (e) => {
+
     console.log(user.user._id);
     e.preventDefault();
     const firstName = document.getElementById('firstName').value;
@@ -35,11 +40,12 @@ function Createdpage() {
         console.log(data._id);
         if (data) {
           axios.post(`${apiBaseUrl}/guests/create`,
-            { firstName: firstName, lastName: lastName, email: email, userId: data._id, phone: phone})
+            { firstName: firstName, lastName: lastName, email: email, userId: data._id, phone: phone, guestlistId: guestListid})
             .then(res => {
               if (res) {
                 const guest = res.data;
                 console.log('Registering successful');
+                console.log(guest);
                 navigate('/guests');
               } else {
                 console.log('Registering failed');
@@ -57,12 +63,12 @@ function Createdpage() {
 
   return (
     <div className="App">
-        <img
-          className="back-arrow"
-          src={require("../icons/arrow-left.png")}
-          alt="arrow-right"
-          onClick={() => navigate(-1)}
-        />
+      <img
+        className="back-arrow"
+        src={require("../icons/arrow-left.png")}
+        alt="arrow-right"
+        onClick={() => navigate(-1)}
+      />
       <h1 className="titlePage"> New guest</h1>
 
       <form className="registerForm">

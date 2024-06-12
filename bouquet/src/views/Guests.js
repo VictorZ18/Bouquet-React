@@ -14,16 +14,41 @@ function Guests() {
   const user = useSelector((state) => state.user);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [guests, setGuest] = useState([]);
+  const [wedding, setWedding] = useState([]);
+  const [event, setEvent] = useState([]);
+  const [guestlist, setGuestlist] = useState([]);
 
-  axios.get(`${apiBaseUrl}/guests`)
-    .then(res => {
-      const data = res.data;
-      const guests = data.filter(guest => guest.userId === user.user._id);
+ 
+  async function fetchData() {
+    try {
+      const [guestsResponse, weddingsResponse] = await Promise.all([
+        axios.get(`${apiBaseUrl}/guests`),
+        axios.get(`${apiBaseUrl}/weddings`),
+      ]);
+  
+      const guests = guestsResponse.data.filter(guest => guest.userId === user.user._id);
+      const weddingsData = weddingsResponse.data;
+      const wedding = weddingsData.find(wedding => wedding.user_id === user.user._id);
+  
+      if (wedding) {
+        const eventResponse = await axios.get(`${apiBaseUrl}/events?wedding_id=${wedding._id}`);
+        const event = eventResponse.data.find(event => event.wedding_id === wedding._id);
+  
+        if (event) {
+          const guestlistResponse = await axios.get(`${apiBaseUrl}/guestlist?event_id=${event._id}`);
+          const guestlist = guestlistResponse.data.find(guestlist => guestlist.event_id === event._id);
+          setGuestlist(guestlist);
+        }
+      }
       setGuest(guests);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+    } catch (err) {
+      console.error(err);
+      // Handle errors appropriately (display message, etc.)
+    }
+  }
+  
+  fetchData();
+  
 
   return (
     <div className="App">
@@ -37,6 +62,7 @@ function Guests() {
               <p>RSVP status</p>
               <p>Invitation status</p>
             </div>
+            <h2 className="listName">{guestlist.list_name}</h2>
             {guests.map((guest) => (
               <Link key={guest._id} to={`/GuestPage/${guest._id}`}>
                 <Cityhallguests
@@ -60,7 +86,7 @@ function Guests() {
             <Message />
           </div>
 
-          <Link to="/Addnewguest">
+          <Link to="/Guestlistcreation">
             <img className="add" src={require("../media/Add.png")} alt="" />
           </Link>
         </>

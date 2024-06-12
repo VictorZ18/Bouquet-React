@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import '../views/App.scss';
 import './login.scss';
-import Button from './button.js';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../userSlice.js';
@@ -18,7 +16,6 @@ function Login() {
     const [pageText, setPageText] = useState('Login to your account');
     const [linkText, setLinkText] = useState('Don\'t have an account?');
     const [isLogin, setIsLogin] = useState(true);
-    const [user, setUsers] = useState([]);
     const navigate = useNavigate();
 
     const switchClick = () => {
@@ -113,14 +110,6 @@ function Login() {
         }
 
     };
-
-    /*axios.post('http://localhost:4000/api/users/create')
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });*/
     return (
         <div>
             <h1 className="titlePage titleMargin">{pageName}</h1>

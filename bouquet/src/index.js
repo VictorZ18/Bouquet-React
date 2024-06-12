@@ -68,7 +68,7 @@ export default function App() {
             <Route path="/Addpage" element={<Addpage />} />
             <Route path="/Addprogram" element={<Addprogram />} />
             <Route path="/Momentselection" element={<Momentselection />} />
-            <Route path="/Momentcreation" element={<Momentcreation />} />
+            <Route path="/Momentcreation/:eventName" element={<Momentcreation />} />
             <Route path="/Momentpage" element={<Momentpage />} />
             <Route path="/Guestlistcreation" element={<Guestlistcreation />} />
             <Route path="/Paymentcheckout" element={<Paymentcheckout />} />
@@ -77,7 +77,7 @@ export default function App() {
             <Route path="/Success" element={<Success />} />
             <Route path="/Publishwedding" element={<Publishwedding />} />
             <Route path="/Cityhallguestlist" element={<Cityhallguestlist />} />
-            <Route path="/Addnewguest" element={<Addnewguest />} />
+            <Route path="/Addnewguest/:guestListid" element={<Addnewguest />} />
             <Route path="/Guestpage/:guestId" element={<Guestpage />} />
             <Route path="/user" element={<User />} />
             <Route path="/suppliersRegister" element={<SuppliersRegister />} />

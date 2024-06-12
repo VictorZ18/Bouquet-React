@@ -8,6 +8,7 @@ const guestSchema = new mongoose.Schema({
   phone: { type: String},
   rsvp: { type: Boolean, default: false },
   invitationSent: { type: Boolean, default: false },
+  guestlistId: { type: mongoose.Schema.Types.ObjectId, ref: 'Guestlist', required: true },
   created: { type: Date, default: Date.now },
   updated: { type: Date, default: Date.now },
 });

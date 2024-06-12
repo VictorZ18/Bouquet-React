@@ -1,7 +1,9 @@
 import "./Momentselection.scss";
 import { Link } from "react-router-dom";
+import EventCard from "../components/eventCard";
 
 function checklistpage() {
+  const eventName = ["City Hall", "Reception"];
   return (
     <div className="App">
       <header className="App-header"></header>
@@ -18,11 +20,11 @@ function checklistpage() {
       <div className="wrapper">
         <h1 className="titlePage titleMargin"> Choose a moment to add to your program</h1>
         <div className="programgroup">
-          <Link to="/Momentcreation">
-            <p className="event">City hall</p>
-            <p className="event">Religious Ceremony</p>
-            <p className="event">Reception</p>
-          </Link>
+          {eventName.map((name, index) => (
+            <Link key={index} to={`/Momentcreation/${name}`}>
+              <EventCard key={index} eventName={name} />
+            </Link>
+          ))}
         </div>
         <p className="more">Create your own</p>
       </div>
