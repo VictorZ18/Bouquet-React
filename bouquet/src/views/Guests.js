@@ -61,6 +61,18 @@ function Guests() {
 
   fetchData();
 
+  async function sendInvitations() {
+    try {
+      const eventDetails = { name: 'Your Event Name', date: 'Event Date' }; // Replace with actual event details
+      await axios.post(`${apiBaseUrl}/send-invitations`, { guests, eventDetails });
+      alert('Invitations sent successfully');
+    } catch (error) {
+      console.error('Error sending invitations:', error);
+      alert('Failed to send invitations');
+    }
+  }
+
+
   return (
     <div className="App">
       <SideMenu />
@@ -94,9 +106,11 @@ function Guests() {
             </div>
           </div>
 
-          <Link to="/Paymentcheckout">
-            <Button text="Send invitation" />
-          </Link>
+          <div className="send" onClick={sendInvitations}>
+            <Link to="/Paymentcheckout">
+              <Button text="Send invitation" />
+            </Link>
+          </div>
 
           <div className="messageList">
             <Message />

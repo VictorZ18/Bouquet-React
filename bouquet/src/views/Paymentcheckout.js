@@ -8,7 +8,7 @@ import Checkout from "../components/Checkout";
 export default function Paymentcheckout() {
   return (
     <div className="App">
-      <Link to="/Guestlist">
+      <Link to="/guests">
         <img
           className="back-arrow"
           src={require("../icons/arrow-left.png")}
