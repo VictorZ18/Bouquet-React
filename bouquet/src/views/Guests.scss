@@ -1,0 +1,15 @@
+@import "./App.scss";
+
+.guestlists {
+    display: -webkit-box;
+    overflow: scroll;
+}
+
+.list {
+    width: 100%;
+}
+
+.status {
+    margin-top: $margin;
+}
+  

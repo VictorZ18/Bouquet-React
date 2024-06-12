@@ -76,7 +76,7 @@ export default function App() {
             <Route path="/checkout" element={<Paymentcheckout />} />
             <Route path="/Success" element={<Success />} />
             <Route path="/Publishwedding" element={<Publishwedding />} />
-            <Route path="/Cityhallguestlist" element={<Cityhallguestlist />} />
+            <Route path="/Cityhallguestlist/:guestListid" element={<Cityhallguestlist />} />
             <Route path="/Addnewguest/:guestListid" element={<Addnewguest />} />
             <Route path="/Guestpage/:guestId" element={<Guestpage />} />
             <Route path="/user" element={<User />} />
