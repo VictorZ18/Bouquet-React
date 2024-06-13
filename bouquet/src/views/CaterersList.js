@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import media from "../media/chef.png";
 import MapLarge from '../components/mapLarge';
+import * as buffer from 'buffer';
+import { encode } from 'js-base64';
 
 function App() {
 
@@ -91,8 +93,8 @@ function App() {
         />
       </Link>
       <div className='options'>
-        <Link to="/VenueMap"> 
-        <p className='mapView'>See on map</p>
+        <Link to="/VenueMap">
+          <p className='mapView'>See on map</p>
         </Link>
         <p className='filters'>Filters</p>
       </div>
@@ -105,7 +107,7 @@ function App() {
               return (
                 <div key={supplier._id} className="card">
                   <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
-                    <img className="cardImage" src={media} alt='supplier' />
+                  <img src={supplier.supplier_picture} alt={supplier.supplier_name} />
                     <div className="card_description">
                       <div className="card_info">
                         <p className="cardName">{supplier.supplier_name}</p>

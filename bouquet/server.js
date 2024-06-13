@@ -4,6 +4,7 @@ const web = require("./src/backend/routes/web.js");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const app = express();
+const multer = require('multer');
 
 const corsOptions = {
   origin: "*",
@@ -16,6 +17,9 @@ const Categories = require('./src/backend/models/categories.js');
 const Suppliers = require('./src/backend/models/suppliers.js');
 const Reviews = require('./src/backend/models/reviews.js');
 const Caterers = require('./src/backend/models/caterers.js');
+const Wedding = require('./src/backend/models/wedding.js');
+const Events = require('./src/backend/models/events.js');
+const Guestlist = require('./src/backend/models/guestList.js');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -28,6 +32,19 @@ connectDB(uri);
 app.use(express.json());
 
 app.use("/api", web);
+
+// Multer storage configuration
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'uploads/'); // Directory where files will be stored
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + '.jpg'); // Unique file name (you can customize the extension)
+  }
+});
+
+const upload = multer({ storage: storage });
+
 
 app.get("/api/users", async (req, res) => {
   try {
@@ -69,10 +86,41 @@ app.get("/api/reviews", async (req, res) => {
   }
 });
 
+
 app.get('/api/caterers', async (req, res) => {
   try {
     const caterers = await Caterers.find()
     res.json(caterers);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Server Error');
+  }
+});
+
+app.get('/api/weddings', async (req, res) => {
+  try {
+    const weddings = await Wedding.find()
+    res.json(weddings);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Server Error');
+  }
+});
+
+app.get('/api/events', async (req, res) => {
+  try {
+    const events = await Events.find()
+    res.json(events);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Server Error');
+  }
+});
+
+app.get('/api/guestlist', async (req, res) => {
+  try {
+    const guestlist = await Guestlist.find()
+    res.json(guestlist);
   } catch (err) {
     console.log(err);
     res.status(500).send('Server Error');
@@ -126,6 +174,4 @@ app.post('/api/send-invitations', async (req, res) => {
 
 app.listen(port, () => {
   console.log("Server listening at http://localhost:" + port);
-  console.log(process.env.EMAIL_USER);
-  console.log(process.env.EMAIL_PASS);
 });

@@ -171,36 +171,7 @@ function SuppliersRegister() {
     }
     console.log(name, price, category);
 
-    /*axios.post('http://localhost:4000/api/suppliers/create',
-      { supplier_name: name, supplier_picture: file, supplier_price: price, categories_id: category })
-      .then(res => {
-        console.log('Supplier:', res.data); // Log the created supplier data
-        // Add the created supplier to the state
-        setData(prevData => [...prevData, res.data]);
-        if (selectedCategory && selectedCategory.category_name === 'Caterers'){
-          axios.post('http://localhost:4000/api/caterers/create',
-          { caterer_speciality: speciality, category_id: category, supplier_id: res.data._id })
-          .then(res => {
-            console.log(res.data);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-        }
-        else if (selectedCategory && selectedCategory.category_name === 'Venues'){
-          axios.post('http://localhost:4000/api/venues/create',
-          { venue_longitude: coordinates.lng, venue_latitude: coordinates.lat, category_id: category, supplier_id: res.data._id })
-          .then(res => {
-            console.log(res.data);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });*/
+
 
   }
 

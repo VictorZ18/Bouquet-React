@@ -16,6 +16,8 @@ function Login() {
     const [pageText, setPageText] = useState('Login to your account');
     const [linkText, setLinkText] = useState('Don\'t have an account?');
     const [isLogin, setIsLogin] = useState(true);
+    const [selectedTheme, setSelectedTheme] = useState('');
+    const [weddingDate, setWeddingDate] = useState('');
     const navigate = useNavigate();
 
     const switchClick = () => {
@@ -67,6 +69,8 @@ function Login() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
+        const theme = selectedTheme;
+        const date = weddingDate;
 
         if (password !== confirmPassword) {
             alert('Passwords do not match');
@@ -80,7 +84,7 @@ function Login() {
                 .then(res => {
                     if (res) {
                         axios.post(`${apiBaseUrl}/weddings/create`,
-                            { user_id: res.data._id, weddingDate: '2022-06-11', weddingTheme: 'Classic' })
+                            { user_id: res.data._id, wedding_date: date, wedding_theme: theme })
                             .then(res => {
                                 console.log(res.data);
                             })
@@ -110,6 +114,15 @@ function Login() {
         }
 
     };
+
+    const handleTheme = (e) => {
+        setSelectedTheme(e.target.value);
+    }
+
+    const handleWeddingDateChange = (e) => {
+        setWeddingDate(e.target.value);
+    }
+
     return (
         <div>
             <h1 className="titlePage titleMargin">{pageName}</h1>
@@ -135,6 +148,15 @@ function Login() {
                     <input type="password" id="password" name="password" placeholder="Password" />
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" />
+                    <label htmlFor="weddingDate">Wedding date</label>
+                    <input type="date" id="weddingDate" name="weddingDate" onChange={handleWeddingDateChange}/>
+                    <select className="theme" name="theme" id="theme" onChange={handleTheme}>
+                        <option value="">Theme</option>
+                        <option value="Beach party">Beach party</option>
+                        <option value="Classic">Classic</option>
+                        <option value="Modern">Modern</option>
+                        <option value="Rock'n'Roll">Rock'n'Roll</option>
+                    </select>
                     <button type="submit" text="Register" onClick={submitted} className='button'><p className='buttonText'>Register</p></button>
                 </form>
             )}
