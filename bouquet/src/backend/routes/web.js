@@ -11,6 +11,7 @@ const EventsController = require('../controllers/eventsController.js');
 const WeddingController = require('../controllers/weddingController.js');
 const TaskController = require('../controllers/taskController.js');
 const ChecklistController = require('../controllers/checklistController.js');
+const TaskPreController = require('../controllers/taskPreController.js');
 
 const router = express.Router();
 
@@ -81,11 +82,19 @@ router.get('/tasks/create', TaskController.getAllDoc);
 router.get('/tasks/:id', TaskController.read_a_task);
 
 router.post('/tasks/create', TaskController.create_a_task);
+router.put('/tasks/:id', TaskController.update_a_task);
+router.delete('/tasks/:id', TaskController.delete_a_task);
 
 router.get('/checklist', ChecklistController.getAllDoc);
 router.get('/checklist/create', ChecklistController.getAllDoc);
 router.get('/checklist/:id', ChecklistController.read_a_checklist);
 
 router.post('/checklist/create', ChecklistController.create_a_checklist);
+
+router.get('/taskPre', TaskPreController.getAllDoc);
+router.get('/taskPre/create', TaskPreController.getAllDoc);
+router.get('/taskPre/:id', TaskPreController.read_a_task);
+
+router.post('/taskPre/create', TaskPreController.create_a_task);
 
 module.exports = router

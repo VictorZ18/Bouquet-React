@@ -24,6 +24,7 @@ $padding-button-sides: (3 * $size); //48px
 $padding-nav: (0.5 * $size); //8px - counts for all sides
 
 $padding-page-top: (4.625 * $size); //74px
+$padding-page-bottom: (5.125 * $size); //64px
 
 $border-bottom: 1px solid $pink;
 $border-grey: 1px solid $grey;
@@ -251,4 +252,8 @@ a {
 .confirmation {
   text-align: center;
   margin-top: $margin-double;
+}
+
+.pageBottom {
+  padding-bottom: $padding-page-bottom;
 }

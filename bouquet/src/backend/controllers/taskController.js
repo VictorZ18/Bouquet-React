@@ -27,6 +27,23 @@ class TaskController {
         };
 
     }
+    static update_a_task = async (req, res) => {
+        try {
+            const result = await Task.findByIdAndUpdate
+                (req.params.id, req.body, { new: true })
+            res.send(result)
+        } catch (error) {
+            console.log(error)
+        };
+    }
+    static delete_a_task = async (req, res) => {
+        try {
+            const result = await Task.findByIdAndDelete(req.params.id)
+            res.send(result)
+        } catch (error) {
+            console.log(error)
+        };
+    }
 }
 
 module.exports = TaskController;

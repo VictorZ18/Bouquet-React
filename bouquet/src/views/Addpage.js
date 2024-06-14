@@ -2,6 +2,10 @@ import "./Addpage.scss";
 import Checklist from "../components/Checklist";
 import Button from "../components/button";
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Hide() {
   if (document.querySelector(".hide").innerHTML === "Hide") {
@@ -14,6 +18,32 @@ function Hide() {
 }
 
 function Addpage() {
+  const [checklist, setChecklist] = useState([]);
+  const user = useSelector((state) => state.user);
+  const [deadline, setDeadline] = useState('');
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+  const navigate = useNavigate();
+
+  const handleDeadline = (e) => {
+    setDeadline(e.target.value);
+  };
+
+  const CreateTask = () => {
+      axios.get(`${apiBaseUrl}/checklist`)
+        .then(res => {
+          const checklist = res.data.find(checklist => checklist.user_id === user.user._id);
+          setChecklist(checklist);     
+          axios.post(`${apiBaseUrl}/tasks/create`, {
+            name: document.querySelector('.name').value,
+            deadline: deadline,
+            description: document.querySelector('.description').value,
+            checklistId: checklist._id,
+          })
+            .then(res => {
+              navigate('/checklist');
+            });
+        });
+  }
 
   return (
     <div className="App">
@@ -45,28 +75,24 @@ function Addpage() {
           </div>
           <div className="preMades">
             <Checklist />
-            <Checklist />
           </div>
-          <p className="Tittle"> Create your own</p>
-          <p className="reminder">Name</p>
-          <p className="Thisweek"> Deadline</p>
-          <p className="reminder">Day</p>
-          <div className="contain">
-            <p className="reminders">Month</p>
-            <img
-              className="arrow-down"
-              src={require("../icons/arrow-down.png")}
-              alt="arrow-right"
-            />
-          </div>
+          <h1 className="pageTitle"> Create your own</h1>
+          <form className="eventForm">
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" className="name" name="name" placeholder='Name' />
+            <label htmlFor="deadline">Deadline</label>
+            <input type="date" id="deadline" name="deadline" onChange={handleDeadline} />
+            <label htmlFor="description">Description</label>
+            <input type="text" id="description" className="description" name="description" placeholder='Description' />
+          </form>
           <p className="explanation">
             You can add a description, and set manual reminders later.
           </p>
+          <div onClick={CreateTask}>
+            <Button text="Confirm" />
+          </div>
         </div>
 
-        <Link to="/checklistpage">
-          <Button text="Confirm" />;
-        </Link>
       </div>
     </div>
   );
