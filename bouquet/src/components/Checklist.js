@@ -2,11 +2,11 @@ import React from "react";
 import "../views/Checklist.scss";
 import "../views/App.scss";
 
-function Checklist() {
+function Checklist(props) {
   return (
     <div className="smallrect">
-        <p>Create a Checklist</p>
-        <p>2 days</p>
+        <p>{props.name}</p>
+        <p>{props.deadline}</p>
     </div>
   );
 }

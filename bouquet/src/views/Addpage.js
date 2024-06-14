@@ -18,7 +18,7 @@ function Addpage() {
   return (
     <div className="App">
       <div className="leftarrow">
-        <Link to="/checklistpage">
+        <Link to="/checklist">
           <img
             className="back-arrow"
             src={require("../icons/arrow-left.png")}

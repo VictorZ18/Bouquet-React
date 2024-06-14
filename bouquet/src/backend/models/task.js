@@ -5,7 +5,7 @@ const taskSchema = new mongoose.Schema({
     deadline: { type: Date },
     description: { type: String },
     completed: { type: Boolean, default: false },
-    checklistId: { type: mongoose.Schema.Types.ObjectId, ref: 'Checklist', required: true },
+    checklistId: { type: mongoose.Schema.Types.ObjectId, ref: 'Checklist'},
     created: { type: Date, default: Date.now },
     updated: { type: Date, default: Date.now },
 });

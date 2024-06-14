@@ -62,7 +62,7 @@ export default function App() {
             <Route path="/CaterersList/:categoriesName" element={<CaterersList />} />
             <Route path="/CaterersPage/:categoriesName/:supplierName" element={<CaterersPage />} />
             <Route path="/Todo" element={<Todo />} />
-            <Route path="/Createdpage" element={<Createdpage />} />
+            <Route path="/Createdpage/:taskId" element={<Createdpage />} />
             <Route path="/Reminderpage" element={<Reminderpage />} />
             <Route path="/Addpage" element={<Addpage />} />
             <Route path="/Momentselection" element={<Momentselection />} />

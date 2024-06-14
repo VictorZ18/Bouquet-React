@@ -20,6 +20,8 @@ const Caterers = require('./src/backend/models/caterers.js');
 const Wedding = require('./src/backend/models/wedding.js');
 const Events = require('./src/backend/models/events.js');
 const Guestlist = require('./src/backend/models/guestList.js');
+const Checklist = require('./src/backend/models/checklist.js');
+const Task = require('./src/backend/models/task.js');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -121,6 +123,26 @@ app.get('/api/guestlist', async (req, res) => {
   try {
     const guestlist = await Guestlist.find()
     res.json(guestlist);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Server Error');
+  }
+});
+
+app.get('/api/checklist', async (req, res) => {
+  try {
+    const checklist = await Checklist.find()
+    res.json(checklist);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Server Error');
+  }
+});
+
+app.get('/api/tasks', async (req, res) => {
+  try {
+    const tasks = await Task.find()
+    res.json(tasks);
   } catch (err) {
     console.log(err);
     res.status(500).send('Server Error');
