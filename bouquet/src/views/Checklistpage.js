@@ -49,7 +49,6 @@ function Checklistpage() {
           return { ...task, daysLeft };
         });
 
-        // Sort tasks by the number of days left
         tasks.sort((a, b) => a.daysLeft - b.daysLeft);
 
         setTasks(tasks);

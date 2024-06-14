@@ -88,7 +88,7 @@ const Checklistpage = () => {
             .then(res => {
               console.log(res);
               console.log(res.data);
-              navigate('/Momentpage');
+              navigate(`/Momentpage/${res.data._id}`);
             })
         } else {
           console.log("No results found");

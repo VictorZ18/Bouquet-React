@@ -7,7 +7,7 @@ import Cityhallguests from "../components/Cityhallguests";
 import Button from "../components/button";
 import "./Guestlist.scss";
 import Message from "../components/Messageexcuse";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
@@ -19,47 +19,51 @@ function Guests() {
   const [event, setEvent] = useState([]);
   const [guestlist, setGuestlist] = useState([]);
 
-
-  async function fetchData() {
-    try {
-      const [guestsResponse, weddingsResponse] = await Promise.all([
-        axios.get(`${apiBaseUrl}/guests`),
-        axios.get(`${apiBaseUrl}/weddings`),
-      ]);
-
-      const guests = guestsResponse.data.filter(guest => guest.userId === user.user._id);
-      const weddingsData = weddingsResponse.data;
-      const wedding = weddingsData.find(wedding => wedding.user_id === user.user._id);
-
-      if (wedding) {
-        try {
-          const eventResponse = await axios.get(`${apiBaseUrl}/events?wedding_id=${wedding._id}`);
-          const events = eventResponse.data.filter(event => event.wedding_id === wedding._id);
-
-          if (events.length > 0) {
-            const guestlistPromises = events.map(event =>
-              axios.get(`${apiBaseUrl}/guestlist?event_id=${event._id}`)
-            );
-
-            const guestlistResponses = await Promise.all(guestlistPromises);
-            const guestlists = guestlistResponses.flatMap(response => response.data);
-            const uniqueGuestlists = Array.from(new Map(guestlists.map(guest => [guest._id, guest])).values());
-            setGuestlist(uniqueGuestlists);
-          }
-        } catch (error) {
-          console.error('Error fetching guest lists:', error);
-        }
-      }
-
-
-      setGuest(guests);
-    } catch (err) {
-      console.error(err);
-      // Handle errors appropriately (display message, etc.)
-    }
-  }
-
-  fetchData();
+  useEffect(() => {
+    axios.get(`${apiBaseUrl}/weddings`)
+      .then(res => {
+        const wedding = res.data.find(wedding => wedding.user_id === user.user._id);
+        setWedding(wedding);
+        axios.get(`${apiBaseUrl}/events`)
+          .then(res => {
+            const events = res.data;
+            const filteredEvents = events.filter(event => event.wedding_id === wedding._id);
+            setEvent(filteredEvents);
+            if (filteredEvents) {
+              const promises = filteredEvents.map(event => 
+                axios.get(`${apiBaseUrl}/guestlist`)
+                  .then(res => {
+                    const guestlist = res.data;
+                    const filteredGuestlist = guestlist.filter(guest => guest.event_id === event._id);
+                    return filteredGuestlist; 
+                  })
+                  .catch(err => {
+                    console.error('Error fetching guest lists:', err);
+                    return []; 
+                  })
+              );
+            
+              Promise.all(promises)
+                .then(results => {
+                  const allFilteredGuestlists = results.flat();
+                  console.log(allFilteredGuestlists);
+                  setGuestlist(allFilteredGuestlists); 
+                });
+            }
+          })
+          .catch(err => {
+            console.error('Error fetching events:', err);
+          });
+      })
+    axios.get(`${apiBaseUrl}/guests`)
+      .then(res => {
+        const guests = res.data.filter(guest => guest.userId === user.user._id);
+        setGuest(guests);
+      })
+      .catch(err => {
+        console.error('Error fetching guests:', err);
+      });
+  }, [apiBaseUrl, user.user._id, wedding._id, event._id, guestlist._id]);
 
   async function sendInvitations() {
     try {
@@ -71,7 +75,6 @@ function Guests() {
       alert('Failed to send invitations');
     }
   }
-
 
   return (
     <div className="App">

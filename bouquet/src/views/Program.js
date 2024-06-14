@@ -3,25 +3,34 @@ import Navbar from "../components/navbar";
 import SideMenu from "../components/sideNav";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Programdetails from "../components/programinfo";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Program() {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [events, setEvents] = useState([]);
-  axios.get(`${apiBaseUrl}/events`)
-    .then(res => {
-      const events = res.data;
-      setEvents(events);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  useEffect(() => {
+    axios.get(`${apiBaseUrl}/weddings`)
+      .then(res => {
+        const wedding = res.data.find(wedding => wedding.user_id === user.user._id);
+        axios.get(`${apiBaseUrl}/events`)
+          .then(res => {
+            const events = res.data;
+            const filteredEvents = events.filter(event => event.wedding_id === wedding._id);
+            setEvents(filteredEvents);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+  }, [apiBaseUrl, user.user._id, navigate]);
+
 
   const ToEvent = (event) => {
-    console.log(event);
     navigate(`/Momentpage/${event._id}`);
   };
 
@@ -37,7 +46,6 @@ function Program() {
                 {events.map((event) => (
                   <div
                     key={event._id}
-                    className="circlewrapper"
                     onClick={() => ToEvent(event)}
                   >
                     <Programdetails

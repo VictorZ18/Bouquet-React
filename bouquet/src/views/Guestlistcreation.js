@@ -38,11 +38,11 @@ function Addpage() {
                 const guestlist = response.data;
                 setGuestlist(guestlist);
                 if (guestlist) {
-                  const filteredEvents = events.filter(event => !guestlist.find(guestlist => guestlist.list_name === event.event_name));
+                  const filteredEvents = events.filter(event => !guestlist.find(guestlist => guestlist.event_id === event._id));
                   setEvents(filteredEvents);
                 }
               });
-          }
+          } 
         }
       } catch (error) {
         console.log(error);
@@ -90,7 +90,6 @@ function Addpage() {
           <div className="selectAllCircle"></div>
           Select all
         </div>
-
         {events && (
           <div className="events-list">
             {events.map((event) => (

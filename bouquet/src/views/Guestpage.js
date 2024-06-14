@@ -1,5 +1,5 @@
 import "./Addpage.scss";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -11,6 +11,7 @@ function Createdpage() {
   const [guest, setGuest] = useState([]);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
+  useEffect(() => {
   axios.get(`${apiBaseUrl}/guests/${guestId}`)
     .then(res => {
       setGuest(res.data);
@@ -18,6 +19,7 @@ function Createdpage() {
     .catch(err => {
       console.log(err);
     });
+  }, [apiBaseUrl, guestId]);
   return (
     <div className="App">
       <div className="leftarrow">

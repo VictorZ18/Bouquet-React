@@ -14,7 +14,7 @@ function Hide() {
 }
 
 function Addpage() {
-  
+
   return (
     <div className="App">
       <div className="leftarrow">
@@ -33,39 +33,41 @@ function Addpage() {
           alt=""
         />
       </div>
-      <h1 className="titlePage subtitlePage">Pre-made to-dos</h1>
-      <div className="wrapper">
-        <div className="container">
-          <div className="circlewrapper selectTodo">
-            <div className="selectAllCircle"></div>
-            Select all
+      <div className="rectangle">
+        <h1 className="titlePage subtitlePage">Pre-made to-dos</h1>
+        <div className="wrapper">
+          <div className="container">
+            <div className="circlewrapper selectTodo">
+              <div className="selectAllCircle"></div>
+              Select all
+            </div>
+            <p className="hide" onClick={Hide}>Hide</p>
           </div>
-          <p className="hide" onClick={Hide}>Hide</p>
-        </div>
-        <div className="preMades">
+          <div className="preMades">
             <Checklist />
             <Checklist />
+          </div>
+          <p className="Tittle"> Create your own</p>
+          <p className="reminder">Name</p>
+          <p className="Thisweek"> Deadline</p>
+          <p className="reminder">Day</p>
+          <div className="contain">
+            <p className="reminders">Month</p>
+            <img
+              className="arrow-down"
+              src={require("../icons/arrow-down.png")}
+              alt="arrow-right"
+            />
+          </div>
+          <p className="explanation">
+            You can add a description, and set manual reminders later.
+          </p>
         </div>
-        <p className="Tittle"> Create your own</p>
-        <p className="reminder">Name</p>
-        <p className="Thisweek"> Deadline</p>
-        <p className="reminder">Day</p>
-        <div className="contain">
-          <p className="reminders">Month</p>
-          <img
-            className="arrow-down"
-            src={require("../icons/arrow-down.png")}
-            alt="arrow-right"
-          />
-        </div>
-        <p className="explanation">
-          You can add a description, and set manual reminders later.
-        </p>
-      </div>
 
-      <Link to="/checklistpage">
-        <Button text="Confirm" />;
-      </Link>
+        <Link to="/checklistpage">
+          <Button text="Confirm" />;
+        </Link>
+      </div>
     </div>
   );
 }
