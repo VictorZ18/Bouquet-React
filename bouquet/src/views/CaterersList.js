@@ -130,7 +130,7 @@ function App() {
     } else {
       document.querySelector('.mapView').style.display = 'none';
     }
-  }
+  };
 
   return (
     <div className="App">
