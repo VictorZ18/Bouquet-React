@@ -23,6 +23,7 @@ const Guestlist = require('./src/backend/models/guestList.js');
 const Checklist = require('./src/backend/models/checklist.js');
 const Task = require('./src/backend/models/task.js');
 const Favourites = require('./src/backend/models/favourites.js');
+const Booked = require('./src/backend/models/booked.js');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -174,6 +175,54 @@ app.delete('/api/favourites', async (req, res) => {
   try {
     const result = await Favourites
       .findOneAndDelete({ user_id: req.body.user_id, supplier_id: req.body.supplier_id })
+    res.send(result)
+  } catch (error) {
+    console.log(error)
+  }
+});
+
+app.get('/api/booked', async (req, res) => {
+  try {
+    const booked = await Booked.find()
+    res.json(booked);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Server Error');
+  }
+});
+
+app.post('/api/booked/create', async (req, res) => {
+  const newBooking = new Booked(req.body)
+  try {
+    const result = await newBooking.save()
+    res.send(result)
+  } catch (error) {
+    console.log(error)
+  };
+});
+
+app.get('/api/booked/:id', async (req, res) => {
+  try {
+    const result = await Booked.findById(req.params.id)
+    res.send(result)
+  } catch (error) {
+    console.log(error)
+  };
+});
+
+app.put('/api/booked/:id', async (req, res) => {
+  try {
+    const result = await Booked.findByIdAndUpdate
+      (req.params.id, req.body)
+    res.send(result)
+  } catch (error) {
+    console.log(error)
+  }
+});
+
+app.delete('/api/booked/:id', async (req, res) => {
+  try {
+    const result = await Booked.findByIdAndDelete(req.params.id)
     res.send(result)
   } catch (error) {
     console.log(error)
