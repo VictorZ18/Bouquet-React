@@ -37,8 +37,8 @@ function Navbar() {
       <div className="organizerNav">
         <div className="icon">
           <Link to="/suppliers">
-            <img className="iconImg suppliers" src={ChangeIcon(["/suppliers", "/suppliersCategories"], suppliersOn, suppliersOff)} alt="suppliers" />
-            <p className={`navTag ${["/suppliers", "/suppliersCategories"].includes(location.pathname) ? "active" : ""}`}> Suppliers </p>
+            <img className="iconImg suppliers" src={ChangeIcon(["/suppliers", "/suppliersCategories", "/SuppliersCategories"], suppliersOn, suppliersOff)} alt="suppliers" />
+            <p className={`navTag ${["/suppliers", "/suppliersCategories", "/SuppliersCategories"].includes(location.pathname) ? "active" : ""}`}> Suppliers </p>
           </Link>
         </div>
         <div className="icon">
