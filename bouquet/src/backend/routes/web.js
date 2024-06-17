@@ -12,6 +12,7 @@ const WeddingController = require('../controllers/weddingController.js');
 const TaskController = require('../controllers/taskController.js');
 const ChecklistController = require('../controllers/checklistController.js');
 const TaskPreController = require('../controllers/taskPreController.js');
+const FavouritesController = require('../controllers/favouritesController.js');
 
 const router = express.Router();
 
@@ -96,5 +97,13 @@ router.get('/taskPre/create', TaskPreController.getAllDoc);
 router.get('/taskPre/:id', TaskPreController.read_a_task);
 
 router.post('/taskPre/create', TaskPreController.create_a_task);
+
+router.get('/favourites', FavouritesController.getAllDoc);
+router.get('/favourites/create', FavouritesController.getAllDoc);
+router.get('/favourites/:id', FavouritesController.read_a_favourite);
+
+router.post('/favourites/create', FavouritesController.create_a_favourite);
+router.put('/favourites/:id', FavouritesController.update_a_favourite);
+router.delete('/favourites/:id', FavouritesController.delete_a_favourite);
 
 module.exports = router

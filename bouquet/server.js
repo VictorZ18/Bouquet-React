@@ -22,6 +22,7 @@ const Events = require('./src/backend/models/events.js');
 const Guestlist = require('./src/backend/models/guestList.js');
 const Checklist = require('./src/backend/models/checklist.js');
 const Task = require('./src/backend/models/task.js');
+const Favourites = require('./src/backend/models/favourites.js');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -146,6 +147,36 @@ app.get('/api/tasks', async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).send('Server Error');
+  }
+});
+
+app.get('/api/favourites', async (req, res) => {
+  try {
+    const favourites = await Favourites.find()
+    res.json(favourites);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Server Error');
+  }
+});
+
+app.post('/api/favourites/create', async (req, res) => {
+  const newFavourite = new Favourites(req.body)
+  try {
+    const result = await newFavourite.save()
+    res.send(result)
+  } catch (error) {
+    console.log(error)
+  };
+});
+
+app.delete('/api/favourites', async (req, res) => {
+  try {
+    const result = await Favourites
+      .findOneAndDelete({ user_id: req.body.user_id, supplier_id: req.body.supplier_id })
+    res.send(result)
+  } catch (error) {
+    console.log(error)
   }
 });
 
