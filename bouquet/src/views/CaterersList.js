@@ -51,7 +51,6 @@ function App() {
         console.log(err);
       });
 
-    // Fetch user's favorites
     axios
       .get(`${apiBaseUrl}/favourites?user_id=${user.user._id}`)
       .then((res) => {

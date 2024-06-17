@@ -1,0 +1,20 @@
+@import './App.scss';
+
+.subtitle {
+    margin-left: $margin;
+    margin-bottom: 0;
+  }
+  
+  .tabs {
+    display: flex;
+    text-align: center;
+  }
+  
+  .tab {
+    width: 50%;
+  }
+  
+  .tabActive {
+    color: $pink;
+    border-bottom: $border-bottom;
+  }

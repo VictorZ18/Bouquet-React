@@ -8,7 +8,7 @@ function SupCat(props) {
             <div className="stroked-element">
                 <p className='supplier'>{props.name}</p>
                 <div className='booksign'>
-                    <p className='booked'>Booked: <span className="check"> x </span></p>
+                    <p className='booked'>Booked: <span className="check"> {props.check} </span></p>
                 </div>
             </div>
         </div>
