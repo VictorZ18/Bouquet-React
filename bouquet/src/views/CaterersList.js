@@ -12,6 +12,7 @@ function App() {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [suppliers, setSuppliers] = useState([]);
   const [caterers, setCaterers] = useState([]);
+  const [venues, setVenues] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [categories, setCategories] = useState([]);
   const [favourites, setFavourites] = useState({});
@@ -32,6 +33,13 @@ function App() {
         setCaterers(res.data);
       })
       .catch((err) => {
+        console.log(err);
+      });
+    axios.get(`${apiBaseUrl}/venues`)
+      .then(res => {
+        setVenues(res.data);
+      })
+      .catch(err => {
         console.log(err);
       });
     axios
@@ -128,6 +136,7 @@ function App() {
       document.querySelector('.mapView').style.display = 'none';
     }
   };
+  let extraInfo = "Mexican";
 
   return (
     <div className="App">
@@ -147,6 +156,35 @@ function App() {
       <h2 className='plus-info'>Matches for you:</h2>
       <div className="slider-container">
         {suppliers.map((supplier) => {
+          if (categoriesName === 'Venues') {
+            const venue = venues.find(venue => venue.supplier_id === supplier._id);
+            if (venue) {
+              extraInfo = venue.venue_address;
+              if (venue.venue_address.length > 20) {
+                extraInfo = venue.venue_address.substring(0, 20) + '...';
+              }
+            }
+          } else if (categoriesName === 'Photographers') {
+            extraInfo = "";
+          } else if (categoriesName === 'Caterers') {
+            const caterer = caterers.find(caterer => caterer.supplier_id === supplier._id);
+            if (caterer) {
+              extraInfo = caterer.caterer_speciality;
+              if (caterer.caterer_speciality.length > 1) {
+                extraInfo = caterer.caterer_speciality[0] + " - " + caterer.caterer_speciality[1]
+              } else {
+                extraInfo = caterer.caterer_speciality
+              }
+            }
+          } else if (categoriesName === 'Music') {
+            extraInfo = "";
+          } else if (categoriesName === 'Florists') {
+            extraInfo = "";
+          } else if (categoriesName === 'Transport') {
+            extraInfo = "";
+          } else if (categoriesName === 'Decorations') {
+            extraInfo = "";
+          }
           const category = categories.find(category => category.category_name === categoriesName);
           if (category && supplier.categories_id === category._id) {
             return (
@@ -168,7 +206,7 @@ function App() {
                   </div>
                   <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
                     <div className="card_info">
-                      <p className="cardExtra">Mexican</p>
+                      <p className="cardExtra">{extraInfo}</p>
                       <p className="cardPrice">{getPriceSigns(supplier.supplier_price)}</p>
                     </div>
                     <p className="cardReview">{supplier.supplier_review_number} reviews</p>
