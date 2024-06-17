@@ -25,7 +25,7 @@ function SuppliersCategories() {
         <div className="favourites">
           <div className="favourites-title">
             <img className="star" src={require('../media/Star 1.png')} alt="star" />
-            <p className="name">Favourites</p>
+            <p className="name">Favourites & booked</p>
           </div>
           <img className="arrow-right" src={require('../icons/arrow-left.png')} alt="arrow-right" />
         </div>
