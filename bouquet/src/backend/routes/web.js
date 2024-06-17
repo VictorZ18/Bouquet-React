@@ -106,6 +106,4 @@ router.post('/favourites/create', FavouritesController.create_a_favourite);
 router.put('/favourites/:id', FavouritesController.update_a_favourite);
 router.delete('/favourites/:id', FavouritesController.delete_a_favourite);
 
-
-
 module.exports = router
