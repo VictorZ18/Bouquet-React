@@ -13,6 +13,7 @@ const TaskController = require('../controllers/taskController.js');
 const ChecklistController = require('../controllers/checklistController.js');
 const TaskPreController = require('../controllers/taskPreController.js');
 const FavouritesController = require('../controllers/favouritesController.js');
+const BookedController = require('../controllers/bookedController.js');
 
 const router = express.Router();
 
@@ -105,5 +106,13 @@ router.get('/favourites/:id', FavouritesController.read_a_favourite);
 router.post('/favourites/create', FavouritesController.create_a_favourite);
 router.put('/favourites/:id', FavouritesController.update_a_favourite);
 router.delete('/favourites/:id', FavouritesController.delete_a_favourite);
+
+router.get('/booked', BookedController.getAllDoc);
+router.get('/booked/create', BookedController.getAllDoc);
+router.get('/booked/:id', BookedController.read_a_booking);
+
+router.post('/booked/create', BookedController.create_a_booking);
+router.put('/booked/:id', BookedController.update_a_booking);
+router.delete('/booked/:id', BookedController.delete_a_booking);
 
 module.exports = router
