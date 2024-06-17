@@ -47,6 +47,6 @@ class FavouritesController {
             console.log(error)
         };
     }
-}
+};
 
 module.exports = FavouritesController;
