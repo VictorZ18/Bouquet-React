@@ -220,9 +220,10 @@ app.put('/api/booked/:id', async (req, res) => {
   }
 });
 
-app.delete('/api/booked/:id', async (req, res) => {
+app.delete('/api/booked', async (req, res) => {
   try {
-    const result = await Booked.findByIdAndDelete(req.params.id)
+    const result = await Booked.findOneAndDelete
+      ({ user_id: req.body.user_id, supplier_id: req.body.supplier_id })
     res.send(result)
   } catch (error) {
     console.log(error)

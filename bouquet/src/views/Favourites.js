@@ -85,7 +85,7 @@ function Favourites() {
                         <div className="slider-container">
                             {categoryGroup.suppliers.map(supplier => (
                                 <div key={supplier._id} className="card">
-                                    <Link to={`/CaterersPage/${supplier.supplier_name}`}>
+                                    <Link to={`/CaterersPage/${categoryGroup.category.category_name}/${supplier.supplier_name}`}>
                                         <img className="cardImage" src={media} alt={supplier.supplier_name} />
                                     </Link>
                                     <div className="card_description">

@@ -6,6 +6,7 @@ import Button from '../components/button.js';
 import { useParams } from 'react-router-dom';
 import Map from '../components/Map.js';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function App() {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -13,10 +14,13 @@ function App() {
   const [user, setUser] = useState([]);
   const [supplier, setSupplier] = useState([]);
   const [caterers, setCaterer] = useState([]);
+  const [supplierId, setSupplierId] = useState([]);
   const [categories, setCategory] = useState([]);
+  const [booked, setBooked] = useState([]);
   const [venues, setVenues] = useState([]);
   let { categoriesName } = useParams();
   let { supplierName } = useParams();
+  const userLogged = useSelector(state => state.user);
 
   useEffect(() => {
     axios
@@ -39,6 +43,12 @@ function App() {
       .get(`${apiBaseUrl}/suppliers`)
       .then((res) => {
         setSupplier(res.data);
+        res.data.map((supplier) => {
+          if (supplier.supplier_name === supplierName) {
+            setSupplierId(supplier._id);
+          }
+        }
+        );
       })
       .catch((err) => {
         console.log(err);
@@ -67,8 +77,57 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+      axios
+      .get(`${apiBaseUrl}/booked?user_id=${userLogged.user._id}`)
+      .then((res) => {
+        const bookedSuppliers = res.data.reduce((acc, booked) => {
+          acc[booked.supplier_id] = true;
+          return acc;
+        }, {});
+        setBooked(bookedSuppliers);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   const navigate = useNavigate();
+
+  const toggleBooked = () => {
+    const isBooked = booked[supplierId];
+    if (isBooked) {
+      axios
+        .delete(`${apiBaseUrl}/booked`, {
+          data: {
+            user_id: userLogged.user._id,
+            supplier_id: supplierId,
+          },
+        })
+        .then((res) => {
+          setBooked((prevBooked) => ({
+            ...prevBooked,
+            [supplierId]: false,
+          }));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      axios
+        .post(`${apiBaseUrl}/booked/create`, {
+          user_id: userLogged.user._id,
+          supplier_id: supplierId,
+        })
+        .then((res) => {
+          setBooked((prevBooked) => ({
+            ...prevBooked,
+            [supplierId]: true,
+          }));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   return (
     <div className="App">
@@ -97,7 +156,7 @@ function App() {
               if (venue) {
                 specialities = "Location"
                 speciality = venue.venue_address
-                map = <Map keyId={venue._id} name={supplierName} address={venue.venue_address} latitude={venue.venue_latitude} longitude={venue.venue_longitude}/>
+                map = <Map keyId={venue._id} name={supplierName} address={venue.venue_address} latitude={venue.venue_latitude} longitude={venue.venue_longitude} />
               }
             }
             return (
@@ -172,7 +231,9 @@ function App() {
           <p className='bookDescription'>Once you've booked a supplier,
             click here to add it.
             To remove, click again.</p>
-          <Button text="Book" width="100%" />
+          <div onClick={toggleBooked}>
+            <Button text={booked[supplierId] ? 'Remove' : 'Book'} />
+          </div>
         </div>
       </div>
     </div>

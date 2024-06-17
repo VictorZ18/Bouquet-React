@@ -83,7 +83,6 @@ function App() {
   const toggleFavourite = (supplierId) => {
     const isFavourite = favourites[supplierId];
     if (isFavourite) {
-      // Remove from favourites
       axios
         .delete(`${apiBaseUrl}/favourites`, {
           data: {
@@ -101,7 +100,6 @@ function App() {
           console.log(err);
         });
     } else {
-      // Add to favourites
       axios
         .post(`${apiBaseUrl}/favourites/create`, {
           user_id: user.user._id,
