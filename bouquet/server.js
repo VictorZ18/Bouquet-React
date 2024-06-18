@@ -231,7 +231,7 @@ app.delete('/api/booked', async (req, res) => {
 });
 
 app.post('/api/send-invitations', async (req, res) => {
-  const { guests, eventDetails } = req.body;
+  const { guests, eventDetails, user, wedding } = req.body;
 
   let transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",
@@ -253,7 +253,9 @@ app.post('/api/send-invitations', async (req, res) => {
             <p><img src="https://victorzehmour.be/media/Bouquet_logo.png" alt="Wedding Invitation Image" width="100px"></p>
             <p>Follow this link to Bouquet and your invitation:</p>
             <a href="https://victorzehmour.be/">Bouquet</a>
-            <p>Best regards,<br>Your Team</p>
+            <a href="http://localhost:4001/guestRegister/${wedding._id}/${guest.email}">Click here to enter</a> 
+            <p>Wedding key:${wedding._id}</p>
+            <p>Best regards,<br>${user.user.firstName}</p>
           `,
     };
 

@@ -115,7 +115,9 @@ h2 {
 }
 
 .guestNav{
-  display: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 a {
@@ -279,7 +281,7 @@ a {
 
 .lower {
   top: 83vh;
-  height: 20vh;
+  height: 10vh;
   overflow: hidden;
 }
 
@@ -296,4 +298,16 @@ a {
 
 .titleLowMargin {
   padding-top: $padding-box;
+}
+
+.confirmGuest {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.none {
+  display: none;
 }

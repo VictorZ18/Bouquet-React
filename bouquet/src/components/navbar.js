@@ -15,7 +15,8 @@ import giftOff from '../icons/gift.png';
 import giftOn from '../icons/gift_on.png';
 import messagesOff from '../icons/messages.png';
 import messagesOn from '../icons/messages_on.png';
-import mediaOff from '../icons/media.png';
+import mediaOn from '../icons/media_on.png';
+import mediaOff from '../icons/media_off.png';
 import { useSelector } from 'react-redux';
 
 function Navbar() {
@@ -25,16 +26,32 @@ function Navbar() {
   const ChangeIcon = (paths, onIcon, offIcon) => {
     return paths.includes(location.pathname) ? onIcon : offIcon;
   };
-  
+
+  const navChange = () => {
+    const nav = document.querySelector(".organizerNav");
+    const navGuest = document.querySelector(".guestNav");
+    if (nav && navGuest) {
+      if (user.user.role === "guest") {
+        nav.classList.add("none");
+        navGuest.classList.remove("none");
+      } else if (user.user.role === "organizer") {
+        nav.classList.remove("none");
+        navGuest.classList.add("none");
+      }
+    }
+  };
+
+  navChange();
+
   return (
     <div className="navbar">
-      <div className="icon">
-        <Link to="/home">
-          <img className="iconImg home" src={ChangeIcon("/home", homeOn, homeOff)} alt="overview" />
-          <p className={`navTag ${location.pathname === "/home" ? "active" : ""}`}> Overview </p>
-        </Link>
-      </div>
       <div className="organizerNav">
+        <div className="icon">
+          <Link to="/home">
+            <img className="iconImg home" src={ChangeIcon("/home", homeOn, homeOff)} alt="overview" />
+            <p className={`navTag ${location.pathname === "/home" ? "active" : ""}`}> Overview </p>
+          </Link>
+        </div>
         <div className="icon">
           <Link to="/suppliers">
             <img className="iconImg suppliers" src={ChangeIcon(["/suppliers", "/suppliersCategories", "/SuppliersCategories"], suppliersOn, suppliersOff)} alt="suppliers" />
@@ -60,10 +77,16 @@ function Navbar() {
           </Link>
         </div>
       </div>
-      <div className="guestNav">
+      <div className="guestNav none">
+      <div className="icon">
+          <Link to={`/homeguest`}>
+            <img className="iconImg home" src={ChangeIcon("/homeguest", homeOn, homeOff)} alt="overview" />
+            <p className={`navTag ${location.pathname === "/homeguest" ? "active" : ""}`}> Overview </p>
+          </Link>
+        </div>
         <div className="icon">
           <Link to="/media">
-            <img className="iconImg media" src={ChangeIcon("/media", mediaOff, mediaOff)} alt="media" />
+            <img className="iconImg media" src={ChangeIcon("/media", mediaOn, mediaOff)} alt="media" />
             <p className={`navTag ${location.pathname === "/media" ? "active" : ""}`}> Media </p>
           </Link>
         </div>

@@ -18,12 +18,15 @@ function Guests() {
   const [wedding, setWedding] = useState([]);
   const [event, setEvent] = useState([]);
   const [guestlist, setGuestlist] = useState([]);
+  const [weddingDate, setWeddingDate] = useState([]);
 
   useEffect(() => {
     axios.get(`${apiBaseUrl}/weddings`)
       .then(res => {
         const wedding = res.data.find(wedding => wedding.user_id === user.user._id);
         setWedding(wedding);
+        const weddingDate = new Date(wedding.wedding_date);
+        setWeddingDate(weddingDate);
         axios.get(`${apiBaseUrl}/events`)
           .then(res => {
             const events = res.data;
@@ -67,8 +70,8 @@ function Guests() {
 
   async function sendInvitations() {
     try {
-      const eventDetails = { name: 'Your Event Name', date: 'Event Date' }; // Replace with actual event details
-      await axios.post(`${apiBaseUrl}/send-invitations`, { guests, eventDetails });
+      const eventDetails = { name: 'Your Event Name', date: wedding.wedding_date.split("T")[0] }; 
+      await axios.post(`${apiBaseUrl}/send-invitations`, { guests, eventDetails, user, wedding });
       alert('Invitations sent successfully');
     } catch (error) {
       console.error('Error sending invitations:', error);

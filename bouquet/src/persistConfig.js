@@ -2,23 +2,23 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import userReducer from './userSlice';
+import weddingReducer from './weddingSlice';
 
 // Persist configuration
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user'], // Specify which slices to persist
+  whitelist: ['user', 'wedding'], // Specify which slices to persist
 };
 
 // Combine reducers
 const rootReducer = combineReducers({
   user: userReducer,
+  wedding: weddingReducer,
 });
 
-// Wrap the rootReducer with persistReducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Configure the store with the persisted reducer
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

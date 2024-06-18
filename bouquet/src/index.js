@@ -37,6 +37,7 @@ import Welcome from "./views/Welcome";
 import Register from "./views/UserRegister";
 import GuestRegister from "./views/guestRegister";
 import Favourites from "./views/Favourites";
+import Homeguest from "./views/Homeguest";
 import { Provider } from "react-redux";
 import { PersistGate } from 'redux-persist/integration/react';
 import { store } from "./persistConfig";
@@ -82,9 +83,10 @@ export default function App() {
             <Route path="/suppliersRegister" element={<SuppliersRegister />} />
             <Route path="/venueMap" element={<VenueMap />} />
             <Route path="/welcome" element={<Welcome />} />
-            <Route path="/guestRegister" element={<GuestRegister />} />
+            <Route path="/guestRegister/:weddingId/:guestmail" element={<GuestRegister />} />
             <Route path="/" element={<Register />} />
             <Route path="/favourites" element={<Favourites />} />
+            <Route path="/homeguest" element={<Homeguest />} />
           </Routes>
         </BrowserRouter>
       </PersistGate>
