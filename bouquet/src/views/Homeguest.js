@@ -12,13 +12,11 @@ import { Link } from 'react-router-dom';
 function Homeguest() {
   const user = useSelector((state) => state.user);
   const wedding = useSelector((state) => state.wedding);
-  console.log(wedding);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [days, setDays] = useState(0);
 
   axios.get(`${apiBaseUrl}/weddings/${wedding.wedding._id}`)
-    .then(res => {
-    console.log(res.data);
+    .then(res => {   
       const wedding = res.data;
       const weddingDate = new Date(wedding.wedding_date); 
       const today = new Date();
@@ -46,7 +44,7 @@ function Homeguest() {
         <img src={CouplePic} alt="couple" className="couplePic" />
       </div>
       <header className="App-header">
-        <WeddingHeader />
+        <WeddingHeader userName={user.user.firstName} />
       </header>
       <Clock countdown={deadline} />
       <div className="rectangle lower">

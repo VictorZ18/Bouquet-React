@@ -5,7 +5,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-function WeddingHeader() {
+function WeddingHeader(props) {
     const user = useSelector((state) => state.user);
     const [users, setUsers] = useState([]);
     const [wedding, setWedding] = useState({});
@@ -37,7 +37,7 @@ function WeddingHeader() {
     return (
         <div className="weddingHeader">
             <div className="weddingInfo">
-                <h1 className='names'> { user.user.firstName } & Mona </h1>
+                <h1 className='names'> { props.userName } & Mona </h1>
                 <p className='date'> {weddingDate} </p>
             </div>
             <img src={arrowDown} alt="arrow" className="arrowDown"/>

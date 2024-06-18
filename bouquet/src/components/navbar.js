@@ -18,6 +18,7 @@ import messagesOn from '../icons/messages_on.png';
 import mediaOn from '../icons/media_on.png';
 import mediaOff from '../icons/media_off.png';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function Navbar() {
   const user = useSelector((state) => state.user);
@@ -41,7 +42,9 @@ function Navbar() {
     }
   };
 
-  navChange();
+  useEffect(() => {
+    navChange();
+  }, [location, user]);
 
   return (
     <div className="navbar">
@@ -78,16 +81,16 @@ function Navbar() {
         </div>
       </div>
       <div className="guestNav none">
-      <div className="icon">
+        <div className="icon">
           <Link to={`/homeguest`}>
             <img className="iconImg home" src={ChangeIcon("/homeguest", homeOn, homeOff)} alt="overview" />
             <p className={`navTag ${location.pathname === "/homeguest" ? "active" : ""}`}> Overview </p>
           </Link>
         </div>
         <div className="icon">
-          <Link to="/media">
-            <img className="iconImg media" src={ChangeIcon("/media", mediaOn, mediaOff)} alt="media" />
-            <p className={`navTag ${location.pathname === "/media" ? "active" : ""}`}> Media </p>
+          <Link to="/mediaguest">
+            <img className="iconImg media" src={ChangeIcon("/mediaguest", mediaOn, mediaOff)} alt="media" />
+            <p className={`navTag ${location.pathname === "/mediaguest" ? "active" : ""}`}> Media </p>
           </Link>
         </div>
         <div className="icon">
@@ -97,9 +100,9 @@ function Navbar() {
           </Link>
         </div>
         <div className="icon">
-          <Link to="/messages">
-            <img className="iconImg messages" src={ChangeIcon("/messages", messagesOn, messagesOff)} alt="messages" />
-            <p className={`navTag ${location.pathname === "/messages" ? "active" : ""}`}> Messages </p>
+          <Link to="/messagesguest">
+            <img className="iconImg messages" src={ChangeIcon("/messagesguest", messagesOn, messagesOff)} alt="messages" />
+            <p className={`navTag ${location.pathname === "/messagesguest" ? "active" : ""}`}> Messages </p>
           </Link>
         </div>
       </div>

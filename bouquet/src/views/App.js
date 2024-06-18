@@ -79,7 +79,7 @@ function Home() {
       </div>
       <SideMenu />
       <header className="App-header">
-        <WeddingHeader />
+        <WeddingHeader userName={user.user.firstName} />
       </header>
       <Clock countdown={deadline} />
       <div className="rectangle lower">
