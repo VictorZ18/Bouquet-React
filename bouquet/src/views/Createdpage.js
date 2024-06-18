@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Createdpage() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -13,6 +14,7 @@ function Createdpage() {
   const [taskDeadline, setTaskDeadline] = useState(null);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const { taskId } = useParams();
+  const navigate = useNavigate();
 
   axios.get(`${apiBaseUrl}/tasks/${taskId}`).then((res) => {
     const task = res.data;
@@ -34,19 +36,21 @@ function Createdpage() {
 
   const deadline = new Date(Date.parse(new Date()) + taskDeadline * 24 * 60 * 60 * 1000);
 
+  const back = () => {
+    navigate(-1);
+  };
+
   if (!task) {
     return <div>Loading...</div>;
   } else {
     return (
       <div className="App">
-        <div className="leftarrow">
-          <Link to="/checklist">
+        <div className="leftarrow" onClick={back}>
             <img
               className="back-arrow"
               src={require("../icons/arrow-left.png")}
               alt="arrow-right"
             />
-          </Link>
         </div>
         <div className="cover">
           <img

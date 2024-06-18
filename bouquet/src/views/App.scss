@@ -77,13 +77,23 @@ h2 {
   color: $black;
 }
 
-.couplePic {
+.imageContainer {
+  position: absolute;
   width: 100%;
-  height: auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.couplePic {
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  transform: translate(-50%, -50%);
   position: absolute;
   z-index: -1;
-  top: 0;
   margin: auto;
+
 }
 
 .navbar {
@@ -256,4 +266,34 @@ a {
 
 .pageBottom {
   padding-bottom: $padding-page-bottom;
+}
+
+.rectangle {
+  position: absolute;
+  top: 20vh; 
+  width: 100vw;
+  height: 85vh;
+  background-color: rgb(255, 255, 255); // Adjust color and opacity as needed
+  border-radius: $border-radius;
+}
+
+.lower {
+  top: 83vh;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.arrow-down {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  z-index: 22;
+}
+
+.arrow-up {
+  rotate: 180deg;
+}
+
+.titleLowMargin {
+  padding-top: $padding-box;
 }
