@@ -10,12 +10,15 @@ import { useSelector } from 'react-redux';
 function App() {
   const user = useSelector(state => state.user);
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+  const modifiedUrl = process.env.REACT_APP_API_MODIFIED_URL;
   const [suppliers, setSuppliers] = useState([]);
   const [caterers, setCaterers] = useState([]);
   const [venues, setVenues] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [categories, setCategories] = useState([]);
   const [favourites, setFavourites] = useState({});
+  const [supplierImage, setSupplierImage] = useState(null);
+  const [supplierImg, setSupplierImg] = useState(null);
   let { categoriesName } = useParams();
 
   useEffect(() => {
@@ -69,6 +72,14 @@ function App() {
         setFavourites(favouriteSuppliers);
       })
       .catch((err) => {
+        console.log(err);
+      });
+    axios.get(`${modifiedUrl}/images`)
+      .then(res => {
+        console.log(res.data);
+        setSupplierImage(res.data);
+      })
+      .catch(err => {
         console.log(err);
       });
   }, []);
@@ -138,6 +149,8 @@ function App() {
   };
   let extraInfo = "Mexican";
 
+
+
   return (
     <div className="App">
       <Link to="/SuppliersCategories">
@@ -187,33 +200,38 @@ function App() {
           }
           const category = categories.find(category => category.category_name === categoriesName);
           if (category && supplier.categories_id === category._id) {
-            return (
-              <div key={supplier._id} className="card">
-                <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
-                  <img className="cardImage" src={media} alt={supplier.supplier_name} />
-                </Link>
-                <div className="card_description">
-                  <div className="card_info">
+            if (supplierImage) {
+              const matchingImage = supplierImage.find(image => image._id === supplier.supplier_picture);
+              return (
+                <div key={supplier._id} className="card">
+                  <div className='cardImageContainer'>
                     <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
-                      <p className="cardName">{supplier.supplier_name}</p>
+                      <img className="cardImage" src={matchingImage ? matchingImage.imageUrl : media} alt={supplier.supplier_name} />
                     </Link>
-                    <img
-                      className='favourite'
-                      src={favourites[supplier._id] ? require('../media/Star_colored.png') : require('../media/Star.png')}
-                      alt='favourite'
-                      onClick={() => toggleFavourite(supplier._id)}
-                    />
                   </div>
-                  <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
+                  <div className="card_description">
                     <div className="card_info">
-                      <p className="cardExtra">{extraInfo}</p>
-                      <p className="cardPrice">{getPriceSigns(supplier.supplier_price)}</p>
+                      <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
+                        <p className="cardName">{supplier.supplier_name}</p>
+                      </Link>
+                      <img
+                        className='favourite'
+                        src={favourites[supplier._id] ? require('../media/Star_colored.png') : require('../media/Star.png')}
+                        alt='favourite'
+                        onClick={() => toggleFavourite(supplier._id)}
+                      />
                     </div>
-                    <p className="cardReview">{supplier.supplier_review_number} reviews</p>
-                  </Link>
+                    <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
+                      <div className="card_info">
+                        <p className="cardExtra">{extraInfo}</p>
+                        <p className="cardPrice">{getPriceSigns(supplier.supplier_price)}</p>
+                      </div>
+                      <p className="cardReview">{supplier.supplier_review_number} reviews</p>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
+              );
+            }
           }
         })}
       </div>

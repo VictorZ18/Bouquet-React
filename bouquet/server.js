@@ -5,7 +5,7 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 const app = express();
 const multer = require('multer');
-
+const path = require('path');
 const corsOptions = {
   origin: "*",
   optionsSuccessStatus: 200,
@@ -24,6 +24,7 @@ const Checklist = require('./src/backend/models/checklist.js');
 const Task = require('./src/backend/models/task.js');
 const Favourites = require('./src/backend/models/favourites.js');
 const Booked = require('./src/backend/models/booked.js');
+const Image = require('./src/backend/models/image.js');
 require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -36,18 +37,6 @@ connectDB(uri);
 app.use(express.json());
 
 app.use("/api", web);
-
-// Multer storage configuration
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'uploads/'); // Directory where files will be stored
-  },
-  filename: function(req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + '.jpg'); // Unique file name (you can customize the extension)
-  }
-});
-
-const upload = multer({ storage: storage });
 
 
 app.get("/api/users", async (req, res) => {
@@ -228,6 +217,44 @@ app.delete('/api/booked', async (req, res) => {
   } catch (error) {
     console.log(error)
   }
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Configure multer for file upload
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(__dirname, 'public/media'));
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+    },
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/image/upload', upload.single('image'), async (req, res) => {
+    const image = new Image({
+        name: req.file.filename,
+        imageUrl: `/media/${req.file.filename}`,
+    });
+
+    try {
+        const savedImage = await image.save();
+        res.status(201).json(savedImage);
+
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+app.get('/images', async (req, res) => {
+    try {
+        const images = await Image.find();
+        res.json(images);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
 app.post('/api/send-invitations', async (req, res) => {

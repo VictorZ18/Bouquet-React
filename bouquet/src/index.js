@@ -42,6 +42,7 @@ import Mediaguest from "./views/Mediaguest";
 import Giftlist from "./views/Giftlist";
 import MessagesGuest from "./views/Messagesguest";
 import GuestLogin from "./views/guestLogin";
+import SuppliersProfile from "./views/SupplierProfilePic";
 import { Provider } from "react-redux";
 import { PersistGate } from 'redux-persist/integration/react';
 import { store } from "./persistConfig";
@@ -84,7 +85,7 @@ export default function App() {
             <Route path="/Addnewguest/:guestListid" element={<Addnewguest />} />
             <Route path="/Guestpage/:guestId" element={<Guestpage />} />
             <Route path="/user" element={<User />} />
-            <Route path="/suppliersRegister" element={<SuppliersRegister />} />
+            <Route path="/suppliersRegister/:profilePicId" element={<SuppliersRegister />} />
             <Route path="/venueMap" element={<VenueMap />} />
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/guestRegister/:weddingId/:guestmail" element={<GuestRegister />} />
@@ -95,6 +96,7 @@ export default function App() {
             <Route path="/giftlist" element={<Giftlist />} />
             <Route path="/messagesguest" element={<MessagesGuest />} />
             <Route path="/guestLogin" element={<GuestLogin />} />
+            <Route path="/suppliersProfile" element={<SuppliersProfile />} />
           </Routes>
         </BrowserRouter>
       </PersistGate>

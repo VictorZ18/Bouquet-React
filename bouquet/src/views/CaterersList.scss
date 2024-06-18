@@ -9,9 +9,19 @@
   font-weight: $bold;
 }
 
-.cardImage{
-  width: 100%;
+.cardImageContainer{
+  max-width: 251px;
+  height: 200px;
+  overflow: hidden;
   border-radius: $border-radius $border-radius 0 0;
+}
+
+.cardImage{
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
 }
 
 .card{

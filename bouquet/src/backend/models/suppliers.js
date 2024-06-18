@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const suppliersSchema = new mongoose.Schema({
     supplier_name: { type: String, required: true },
-    supplier_picture: { type: String, required: true},
+    supplier_picture: { type: mongoose.Schema.Types.ObjectId, ref: 'SuppliersImages' ,required: true },
     supplier_price: { type: String, required: true },
     supplier_review_number: { type: Number },
     supplier_stars: { type: Number },

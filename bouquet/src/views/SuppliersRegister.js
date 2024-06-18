@@ -2,14 +2,22 @@ import './App.scss';
 import '../components/login.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import Button from '../components/button';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function SuppliersRegister() {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+  const modifiedUrl = process.env.REACT_APP_API_MODIFIED_URL;
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showCatererInfo, setShowCatererInfo] = useState(false);
   const [showVenueInfo, setShowVenueInfo] = useState(false);
+  const [supplierImage, setSupplierImage] = useState(null);
+  const { profilePicId } = useParams();
+  const navigate = useNavigate();
+
+  console.log("Profile picture ID:", profilePicId);
 
   useEffect(() => {
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -44,45 +52,10 @@ function SuppliersRegister() {
     console.log("Selected category:", selectedCategory);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission with selectedCategory value
-    console.log("Submitted category:", selectedCategory);
-  };
-
-  const [file, setFile] = useState();
-  const handleChange = (e) => {
-    const uploadedFile = e.target.files[0];
-    const fileType = uploadedFile.type;
-
-    if (fileType === 'image/jpeg' || fileType === 'image/png') {
-      console.log("Valid image file type.");
-      setFile(URL.createObjectURL(uploadedFile));
-    } else {
-      console.log("Converting to JPEG format...");
-      const reader = new FileReader();
-      reader.readAsDataURL(uploadedFile);
-      reader.onload = () => {
-        const img = new Image();
-        img.src = reader.result;
-        img.onload = () => {
-          const canvas = document.createElement('canvas');
-          canvas.width = img.width;
-          canvas.height = img.height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0);
-          const dataUrl = canvas.toDataURL('image/jpeg');
-          setFile(dataUrl);
-        }
-      }
-    }
-  }
-  console.log(file);
-
   const [data, setData] = useState([]);
 
   const submitted = (e) => {
-    e.preventDefault();
+
     const name = document.getElementById('name').value;
     const price = document.getElementById('price').value;
     const category = document.getElementById('category').value;
@@ -90,19 +63,20 @@ function SuppliersRegister() {
       const speciality = document.getElementById('speciality').value;
       console.log(speciality);
       axios.post(`${apiBaseUrl}/suppliers/create`,
-      { supplier_name: name, supplier_picture: file, supplier_price: price, categories_id: category })
-      .then(res => {
-        console.log('Supplier:', res.data); // Log the created supplier data
-        // Add the created supplier to the state
-        setData(prevData => [...prevData, res.data]);
+        { supplier_name: name, supplier_picture: profilePicId, supplier_price: price, categories_id: category })
+        .then(res => {
+          console.log('Supplier:', res.data); // Log the created supplier data
+          // Add the created supplier to the state
+          setData(prevData => [...prevData, res.data]);
           axios.post(`${apiBaseUrl}/caterers/create`,
-          { caterer_speciality: speciality, category_id: category, supplier_id: res.data._id })
-          .then(res => {
-            console.log(res.data);
-          })
-          .catch(err => {
-            console.log(err);
-          });
+            { caterer_speciality: speciality, category_id: category, supplier_id: res.data._id })
+            .then(res => {
+              console.log(res.data);
+              navigate('/CaterersList/Caterers');
+            })
+            .catch(err => {
+              console.log(err);
+            });
         })
     }
     if (selectedCategory && selectedCategory.category_name === 'Venues') {
@@ -139,20 +113,21 @@ function SuppliersRegister() {
             console.log("Latitude:", coordinates.lat);
             console.log("Longitude:", coordinates.lng);
             axios.post(`${apiBaseUrl}/suppliers/create`,
-            { supplier_name: name, supplier_picture: file, supplier_price: price, categories_id: category })
-            .then(res => {
-              console.log('Supplier:', res.data); // Log the created supplier data
-              // Add the created supplier to the state
-              setData(prevData => [...prevData, res.data]);
+              { supplier_name: name, supplier_picture: profilePicId, supplier_price: price, categories_id: category })
+              .then(res => {
+                console.log('Supplier:', res.data); // Log the created supplier data
+                // Add the created supplier to the state
+                setData(prevData => [...prevData, res.data]);
                 axios.post(`${apiBaseUrl}/venues/create`,
-                { venue_longitude: coordinates.lng, venue_latitude: coordinates.lat, venue_address: query, category_id: category, supplier_id: res.data._id })
-                .then(res => {
-                  console.log(res.data);
-                })
-                .catch(err => {
-                  console.log(err);
-                });
-            }) 
+                  { venue_longitude: coordinates.lng, venue_latitude: coordinates.lat, venue_address: query, category_id: category, supplier_id: res.data._id })
+                  .then(res => {
+                    console.log(res.data);
+                    navigate('/CaterersList/Venues');
+                  })
+                  .catch(err => {
+                    console.log(err);
+                  });
+              })
           } else {
             console.log("No results found");
           }
@@ -167,27 +142,19 @@ function SuppliersRegister() {
       request.onerror = function () {
         console.log("unable to connect to server");
       };
-      request.send();   
+      request.send();
     }
-    console.log(name, price, category);
-
-
-
   }
 
   return (
     <div className="App">
       <div className='registerForm'>
-        <form onSubmit={handleSubmit}>
-          <h1>Register</h1>
+        <h1 className='pageTitle'>Register</h1>
+        <h2 className='pageTitle'> Please add a profile picture </h2>
+        <form className='supplierInfo'>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" />
-          </div>
-          <div className="form-group">
-            <label htmlFor='uploadButton'>Add Image:</label>
-            <input className='uploadButton' type="file" onChange={handleChange} />
-            <img className='uploaded' src={file} alt='uploaded' />
           </div>
           <div className="form-group">
             <label htmlFor="price">Price</label>

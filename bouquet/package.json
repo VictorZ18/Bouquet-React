@@ -33,6 +33,7 @@
     "react-stripe-checkout": "^2.6.3",
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
+    "sharp": "^0.33.4",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },

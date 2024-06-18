@@ -14,6 +14,7 @@ const ChecklistController = require('../controllers/checklistController.js');
 const TaskPreController = require('../controllers/taskPreController.js');
 const FavouritesController = require('../controllers/favouritesController.js');
 const BookedController = require('../controllers/bookedController.js');
+const imageController = require('../controllers/imageController.js');
 
 const router = express.Router();
 
@@ -114,5 +115,8 @@ router.get('/booked/:id', BookedController.read_a_booking);
 router.post('/booked/create', BookedController.create_a_booking);
 router.put('/booked/:id', BookedController.update_a_booking);
 router.delete('/booked/:id', BookedController.delete_a_booking);
+
+router.post('/image/upload', imageController.imageUpload);
+router.get('/image/get', imageController.getImage);
 
 module.exports = router
