@@ -16,7 +16,7 @@ const Welcome = () => {
                 <Link to='/' className='registerLink'>
                     <Button text='Organize wedding' />
                 </Link>
-                <a href='/guestRegister' className='guestOption'>Or continue as a guest</a>
+                <a href='/guestLogin' className='guestOption'>Or continue as a guest</a>
             </div>
         </div>
     );
