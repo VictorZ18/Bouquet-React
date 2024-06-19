@@ -243,7 +243,9 @@ function App() {
             return (
               <div key={supplier._id} className="card">
                 <Link to={`/CaterersPage/${categoriesName}/${supplier.supplier_name}`}>
-                  <img className="cardImage" src={media} alt='supplier' />
+                  <div className='cardImageContainer'>
+                    <img className="cardImage" src={media} alt='supplier' />
+                  </div>
                   <div className="card_description">
                     <div className="card_info">
                       <p className="cardName">{supplier.supplier_name}</p>

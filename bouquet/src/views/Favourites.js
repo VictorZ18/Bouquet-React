@@ -187,9 +187,11 @@ function Favourites() {
 
                                         return (
                                             <div key={supplier._id} className="card">
-                                                <Link to={`/CaterersPage/${categoryGroup.category.category_name}/${supplier.supplier_name}`}>
-                                                    <img className="cardImage" src={media} alt={supplier.supplier_name} />
-                                                </Link>
+                                                <div className='cardImageContainer'>
+                                                    <Link to={`/CaterersPage/${categoryGroup.category.category_name}/${supplier.supplier_name}`}>
+                                                        <img className="cardImage" src={media} alt={supplier.supplier_name} />
+                                                    </Link>
+                                                </div>
                                                 <div className="card_description">
                                                     <div className="card_info">
                                                         <Link to={`/CaterersPage/${supplier.supplier_name}`}>
@@ -251,9 +253,11 @@ function Favourites() {
 
                                         return (
                                             <div key={supplier._id} className="card">
-                                                <Link to={`/CaterersPage/${categoryGroup.category.category_name}/${supplier.supplier_name}`}>
-                                                    <img className="cardImage" src={media} alt={supplier.supplier_name} />
-                                                </Link>
+                                                <div className='cardImageContainer'>
+                                                    <Link to={`/CaterersPage/${categoryGroup.category.category_name}/${supplier.supplier_name}`}>
+                                                        <img className="cardImage" src={media} alt={supplier.supplier_name} />
+                                                    </Link>
+                                                </div>
                                                 <div className="card_description">
                                                     <div className="card_info">
                                                         <Link to={`/CaterersPage/${supplier.supplier_name}`}>

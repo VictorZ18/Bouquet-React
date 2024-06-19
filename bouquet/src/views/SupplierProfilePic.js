@@ -13,24 +13,24 @@ function SuppliersProfile() {
     const navigate = useNavigate();
 
     const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
-        //limit the file size to 1MB
+        const selectedFile = e.target.files[0];
+        if (!selectedFile) return;
 
         const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
+        reader.readAsDataURL(selectedFile);
         reader.onload = (e) => {
             const img = new Image();
             img.src = e.target.result;
             img.onload = () => {
-                const elem = document.createElement('canvas');
+                const canvas = document.createElement('canvas');
                 const width = 200;
                 const scaleFactor = width / img.width;
-                elem.width = width;
-                elem.height = img.height * scaleFactor;
-                const ctx = elem.getContext('2d');
+                canvas.width = width;
+                canvas.height = img.height * scaleFactor;
+                const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, width, img.height * scaleFactor);
-                ctx.canvas.toBlob((blob) => {
-                    const file = new File([blob], e.target.result, {
+                canvas.toBlob((blob) => {
+                    const file = new File([blob], selectedFile.name, {
                         type: 'image/jpeg',
                         lastModified: Date.now(),
                     });
@@ -42,6 +42,7 @@ function SuppliersProfile() {
 
     const handleUpload = async (e) => {
         e.preventDefault();
+        if (!file) return;
 
         const formData = new FormData();
         formData.append('image', file);
